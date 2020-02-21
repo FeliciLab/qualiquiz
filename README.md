@@ -37,6 +37,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 * **views**: Cada tela do sistema está nessa pasta, ela é única dentro de todo o sistema.
 
 ### Observações:
-* O Qualiz Saúde é utiliza .scss para a estilização tanto global, como nos escopos de cada component.
+* Qualiz Saúde é utiliza .scss para a estilização tanto global, como nos escopos de cada component.
 
 * Todos os estilos devem ser colocados com a diretiva scoped para evitar a reescrita de estilos em outros componentes.
