@@ -16,7 +16,23 @@
 </template>
 
 <style lang="scss" scoped>
-
+  input {
+    border-radius: 50px;
+    font-family: 'OpenSans-Bold';
+    color: #C5C2C2;
+    &::-webkit-input-placeholder {
+      color: #C5C2C2;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: #C5C2C2;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: #C5C2C2;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: #C5C2C2;
+    }
+  }
 </style>
 
 <script>
