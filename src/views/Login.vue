@@ -22,9 +22,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-  .background {
-    background: linear-gradient(180deg,rgba(253, 167, 32, 0.1) 0.5%, rgba(252, 104, 54, 0.1) 66.96%, rgba(252, 104, 54, 0) 96.85%);
-  }
-</style>

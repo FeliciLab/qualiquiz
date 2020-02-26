@@ -5,6 +5,7 @@ import router from './router'
 import store from './store'
 import './plugins/vue-boostrap'
 import './styles/main.scss'
+import 'swiper/css/swiper.min.css'
 Vue.config.productionTip = false
 
 new Vue({
