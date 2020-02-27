@@ -1,6 +1,6 @@
 <template>
     <div class="background">
-        <h5 class="text-center text-uppercase">Bem-vindo(a)</h5>
+        <Header dark title="Bem-vindo(a)"/>
         <!-- Slider main container -->
         <div class="swiper-container">
             <!-- Additional required wrapper -->
@@ -52,9 +52,10 @@
 
 <script>
 import Button from '../components/Button'
+import Header from '../components/Header'
 import Swiper from 'swiper'
 export default {
-  components: { Button },
+  components: { Button, Header },
   data () {
     return {
       contents: [

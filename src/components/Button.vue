@@ -8,7 +8,7 @@
 <style lang="scss" scoped>
   // Fazer Mixin do btn-gradient
   .btn-gradient {
-    background: linear-gradient(90deg, #00692C 0%, #219740 100%);
+    background: linear-gradient(90deg, $crusoe 0%, $forest-green 100%);
     border: 2px solid #219740;
   }
 </style>

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Welcome from '../views/Welcome.vue'
 import Question from '../views/Question.vue'
+import Success from '../views/Success.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/question',
     name: 'Question',
     component: Question
+  },
+  {
+    path: '/success',
+    name: 'Success',
+    component: Success
   }
 ]
 

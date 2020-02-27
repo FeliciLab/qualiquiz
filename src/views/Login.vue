@@ -1,6 +1,6 @@
 <template>
     <div class="py-3 background">
-        <h5 class="text-center text-uppercase">Acesso</h5>
+          <Header dark title="Acesso"/>
           <div class="d-flex justify-content-center">
             <b-img fluid :src="blank"></b-img>
           </div>
@@ -10,10 +10,11 @@
     </div>
 </template>
 <script>
+import Header from '../components/Header'
 import Form from '../components/Form'
 export default {
   components: {
-    Form
+    Form, Header
   },
   data () {
     return {
