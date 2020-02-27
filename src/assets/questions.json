@@ -2,11 +2,26 @@
     {
         "title": "Casal adota uma criança de nove meses de idade e solicitam orientação sobre que vacinas a criança deve realizar, já que a mesma somente recebeu as vacinas aplicadas na maternidade. De acordo com o Programa Nacional de Imunização-PNI, quais vacinas devem ser indicadas pela equipe da UAPS?",
         "alternatives": [
-            "Penta (3 doses), Poliomielite 1, 2 e 3 – VOP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses).",
-            "Penta (3 doses), Rotavírus (2 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses).",
-            "Penta (3 doses), Rotavírus (2 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses).",
-            "Penta (3 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses).",
-            "Penta (3 doses), Poliomielite Salk – VIP (1 doses), Pneumocócica 10 (1 doses) e Meningocócica C (1 doses)."
+            { 
+                "character" : "A",
+                "answer" : "Penta (3 doses), Poliomielite 1, 2 e 3 – VOP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses)."
+            },
+            {
+                "character" : "B",
+                "answer" :  "Penta (3 doses), Rotavírus (2 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses)."
+            },
+            {
+                "character" : "C",
+                "answer" : "Penta (3 doses), Rotavírus (2 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses)."    
+            },
+            {
+                "character" : "D",
+                "answer" : "Penta (3 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses)."
+            },
+            {
+                "character" : "E",
+                "answer" : "Penta (3 doses), Poliomielite Salk – VIP (1 doses), Pneumocócica 10 (1 doses) e Meningocócica C (1 doses)."
+            }
         ]
     }
 ]
