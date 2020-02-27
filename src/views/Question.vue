@@ -47,7 +47,7 @@
         background-color: white;
     }
     .progress-bar {
-        background: linear-gradient(90deg, #FDA720 0%, $burning-orange 100%);
+        background: linear-gradient(90deg, $light-orange 0%, $burning-orange 100%);
         border-radius: 12px;
     }
     .timer {
@@ -58,13 +58,17 @@
         font-size: 2.5rem;
     }
     .alternative {
-        cursor: pointer;
+            cursor: pointer;
             transition: all .2s ease-out;
             background: none;
             box-shadow: 0 0 0 transparent;
             border: 1px solid $white-smoke;
             text-shadow: 0 0 0 transparent;
             border-radius: 6px;
+        &:hover {
+            background:none;
+            color: #4c4c4c;
+        }
         &:focus {
             outline: none;
             color: $forest-green !important;
@@ -81,7 +85,7 @@
         font-size: 12px;
     }
     .number-question-active {
-        background: linear-gradient(90deg, #FDA720 0%, $burning-orange 100%);
+        background: linear-gradient(90deg, $light-orange 0%, $burning-orange 100%);
         border: 2px solid $burning-orange;
         color: white;
     }
