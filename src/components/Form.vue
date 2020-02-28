@@ -10,7 +10,7 @@
              <b-form-group>
                 <b-form-input id="inputEmail" v-model="form.mail" type="text" placeholder="Email"></b-form-input>
             </b-form-group>
-            <Button class="text-center" :id="'formSubmit'" :color="'success'" :label="'Prosseguir'" :icon="'icon-arrow'" />
+            <Button class="text-center" id="formSubmit" color="success" label="Prosseguir" iconClass="icon-arrow-left" />
         </b-form>
       <Questions/>
     </div>

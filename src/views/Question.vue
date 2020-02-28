@@ -21,9 +21,9 @@
               style="left: 50%;"
             >{{ timeRest }}</p>
           </div>
+          <BreadcrumbsQuestions/>
         </b-col>
       </b-row>
-      <BubbleQuestions/>
       <Questions/>
     </b-container>
   </div>
@@ -35,13 +35,13 @@ import { mapGetters } from 'vuex'
 import moment from 'moment'
 import Header from '../components/Header'
 import Questions from '../components/Questions/Questions'
-import BubbleQuestions from '../components/BubbleQuestions'
+import BreadcrumbsQuestions from '../components/BreadcrumbsQuestions'
 
 export default {
   components: {
     Header,
     Questions,
-    BubbleQuestions
+    BreadcrumbsQuestions
   },
   data () {
     const percent = '55%'
@@ -90,47 +90,5 @@ export default {
 
   .timer {
     color: #8F8F8F;
-  }
-
-  .character {
-    font-family: OpenSans-Bold;
-    font-size: 2.5rem;
-  }
-
-  .alternative {
-    cursor: pointer;
-    transition: all .2s ease-out;
-    background: none;
-    box-shadow: 0 0 0 transparent;
-    border: 1px solid $white-smoke;
-    text-shadow: 0 0 0 transparent;
-    border-radius: 6px;
-
-    &:hover {
-      background: none;
-      color: #4c4c4c;
-    }
-
-    &:focus {
-      outline: none;
-      color: $forest-green !important;
-      border: 1px solid $forest-green;
-      border-radius: 6px;
-    }
-  }
-
-  .number-question {
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    background-color: $white-smoke;
-    font-family: OpenSans-Bold;
-    font-size: 12px;
-  }
-
-  .number-question-active {
-    background: linear-gradient(90deg, $light-orange 0%, $burning-orange 100%);
-    border: 2px solid $burning-orange;
-    color: white;
   }
 </style>
