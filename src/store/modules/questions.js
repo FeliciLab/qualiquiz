@@ -12,11 +12,15 @@ export default {
     }
   },
   getters: {
-    currentQuestion: state => state.questions.find(item => item.number === state.current)
+    currentQuestion: state => state.all.find(item => item.number === state.current),
+    amountQuestions: state => state.all.length
   },
   mutations: {
     SET_QUESTIONS: (state, { questions }) => {
       state.all = questions
+    },
+    SET_QUESTION: (state, { question }) => {
+      state.one = Object.assign(question)
     },
     SET_CURRENT: (state, payload) => {
       state.current = payload
@@ -29,6 +33,9 @@ export default {
     },
     setQuestions ({ commit }, payload) {
       commit('SET_QUESTIONS', { questions: payload })
+    },
+    setQuestion ({ commit }, question) {
+      commit('SET_QUESTION', { question })
     }
   }
 }

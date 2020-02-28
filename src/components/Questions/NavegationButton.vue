@@ -1,27 +1,34 @@
 <template>
   <b-row>
-    <b-col col="12" md="6">
+    <b-col
+      cols="6"
+    >
       <Button
         class="text-center py-3"
         color="danger"
         label="Anterior"
-        icon="icon-arrow"
+        icon-class="icon-arrow-left"
       />
     </b-col>
-    <b-col col="12" md="6">
+    <b-col cols="6">
       <Button
         class="text-center py-3"
         color="success"
         label="Proxima"
-        icon="icon-arrow"
+        icon-class="icon-arrow-right"
       />
     </b-col>
   </b-row>
 </template>
 
 <script>
+import Button from '../Button'
+
 export default {
-  name: 'Navegation'
+  name: 'Navegation',
+  components: {
+    Button
+  }
 }
 </script>
 
