@@ -34,9 +34,6 @@
     .txt-orange {
         color: $burning-orange;
     }
-    .f-12 {
-        font-size: 12px;
-    }
     .swiper-pagination {
         bottom: 0 !important;
     }
