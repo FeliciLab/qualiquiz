@@ -34,8 +34,8 @@ export default {
     setQuestions ({ commit }, payload) {
       commit('SET_QUESTIONS', { questions: payload })
     },
-    setQuestion ({ commit }, question) {
-      commit('SET_QUESTION', { question })
+    setCurrentQuestion ({ commit }, number) {
+      commit('SET_CURRENT', number)
     }
   }
 }

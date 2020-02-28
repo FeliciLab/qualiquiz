@@ -4,6 +4,7 @@
       cols="6"
     >
       <Button
+        @click="$emit('changePrevious')"
         class="text-center py-3"
         color="danger"
         label="Anterior"
@@ -12,6 +13,7 @@
     </b-col>
     <b-col cols="6">
       <Button
+        @click="$emit('changeNext')"
         class="text-center py-3"
         color="success"
         label="Proxima"
