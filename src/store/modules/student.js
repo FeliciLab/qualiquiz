@@ -6,7 +6,7 @@ export default {
       lastname: '',
       email: '',
       phone: '',
-      cpf: ''
+      cpf: '',
     },
     answers: [
       {

@@ -1,14 +1,15 @@
 <template>
   <b-row>
-    <b-col col="12" md="6">
+    <b-col
+      cols="12"
+      xs="4"
+    >
       <Button
         class="text-center py-3"
         color="danger"
         label="Anterior"
         icon="icon-arrow"
       />
-    </b-col>
-    <b-col col="12" md="6">
       <Button
         class="text-center py-3"
         color="success"
@@ -20,8 +21,13 @@
 </template>
 
 <script>
+import Button from '../Button'
+
 export default {
-  name: 'Navegation'
+  name: 'Navegation',
+  components: {
+    Button
+  }
 }
 </script>
 

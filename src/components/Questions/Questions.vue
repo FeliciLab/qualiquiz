@@ -1,8 +1,8 @@
 <template>
-  <b-container>
+  <div v-if="amountQuestions > 0">
     <b-row>
       <b-col
-        col="12"
+        cols="12"
         lg="6"
       >
         <Question
@@ -11,7 +11,7 @@
       </b-col>
     </b-row>
     <NavegationButton/>
-  </b-container>
+  </div>
 </template>
 
 <script>
@@ -29,7 +29,7 @@ export default {
     this.setTestQuestions()
   },
   computed: {
-    ...mapGetters('questions', { question: 'currentQuestion' })
+    ...mapGetters('questions', { question: 'currentQuestion', amountQuestions: 'amountQuestions' })
   },
   methods: {
     ...mapActions('questions', {
