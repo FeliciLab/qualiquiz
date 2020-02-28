@@ -1,10 +1,10 @@
 <template>
     <div class="position-absolute gradient-background">
         <Header light title="Parabéns"/>
-        <div>
+        <div class="d-flex justify-content-center">
             <b-img fluid :src="success"></b-img>
         </div>
-        <p class="text-center text-uppercase text-white" style="font-family: 'OpenSans-Bold'">Enviado com sucesso!</p>
+        <p class="text-center text-uppercase text-white mt-5" style="font-family: 'OpenSans-Bold'">Enviado com sucesso!</p>
     </div>
 </template>
 
