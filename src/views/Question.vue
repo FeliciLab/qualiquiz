@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-container>
-            <h5 class="text-center text-uppercase">Questão {{currentIndex + 1}}/{{questionCount}}</h5>
+            <Header dark :title="`Questão ${currentIndex + 1} / ${questionCount}`"/>
             <b-row>
                 <b-col cols=12>
                     <div class="progress">
@@ -95,10 +95,11 @@
 // percent = 10*m/6
 import moment from 'moment'
 import Button from '../components/Button'
+import Header from '../components/Header'
 import questions from '../assets/questions.json'
 export default {
   components: {
-    Button
+    Button, Header
   },
   data () {
     const percent = '55%'
