@@ -1,11 +1,11 @@
 <template>
   <div>
     <b-form>
-      <b-form-group>
+      <b-form-group :class="{ 'form-group--error': $v.form.cpf.$error }">
         <b-form-input
           id="inputCpf"
           v-mask="'###.###.###-##'"
-          v-model="form.cpf"
+          v-model.trim="$v.form.cpf.$model"
           type="text"
           placeholder="CPF"
           required
@@ -14,7 +14,7 @@
       <b-form-group>
         <b-form-input
           id="inputPhone"
-          v-model="form.phone"
+          v-model.trim="$v.form.phone.$model"
           type="text"
           placeholder="Número do Celular"
           v-mask="'(##) # ####-####'"
@@ -24,24 +24,24 @@
       <b-form-group>
         <b-form-input
           id="inputEmail"
-          v-model="form.mail"
+          v-model.trim="$v.form.mail.$model"
           type="email"
           placeholder="Email"
         ></b-form-input>
       </b-form-group>
       <Button
-        @click="storeStudent"
+        @click="storeStudent()"
         class="text-center"
-        id="formSubmit"
         color="success"
         label="Prosseguir"
-        iconClass="icon-arrow-left"
+        iconClass="icon-arrow-right"
       />
     </b-form>
   </div>
 </template>
 
 <script>
+import { required, minLength, email } from 'vuelidate/lib/validators'
 import { mapActions } from 'vuex'
 import Button from './Button'
 
@@ -58,6 +58,22 @@ export default {
       }
     }
   },
+  validations: {
+    form: {
+      cpf: {
+        required,
+        minLength: minLength(11)
+      },
+      mail: {
+        required,
+        email
+      },
+      phone: {
+        required
+      }
+    },
+    validationGroup: ['form.cpf', 'form.mail', 'form.phone']
+  },
   methods: {
     ...mapActions('student', {
       setStudent: 'setStudent'
@@ -72,6 +88,7 @@ export default {
           cpf: this.form.cpf
         }
       )
+      this.$router.push({ name: 'Welcome' })
     }
   }
 }

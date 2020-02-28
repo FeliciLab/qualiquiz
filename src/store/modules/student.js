@@ -6,7 +6,7 @@ export default {
       lastname: '',
       email: '',
       phone: '',
-      cpf: '',
+      cpf: ''
     },
     answers: [
       {
@@ -16,13 +16,13 @@ export default {
     ]
   },
   mutations: {
-    SET_STUDENT: (state, student) => {
+    SET_STUDENT: (state, { student }) => {
       state.one = student
     }
   },
   actions: {
     setStudent: ({ commit }, { firstname, lastname, email, phone, cpf }) => {
-      commit('SET_STUDENT', { firstname, lastname, email, phone, cpf })
+      commit('SET_STUDENT', { student: { firstname, lastname, email, phone, cpf } })
     }
   }
 }

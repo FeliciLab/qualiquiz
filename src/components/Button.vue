@@ -1,6 +1,8 @@
 <template>
   <div>
     <b-button
+      @click="$emit('click')"
+      type="typeBtn"
       :class="{
       'btn-gradient-success': color == 'success',
       'btn-gradient-danger': color == 'danger'}"
@@ -20,7 +22,15 @@
 </template>
 <script>
 export default {
-  props: ['id', 'color', 'label', 'iconClass']
+  props: {
+    id: {},
+    color: {},
+    label: {},
+    iconClass: {},
+    typeBtn: {
+      default: 'button'
+    }
+  }
 }
 </script>
 

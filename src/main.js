@@ -8,8 +8,10 @@ import './styles/main.scss'
 import 'swiper/css/swiper.min.css'
 import VueTheMask from 'vue-the-mask'
 import 'animate.css/animate.min.css'
+import Vuelidate from 'vuelidate'
 
 Vue.config.productionTip = false
+Vue.use(Vuelidate)
 Vue.use(VueTheMask)
 new Vue({
   router,
