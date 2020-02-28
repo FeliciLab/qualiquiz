@@ -6,9 +6,11 @@ import store from './store'
 import './plugins/vue-boostrap'
 import './styles/main.scss'
 import 'swiper/css/swiper.min.css'
+import VueTheMask from 'vue-the-mask'
 import 'animate.css/animate.min.css'
-Vue.config.productionTip = false
 
+Vue.config.productionTip = false
+Vue.use(VueTheMask)
 new Vue({
   router,
   store,
