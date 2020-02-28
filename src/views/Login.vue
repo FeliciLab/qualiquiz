@@ -1,12 +1,14 @@
 <template>
     <div class="py-3 background">
-          <Header dark title="Acesso"/>
-          <div class="d-flex justify-content-center">
-            <b-img fluid :src="blank"></b-img>
-          </div>
-          <div class="px-5">
-            <Form />
-          </div>
+      <b-container>
+        <Header dark title="Acesso"/>
+        <div class="d-flex justify-content-center">
+          <b-img fluid :src="blank"></b-img>
+        </div>
+        <div class="px-5">
+          <Form />
+        </div>
+      </b-container>
     </div>
 </template>
 <script>
