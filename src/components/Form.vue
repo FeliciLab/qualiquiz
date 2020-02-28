@@ -12,6 +12,7 @@
             </b-form-group>
             <Button class="text-center" id="formSubmit" color="success" label="Prosseguir" iconClass="icon-arrow-left" />
         </b-form>
+      <Questions/>
     </div>
 </template>
 
@@ -37,9 +38,11 @@
 
 <script>
 import Button from './Button'
+import Questions from './Questions/Questions'
 export default {
   components: {
-    Button
+    Button,
+    Questions
   },
   data () {
     return {
