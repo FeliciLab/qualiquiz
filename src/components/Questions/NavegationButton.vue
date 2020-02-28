@@ -1,20 +1,21 @@
 <template>
   <b-row>
     <b-col
-      cols="12"
-      xs="4"
+      cols="6"
     >
       <Button
         class="text-center py-3"
         color="danger"
         label="Anterior"
-        icon="icon-arrow"
+        icon-class="icon-arrow-left"
       />
+    </b-col>
+    <b-col cols="6">
       <Button
         class="text-center py-3"
         color="success"
         label="Proxima"
-        icon="icon-arrow"
+        icon-class="icon-arrow-right"
       />
     </b-col>
   </b-row>
