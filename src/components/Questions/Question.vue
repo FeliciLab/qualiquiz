@@ -10,13 +10,17 @@
         v-for="(alternative, index) in question.alternatives"
         :key="index"
       >
-        <AnswerOption :answer-option="alternative"/>
+        <AnswerOption
+          @click="setAnswerChosen"
+          :answer-option="alternative"
+        />
       </b-col>
     </b-row>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import AnswerOption from './AnswerOption'
 
 export default {
@@ -28,6 +32,19 @@ export default {
     question: {
       required: true,
       type: Object
+    }
+  },
+  methods: {
+    ...mapActions('student', {
+      setAnswer: 'setAnswer'
+    }),
+    setAnswerChosen (answer) {
+      this.setAnswer(
+        {
+          answer,
+          number: this.question.number
+        }
+      )
     }
   }
 }

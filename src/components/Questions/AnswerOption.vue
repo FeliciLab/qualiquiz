@@ -1,5 +1,8 @@
 <template>
-  <button class="alternative my-2">
+  <button
+    class="alternative my-2"
+    @click="$emit('click', answerOption.character)"
+  >
     <b-row class="py-2">
       <b-col
         cols=2
@@ -26,7 +29,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 
   .character {
     font-family: OpenSans-Bold;
