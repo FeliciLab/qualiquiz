@@ -3,7 +3,7 @@
     <b-button :class="{
       'btn-gradient-success': color == 'success',
       'btn-gradient-danger': color == 'danger'}" pill size="lg" :id="id">
-      {{label}} <span   :class="{'icon-md': true, icon:true }"></span>
+      <div class="d-flex f-16" style="font-family: OpenSans-Bold">{{label}}<span class="icon ml-3 align-self-center" :class="{[iconClass] : true}"></span></div>
     </b-button>
   </div>
 </template>
@@ -20,6 +20,6 @@
 </style>
 <script>
 export default {
-  props: ['id', 'color', 'label', 'icon']
+  props: ['id', 'color', 'label', 'iconClass']
 }
 </script>

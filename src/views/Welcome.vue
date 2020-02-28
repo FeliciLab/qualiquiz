@@ -1,5 +1,5 @@
 <template>
-    <div class="background">
+    <div class="position-absolute background">
         <Header dark title="Bem-vindo(a)"/>
         <!-- Slider main container -->
         <div class="swiper-container">
@@ -19,7 +19,7 @@
             <!-- If we need pagination -->
             <div class="swiper-pagination position-relative"></div>
         </div>
-        <Button class="text-center mt-3" id="'formSubmit'" :color="'success'" :label="'Iniciar avaliação'" :icon="'icon-arrow'" />
+        <Button class="text-center mt-3" id="formSubmit" color="success" label="Iniciar avaliação" iconClass="icon-arrow-left" />
     </div>
 </template>
 
@@ -29,7 +29,6 @@
     }
     .swiper-container {
         width: 100%;
-        height: 100%;
     }
     .txt-orange {
         color: $burning-orange;

@@ -11,10 +11,10 @@
             </p>
             <b-row>
                 <b-col cols=6>
-                    <Button class="text-center py-3" id="formSubmit" color="danger" label="Não" :icon="'icon-arrow'" />
+                    <Button class="text-center py-3" id="formSubmit" color="danger" label="Não" iconClass="icon-cross" />
                 </b-col>
                 <b-col cols=6>
-                    <Button class="text-center py-3" id="formSubmit" color="success" label="Sim" :icon="'icon-arrow'" />
+                    <Button class="text-center py-3" id="formSubmit" color="success" label="Sim" iconClass="icon-check" />
                 </b-col>
             </b-row>
         </b-container>
