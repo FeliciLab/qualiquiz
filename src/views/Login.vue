@@ -1,5 +1,5 @@
 <template>
-  <div class="py-3 background">
+  <div class="animated fadeIn py-3 background">
     <b-container>
       <Header
         dark

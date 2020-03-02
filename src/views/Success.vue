@@ -1,5 +1,5 @@
 <template>
-    <div class="position-absolute gradient-background">
+    <div class="animated fadeIn position-absolute gradient-background">
         <b-img class="position-absolute" style="top: 20%;width:100%" fluid :src="lines"></b-img>
         <Header light title="Parabéns"/>
         <div class="d-flex justify-content-center">
