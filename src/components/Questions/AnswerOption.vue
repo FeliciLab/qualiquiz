@@ -10,7 +10,7 @@
       >
         {{ answerOption.character }}
       </b-col>
-      <b-col cols=10>
+      <b-col cols=10 class="text-left">
         {{ answerOption.answer }}
       </b-col>
     </b-row>

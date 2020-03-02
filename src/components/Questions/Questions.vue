@@ -2,7 +2,7 @@
   <div
     v-if="amountQuestions > 0"
     ref="currentQuestion"
-    class="animated fadeInLeft"
+    class="animated faster fadeInLeft"
   >
     <b-row>
       <b-col
@@ -44,28 +44,24 @@ export default {
       setCurrentQuestion: 'setCurrentQuestion'
     }),
     changeNext () {
-      this.$refs.currentQuestion.classList.value = 'animated fadeOutLeft'
+      this.$refs.currentQuestion.classList.value = 'animated faster fadeOutLeft'
       setTimeout(() => {
         if ((this.question.number + 1) > this.amountQuestions) {
           this.$router.push({ name: 'Success' })
         }
         this.setCurrentQuestion(this.question.number + 1)
-        setTimeout(() => {
-          this.$refs.currentQuestion.classList.value = 'animated fadeInRight'
-        }, 700)
-      }, 1000)
+        this.$refs.currentQuestion.classList.value = 'animated faster fadeInRight'
+      }, 600)
     },
     changePrevious () {
       if ((this.question.number - 1) <= 0) {
         return
       }
-      this.$refs.currentQuestion.classList.value = 'animated fadeOutRight'
+      this.$refs.currentQuestion.classList.value = 'animated faster fadeOutRight'
       setTimeout(() => {
         this.setCurrentQuestion(this.question.number - 1)
-        setTimeout(() => {
-          this.$refs.currentQuestion.classList.value = 'animated fadeInLeft'
-        }, 700)
-      }, 1000)
+        this.$refs.currentQuestion.classList.value = 'animated faster fadeInLeft'
+      }, 600)
     }
   }
 }
