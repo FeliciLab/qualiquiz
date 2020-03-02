@@ -1,5 +1,6 @@
 <template>
   <button
+    ref="button-alternative"
     class="alternative my-2"
     @click="$emit('click', answerOption.character)"
   >
@@ -10,7 +11,7 @@
       >
         {{ answerOption.character }}
       </b-col>
-      <b-col cols=10>
+      <b-col cols=10 class="text-left">
         {{ answerOption.answer }}
       </b-col>
     </b-row>
@@ -24,6 +25,14 @@ export default {
     answerOption: {
       required: true,
       type: Object
+    },
+    answered: {}
+  },
+  watch: {
+    answered () {
+      if (this.answered && this.answerOption.character === this.answered.answer) {
+        this.$refs['button-alternative'].focus()
+      }
     }
   }
 }
@@ -33,7 +42,6 @@ export default {
   lang="scss"
   scoped
 >
-
   .character {
     font-family: OpenSans-Bold;
     font-size: 2.5rem;
