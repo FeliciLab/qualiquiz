@@ -1,4 +1,4 @@
-export function cpfValidation (value) {
+export default function cpfValidation (value) {
   const strCPF = value.replace(/\D/g, '')
   let Soma
   let Resto

@@ -1,7 +1,4 @@
 module.exports = {
-  options: {
-    title: 'Qualiz Saúde'
-  },
   publicPath: process.env.NODE_ENV === 'production'
     ? '/'
     : '/',
