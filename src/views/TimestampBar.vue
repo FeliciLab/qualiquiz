@@ -11,36 +11,39 @@
 
     <div class="position-absolute" style="width: calc(100% - 30px); text-align: center; ">
       <b-badge variant="light">
-        {{ timeRest === 0 ? minuteLimit : timeRest }} min
+        {{ timeLeft === 0 ? minuteLimit : timeLeft }} min
       </b-badge>
     </div>
   </div>
 </template>
 <script>
 import moment from 'moment'
-
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'TimestampBar',
-  data () {
-    return {
-      timeRest: 0,
-      minuteLimit: 60,
-      finishTime: moment().add('60', 'm'),
-      currentIndex: 0
-    }
-  },
   computed: {
-    percent () {
-      if (this.timeRest === 0) {
-        return 100
-      }
-      return Math.floor((this.timeRest / this.minuteLimit) * 100)
+    ...mapGetters('clock', {
+      finishTime: 'finishTime',
+      percent: 'percent',
+      timeLeft: 'timeLeft',
+      minuteLimit: 'minuteLimit'
+    })
+  },
+  created () {
+    if (!this.finishTime) {
+      this.setFinishTime(moment().add('60', 'm'))
     }
   },
   mounted () {
     setInterval(() => {
-      this.timeRest = this.finishTime.diff(moment(), 'minutes')
+      this.setTimeLeft(this.finishTime.diff(moment(), 'minutes'))
     }, 60000)
+  },
+  methods: {
+    ...mapActions('clock', {
+      setFinishTime: 'setFinishTime',
+      setTimeLeft: 'setTimeLeft'
+    })
   }
 }
 </script>
