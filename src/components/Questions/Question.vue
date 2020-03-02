@@ -13,6 +13,7 @@
         <AnswerOption
           @click="setAnswerChosen"
           :answer-option="alternative"
+          :answered="answered"
         />
       </b-col>
     </b-row>
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import AnswerOption from './AnswerOption'
 
 export default {
@@ -32,6 +33,16 @@ export default {
     question: {
       required: true,
       type: Object
+    }
+  },
+  computed: {
+    ...mapState('student', {
+      answers: 'answers'
+    }),
+    answered () {
+      return this.answers.find(answer => {
+        return this.question.number === answer.number
+      })
     }
   },
   methods: {
