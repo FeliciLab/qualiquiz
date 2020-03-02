@@ -133,7 +133,6 @@ export default {
   input {
     border-radius: 50px;
     font-family: 'OpenSans-Bold';
-    color: #C5C2C2;
 
     &::-webkit-input-placeholder {
       color: #C5C2C2;
