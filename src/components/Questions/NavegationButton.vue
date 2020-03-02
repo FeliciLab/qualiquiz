@@ -16,7 +16,7 @@
         @click="$emit('changeNext')"
         class="text-center py-3"
         color="success"
-        label="Proxima"
+        :label="changeLabel"
         icon-class="icon-arrow-right"
       />
     </b-col>
@@ -25,15 +25,21 @@
 
 <script>
 import Button from '../Button'
-
+import { mapGetters } from 'vuex'
 export default {
   name: 'Navegation',
+  props: ['questionNumber'],
   components: {
     Button
+  },
+  computed: {
+    ...mapGetters('questions', { question: 'currentQuestion' }),
+    changeLabel: function () {
+      if (this.question.number === 10) {
+        return 'Finalizar'
+      }
+      return 'Próxima'
+    }
   }
 }
 </script>
-
-<style scoped>
-
-</style>

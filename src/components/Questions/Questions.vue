@@ -15,6 +15,7 @@
       </b-col>
     </b-row>
     <NavegationButton
+      :question-number="question.number"
       @changePrevious="changePrevious"
       @changeNext="changeNext"
     />
@@ -47,7 +48,8 @@ export default {
       this.$refs.currentQuestion.classList.value = 'animated fadeOutLeft'
       setTimeout(() => {
         if ((this.question.number + 1) > this.amountQuestions) {
-          this.$router.push({ name: 'Success' })
+          this.$router.push({ name: 'Confirmation' })
+          return
         }
         this.setCurrentQuestion(this.question.number + 1)
         setTimeout(() => {
