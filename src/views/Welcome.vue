@@ -90,7 +90,7 @@ export default {
         clickable: true,
         el: '.swiper-pagination'
       },
-      spaceBetween: -10
+      spaceBetween: -35
     })
   },
   methods: {
