@@ -6,6 +6,8 @@ import Question from '../views/Question.vue'
 import Success from '../views/Success.vue'
 import Confirmation from '../views/Confirmation.vue'
 import Loading from '../components/Loading.vue'
+import TimeOut from '../views/TimeOut.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -33,6 +35,11 @@ const routes = [
     path: '/confirmation',
     name: 'Confirmation',
     component: Confirmation
+  },
+  {
+    path: '/timeout',
+    name: 'Time Out',
+    component: TimeOut
   },
   {
     path: '/success',

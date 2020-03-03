@@ -6,7 +6,7 @@
       :style="{'width': `${percent}%`}"
       aria-valuenow="0"
       aria-valuemin="0"
-      aria-valuemax="60"
+      aria-valuemax="10"
     ></div>
 
     <div class="position-absolute" style="width: calc(100% - 30px); text-align: center; ">
@@ -31,13 +31,16 @@ export default {
   },
   created () {
     if (!this.finishTime) {
-      this.setFinishTime(moment().add('60', 'm'))
+      this.setFinishTime(moment().add('10', 'm'))
     }
   },
   mounted () {
     setInterval(() => {
       this.setTimeLeft(this.finishTime.diff(moment(), 'minutes'))
-    }, 60000)
+      if (this.timeLeft <= 0) {
+        this.$router.push('/timeout')
+      }
+    }, 1000)
   },
   methods: {
     ...mapActions('clock', {

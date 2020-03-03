@@ -1,7 +1,7 @@
 export default {
   namespaced: true,
   state: {
-    minuteLimit: 60,
+    minuteLimit: 10,
     timeLeft: 0,
     finishTime: false,
     percent: ''
