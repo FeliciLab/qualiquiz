@@ -1,4 +1,7 @@
 # Qualiz Saúde
+## Link para acesso do Projeto
+
+[https://escoladesaudepublica.github.io/qualiz-saude/](https://escoladesaudepublica.github.io/qualiz-saude/)
 
 ## Project setup
 ```
