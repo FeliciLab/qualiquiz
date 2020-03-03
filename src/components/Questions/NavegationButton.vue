@@ -9,6 +9,7 @@
         color="danger"
         label="Anterior"
         icon-class="icon-arrow-left"
+        v-if="question.number !== 1"
       />
     </b-col>
     <b-col cols="6">
