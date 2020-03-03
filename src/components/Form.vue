@@ -9,7 +9,7 @@
           id="inputCpf"
           v-mask="'###.###.###-##'"
           v-model.trim="$v.form.cpf.$model"
-          :state="!$v.form.cpf.$anyDirty || !$v.form.cpf.$anyError"
+          :state="!$v.form.cpf.$anyDirty? null : !$v.form.cpf.$anyDirty || !$v.form.cpf.$anyError"
           type="text"
           placeholder="CPF"
           required
@@ -29,7 +29,7 @@
           id="inputPhone"
           v-model.trim="$v.form.phone.$model"
           type="text"
-          :state="!$v.form.phone.$anyDirty || !$v.form.phone.$anyError"
+          :state="!$v.form.phone.$anyDirty? null : !$v.form.phone.$anyDirty || !$v.form.phone.$anyError"
           placeholder="Número do Celular"
           v-mask="'(##) # ####-####'"
           required
@@ -42,7 +42,7 @@
         <b-form-input
           id="inputEmail"
           v-model.trim="$v.form.mail.$model"
-          :state="!$v.form.mail.$anyDirty || !$v.form.mail.$anyError"
+          :state="!$v.form.mail.$anyDirty? null : !$v.form.mail.$anyDirty || !$v.form.mail .$anyError"
           type="email"
           placeholder="Email"
         ></b-form-input>
