@@ -10,6 +10,9 @@ export default {
     },
     answers: []
   },
+  getters: {
+    amountAnswers: state => state.answers.length
+  },
   mutations: {
     SET_STUDENT: (state, { student }) => {
       state.one = student

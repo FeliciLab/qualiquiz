@@ -15,7 +15,7 @@
             :src="blank"
           ></b-img>
         </div>
-        <p class="mx-4 text-center f-12">Você está prestes a enviar todas as questões e finalizar esta avaliação. Uma vez
+        <p class="mx-4 text-center f-12">Você respondeu {{ amountAnswers }} / {{ amountQuestions}} questões e está prestes a enviar todas as questões e finalizar esta avaliação. Uma vez
           enviada, você não poderá alterar as respostas para esta tentativa.</p>
         <p
           class="mx-4 text-center"
@@ -61,7 +61,7 @@
 import Header from '../components/Header'
 import Button from '../components/Button'
 import Loading from '../components/Loading'
-
+import { mapGetters } from 'vuex'
 export default {
   components: {
     Button, Header, Loading
@@ -71,6 +71,14 @@ export default {
       showLoading: false,
       blank: require('../assets/images/blank.png')
     }
+  },
+  computed: {
+    ...mapGetters('questions', {
+      amountQuestions: 'amountQuestions'
+    }),
+    ...mapGetters('student', {
+      amountAnswers: 'amountAnswers'
+    })
   },
   methods: {
 
