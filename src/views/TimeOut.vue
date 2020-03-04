@@ -11,6 +11,12 @@
             :src="blank"
           ></b-img>
         </div>
+        <p
+          class="mx-4 text-center"
+          style="font-family: OpenSans-Bold"
+        >
+          Você respondeu {{ amountAnswers }} / {{ amountQuestions}}
+        </p>
         <p class="mx-4 text-center f-12">Infelizmente você não concluiu o seu questionário a Tempo.</p>
         <p
           class="mx-4 text-center"
@@ -24,6 +30,7 @@
 
 <script>
 import Header from '../components/Header'
+import { mapGetters } from 'vuex'
 export default {
   components: {
     Header
@@ -32,6 +39,14 @@ export default {
     return {
       blank: require('../assets/images/blank.png')
     }
+  },
+  computed: {
+    ...mapGetters('questions', {
+      amountQuestions: 'amountQuestions'
+    }),
+    ...mapGetters('student', {
+      amountAnswers: 'amountAnswers'
+    })
   }
 }
 </script>

@@ -3,16 +3,18 @@
     <b-col
       cols="6"
     >
+    <a href="#header">
       <Button
         @click="$emit('changePrevious')"
         class="text-center py-3"
-        color="danger"
-        label="Anterior"
-        icon-class="icon-arrow-left"
+        color="light"
+        icon-class="icon-arrow-left-grey"
         v-if="question.number !== 1"
       />
+    </a>
     </b-col>
     <b-col cols="6">
+    <a href="#header">
       <Button
         @click="$emit('changeNext')"
         class="text-center py-3"
@@ -20,6 +22,7 @@
         :label="changeLabel"
         icon-class="icon-arrow-right"
       />
+    </a>
     </b-col>
   </b-row>
 </template>
