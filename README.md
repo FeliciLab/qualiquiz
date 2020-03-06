@@ -1,4 +1,14 @@
-# Qualiz Saúde
+# QualiQuiz 
+
+#### Solução Digital para Avaliação de Competências da Força de Trabalho
+
+### Demanda
+Identificar as fragilidades e lacunas nas competências da força de trabalho dos serviços de saúde no estado do Ceará, apresentando dados de desempenho que podem apoiar a tomada de decisão de Gestores do Sistema Único de Saúde.
+
+### Solução
+Qualificar a força de trabalho em saúde, através da aplicação de testes individuais online, onde os profissionais responderão questões que ajudarão a mensurar o grau de domínio das competências em suas áreas específicas. 
+
+
 ## Link para acesso do Projeto:
 [https://escoladesaudepublica.github.io/qualiz-saude/](https://escoladesaudepublica.github.io/qualiz-saude/)
 ## Project setup
