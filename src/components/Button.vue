@@ -4,6 +4,7 @@
       @click="$emit('click')"
       type="typeBtn"
       :class="{
+      'btn-light': color == 'light',
       'btn-gradient-success': color == 'success',
       'btn-gradient-danger': color == 'danger'}"
       pill
@@ -13,10 +14,17 @@
       <div
         class="d-flex f-16"
         style="font-family: OpenSans-Bold"
-      >{{label}}<span
-        class="icon ml-3 align-self-center"
-        :class="{[iconClass] : true}"
-      ></span></div>
+        v-if="label.length > 0"
+      >
+        <span>{{label}}</span>
+        <span
+          class="icon ml-3 align-self-center"
+          :class="{[iconClass] : true}"
+        ></span>
+      </div>
+      <div class="d-flex">
+        <span class="icon m-1" :class="{[iconClass] : true}" v-if="label.length <= 0"></span>
+      </div>
     </b-button>
   </div>
 </template>
@@ -25,7 +33,9 @@ export default {
   props: {
     id: {},
     color: {},
-    label: {},
+    label: {
+      default: ''
+    },
     iconClass: {},
     typeBtn: {
       default: 'button'
@@ -38,6 +48,10 @@ export default {
   lang="scss"
   scoped
 >
+  .btn-light {
+    background-color: white;
+    border: 2px solid $silver;
+  }
   // Fazer Mixin do btn-gradient
   .btn-gradient-success {
     background: linear-gradient(90deg, $crusoe 0%, $forest-green 100%);

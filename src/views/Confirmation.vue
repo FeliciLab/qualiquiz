@@ -15,6 +15,12 @@
             :src="blank"
           ></b-img>
         </div>
+         <p
+          class="mx-4 text-center"
+          style="font-family: OpenSans-Bold"
+        >
+          Você respondeu {{ amountAnswers }} / {{ amountQuestions}}
+        </p>
         <p class="mx-4 text-center f-12">Você respondeu {{ amountAnswers }} / {{ amountQuestions}} questões e está prestes a enviar todas as questões e finalizar esta avaliação. Uma vez
           enviada, você não poderá alterar as respostas para esta tentativa.</p>
         <p

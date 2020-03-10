@@ -1,6 +1,6 @@
 <template>
    <div>
-       <h5 class="text-center text-uppercase my-4" :class="{'dark' : dark , 'light': light}">{{ title }}</h5>
+       <h5 id="header" class="text-center text-uppercase my-4" :class="{'dark' : dark , 'light': light}">{{ title }}</h5>
    </div>
 </template>
 <style lang="scss" scoped>

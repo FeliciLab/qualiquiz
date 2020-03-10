@@ -5,18 +5,26 @@
         dark
         title="Acesso"
       />
-      <div class="d-flex justify-content-center">
-        <b-img
+      <b-row align-h="center">
+        <b-col cols=12 class="d-flex justify-content-center">
+          <b-img
           fluid
           :src="blank"
-        ></b-img>
-      </div>
-      <div class="px-5">
-        <Form/>
-      </div>
+          ></b-img>
+        </b-col>
+        <b-col class="form-wrapper" cols=12>
+          <Form/>
+        </b-col>
+      </b-row>
     </b-container>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  .form-wrapper {
+    max-width: 400px;
+  }
+</style>
 <script>
 import Header from '../components/Header'
 import Form from '../components/Form'
