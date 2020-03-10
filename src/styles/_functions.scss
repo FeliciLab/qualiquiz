@@ -1,0 +1,7 @@
+@function text($bg) {
+    @if(lightness($bg) > 50) {
+      @return white;   
+    } @else {
+      @return $burning-orange ;
+    }
+}

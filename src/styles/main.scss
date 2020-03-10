@@ -1,3 +1,37 @@
+@import 'functions';
+@import 'icons';
 @import 'variables';
+@import 'mixins';
+@import 'fonts';
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  font-family: 'OpenSans-Regular';
+  font-weight: normal;
+}
+
+h5 {
+  font-family: 'OpenSans-ExtraBold';
+  font-weight: bold;
+}
+
+.background {
+  background: linear-gradient(180deg,rgba(253, 167, 32, 0.1) 0.5%, rgba(252, 104, 54, 0.1) 66.96%, rgba(252, 104, 54, 0) 96.85%);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.f-12 {
+  font-size: 12px;
+}
+.f-16 {
+  font-size: 16px;
+}
