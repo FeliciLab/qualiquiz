@@ -10,7 +10,7 @@ Qualificar a força de trabalho em saúde, através da aplicação de testes ind
 
 
 ## Link para acesso do Projeto:
-[https://escoladesaudepublica.github.io/qualiz-saude/](https://escoladesaudepublica.github.io/qualiz-saude/)
+[https://escoladesaudepublica.github.io/QualiQuiz/](https://escoladesaudepublica.github.io/QualiQuiz/)
 ## Project setup
 ```
 yarn install

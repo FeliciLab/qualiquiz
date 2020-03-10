@@ -1,0 +1,18 @@
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+@mixin icon($icon_name) {
+    .icon-#{$icon_name} {
+        background-image: url('../assets/icons/#{$icon_name}.svg');
+        background-repeat: no-repeat;
+    }
+}
+
+@include icon('arrow-left');
+@include icon('arrow-left-grey');
+@include icon('arrow-right');
+@include icon('check');
+@include icon('clock');
+@include icon('cross');
