@@ -15,12 +15,19 @@ Qualificar a força de trabalho em saúde, através da aplicação de testes ind
 ```
 yarn install
 ```
+ou
+```
+npm install
+```
 
 ### Compiles and hot-reloads for development
 ```
 yarn serve
 ```
-
+ou
+```
+npm run serve
+```
 ### Compiles and minifies for production
 ```
 yarn build
