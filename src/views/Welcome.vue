@@ -78,7 +78,7 @@ export default {
             <p> Ao responder esse quiz, você nos ajuda a conhecer melhor suas potencialidades e fragilidades, e a qualificar nossa política de educação permanente, com base em um planejamento educacional adequado às necessidades do SUS em nosso estado.</p>
             <p> Para começar seu teste clique no botão abaixo. </p>
           `,
-          text: 'É uma ferramenta de avaliação longitudinal, de estudantes e de programas educacionais.',
+          text: 'É uma ferramsenta de avaliação longitudinal, de estudantes e de programas educacionais.',
           img: require('../assets/images/blank.png')
         }
       ]

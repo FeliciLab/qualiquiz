@@ -12,7 +12,8 @@ import Vuelidate from 'vuelidate'
 
 Vue.config.productionTip = false
 Vue.use(Vuelidate)
-Vue.use(VueTheMask)
+Vue.use(VueTheMask
+)
 new Vue({
   router,
   store,
