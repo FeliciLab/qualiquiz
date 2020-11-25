@@ -82,7 +82,8 @@ export default {
   computed: {
     ...mapGetters('quiz', {
       amountQuestions: 'getNumberOfQuestions',
-      amountAnswers: 'getNumberOfAnswers'
+      amountAnswers: 'getNumberOfAnswers',
+      id: 'getId'
     }),
     ...mapGetters('authentication', {
       token: 'getToken'
@@ -92,6 +93,14 @@ export default {
     ...mapActions('quiz', ['saveAnswers']),
     showLoadingPage () {
       this.showLoading = true
+      if (this.id === 0) {
+        setTimeout(() => {
+          this.$router.push({ name: 'Success' })
+        }, 1000)
+
+        return
+      }
+
       this.saveAnswers(this.token)
         .then(() => {
           this.$router.push({ name: 'Success' })

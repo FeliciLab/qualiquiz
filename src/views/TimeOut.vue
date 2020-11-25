@@ -45,7 +45,8 @@ export default {
     ...mapGetters('quiz', {
       amountQuestions: 'getNumberOfQuestions',
       amountAnswers: 'getNumberOfAnswers',
-      answers: 'getAnswers'
+      answers: 'getAnswers',
+      id: 'getId'
     }),
     ...mapGetters('authentication', {
       token: 'getToken'
@@ -67,7 +68,7 @@ export default {
     }
   },
   mounted () {
-    if (this.amountAnswers <= 0) {
+    if (this.amountAnswers <= 0 || this.id === 0) {
       return this.redirectConfirmation()
     }
 

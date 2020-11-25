@@ -1,5 +1,6 @@
 import moment from 'moment'
 import quizRequest from '../../services/quizRequest'
+const quizTest = require('../../assets/questions')
 
 export default {
   namespaced: true,
@@ -78,27 +79,34 @@ export default {
     setCurrentQuestion: ({ commit }, current) => {
       commit('SET_CURRENT_QUESTION', current)
     },
+    initTestQuiz: ({ dispatch }) => {
+      dispatch('setQuizData', quizTest)
+    },
     initQuiz: ({ dispatch }, codQuiz) => {
       return quizRequest.getQuiz(codQuiz)
         .then(result => {
-          if (Object.prototype.hasOwnProperty.call(result, 'id')) {
-            dispatch('setId', result.id)
-          }
-
-          if (Object.prototype.hasOwnProperty.call(result, 'questoes')) {
-            dispatch('setQuestions', result.questoes)
-          }
-
-          if (Object.prototype.hasOwnProperty.call(result, 'quiz')) {
-            dispatch('setName', result.quiz)
-          }
-
-          if (Object.prototype.hasOwnProperty.call(result, 'tempo_limite')) {
-            dispatch('clock/setMinuteLimit', result.tempo_limite, { root: true })
-            dispatch('clock/setFinishTime', moment().add(result.tempo_limite, 'm'), { root: true })
-            dispatch('clock/setTimeLeft', result.tempo_limite, { root: true })
-          }
+          dispatch('setQuizData', result)
         })
+    },
+    setQuizData: ({ dispatch }, result) => {
+      dispatch('cleanQuiz')
+      if (Object.prototype.hasOwnProperty.call(result, 'id')) {
+        dispatch('setId', result.id)
+      }
+
+      if (Object.prototype.hasOwnProperty.call(result, 'questoes')) {
+        dispatch('setQuestions', result.questoes)
+      }
+
+      if (Object.prototype.hasOwnProperty.call(result, 'quiz')) {
+        dispatch('setName', result.quiz)
+      }
+
+      if (Object.prototype.hasOwnProperty.call(result, 'tempo_limite')) {
+        dispatch('clock/setFinishTime', moment().add(result.tempo_limite, 'm'), { root: true })
+        dispatch('clock/setMinuteLimit', result.tempo_limite, { root: true })
+        dispatch('clock/setTimeLeft', result.tempo_limite, { root: true })
+      }
     },
     cleanQuiz: ({ commit }) => {
       commit('SET_ID', 0)
