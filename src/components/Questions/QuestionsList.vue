@@ -8,15 +8,13 @@
       <b-col
         cols="12"
       >
-        <Question
-          :question="question"
-        />
+        <Question />
       </b-col>
     </b-row>
     <NavegationButton
-      :question-number="question.number"
-      @changePrevious="changePrevious"
-      @changeNext="changeNext"
+      :question-number="currentQuestion"
+      @change-previous="changePrevious"
+      @change-next="changeNext"
     />
   </div>
 </template>
@@ -27,30 +25,32 @@ import Question from './Question'
 import NavegationButton from './NavegationButton'
 
 export default {
-  name: 'Questions',
+  name: 'QuestionsList',
   components: {
     Question,
     NavegationButton
   },
-  mounted () {
-    this.setTestQuestions()
-  },
   computed: {
-    ...mapGetters('questions', { question: 'currentQuestion', amountQuestions: 'amountQuestions' })
+    ...mapGetters('quiz', {
+      question: 'getQuestion',
+      questions: 'getQuestions',
+      amountQuestions: 'getNumberOfQuestions',
+      currentQuestion: 'getCurrentQuestion'
+    })
   },
   methods: {
-    ...mapActions('questions', {
-      setTestQuestions: 'setTestQuestions',
+    ...mapActions('quiz', {
       setCurrentQuestion: 'setCurrentQuestion'
     }),
     changeNext () {
       this.$refs.currentQuestion.classList.value = 'animated faster fadeOutLeft'
       setTimeout(() => {
-        if ((this.question.number + 1) > this.amountQuestions) {
+        if ((this.currentQuestion + 1) >= this.amountQuestions) {
           this.$router.push({ name: 'Confirmation' })
           return
         }
-        this.setCurrentQuestion(this.question.number + 1)
+
+        this.setCurrentQuestion(this.currentQuestion + 1)
         this.$refs.currentQuestion.classList.value = 'animated faster fadeInRight'
       }, 600)
     },
@@ -58,9 +58,10 @@ export default {
       if ((this.question.number - 1) <= 0) {
         return
       }
+
       this.$refs.currentQuestion.classList.value = 'animated faster fadeOutRight'
       setTimeout(() => {
-        this.setCurrentQuestion(this.question.number - 1)
+        this.setCurrentQuestion(this.currentQuestion - 1)
         this.$refs.currentQuestion.classList.value = 'animated faster fadeInLeft'
       }, 600)
     }

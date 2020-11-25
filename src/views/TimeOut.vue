@@ -22,7 +22,7 @@
           class="mx-4 text-center"
           style="font-family: OpenSans-Bold"
         >
-          As questões respondidas serão enviadas normalmente.
+          <strong>Aguarde a confirmação</strong>! Estamos enviando as questões que foram respondidas.
         </p>
       </b-container>
     </div>
@@ -30,7 +30,8 @@
 
 <script>
 import Header from '../components/Header'
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   components: {
     Header
@@ -41,12 +42,36 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('questions', {
-      amountQuestions: 'amountQuestions'
+    ...mapGetters('quiz', {
+      amountQuestions: 'getNumberOfQuestions',
+      amountAnswers: 'getNumberOfAnswers',
+      answers: 'getAnswers'
     }),
-    ...mapGetters('student', {
-      amountAnswers: 'amountAnswers'
+    ...mapGetters('authentication', {
+      token: 'getToken'
     })
+  },
+  methods: {
+    ...mapActions('quiz', ['saveAnswers']),
+    sendAnswers () {
+      this.saveAnswers(this.token)
+        .then(() => {
+          this.redirectConfirmation()
+        })
+        .catch(err => console.log(err))
+    },
+    redirectConfirmation () {
+      setTimeout(() => {
+        this.$router.push({ name: 'Success' })
+      }, 3000)
+    }
+  },
+  mounted () {
+    if (this.amountAnswers <= 0) {
+      return this.redirectConfirmation()
+    }
+
+    this.sendAnswers()
   }
 }
 </script>

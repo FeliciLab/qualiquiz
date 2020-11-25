@@ -1,19 +1,18 @@
 <template>
   <div>
     <b-row class="mx-3">
-      <p>{{ question.question }}</p>
+      <p>{{ question.questao }}</p>
     </b-row>
     <b-row class="mx-3">
       <b-col
         cols="12"
         md=6
-        v-for="(alternative, index) in question.alternatives"
+        v-for="(alternative, index) in question.alternativas"
         :key="index"
       >
         <AnswerOption
           @click="setAnswerChosen"
-          :answer-option="alternative"
-          :answered="answered"
+          :alternative="alternative"
         />
       </b-col>
     </b-row>
@@ -21,7 +20,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import AnswerOption from './AnswerOption'
 
 export default {
@@ -29,33 +28,23 @@ export default {
   components: {
     AnswerOption
   },
-  props: {
-    question: {
-      required: true,
-      type: Object
-    }
-  },
   computed: {
-    ...mapState('student', {
-      answers: 'answers'
-    }),
-    answered () {
-      return this.answers.find(answer => {
-        return this.question.number === answer.number
-      })
-    }
+    ...mapGetters('quiz', {
+      question: 'getQuestion',
+      answers: 'getAnswers',
+      answerModel: 'getAnswerModel'
+    })
   },
   methods: {
-    ...mapActions('student', {
+    ...mapActions('quiz', {
       setAnswer: 'setAnswer'
     }),
-    setAnswerChosen (answer) {
-      this.setAnswer(
-        {
-          answer,
-          number: this.question.number
-        }
-      )
+    setAnswerChosen (id) {
+      this.setAnswer({
+        ...this.answerModel,
+        questionId: this.question.id,
+        alternativeId: id
+      })
     }
   }
 }

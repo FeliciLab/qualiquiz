@@ -10,7 +10,7 @@
       <b-container>
         <Header
           dark
-          title="Bem-vindo(a)"
+          title="Desejamos as boas vindas"
         />
         <!-- Slider main container -->
         <div class="swiper-container">
@@ -25,7 +25,7 @@
               <div class="card mx-4">
                 <small class="text-center text-uppercase my-2">O que é?</small>
                 <h5 class="text-center font-weight-bolder text-uppercase txt-orange">
-                  Teste de progresso
+                  {{ nameQuiz }}
                 </h5>
                 <WelcomeBody>
                   <span v-html="content.bodyText"></span>
@@ -59,6 +59,7 @@ import Header from '../components/Header'
 import Swiper from 'swiper'
 import Loading from '../components/Loading'
 import WelcomeBody from '../components/welcome/WelcomeBody'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -84,6 +85,19 @@ export default {
       ]
     }
   },
+  computed: {
+    ...mapGetters('quiz', {
+      nameQuiz: 'getName'
+    })
+  },
+  methods: {
+    showLoadingPage () {
+      this.showLoading = true
+      setTimeout(() => {
+        this.$router.push({ name: 'Question' })
+      }, 3000)
+    }
+  },
   mounted () {
     // eslint-disable-next-line no-new
     new Swiper('.swiper-container', {
@@ -94,14 +108,6 @@ export default {
       },
       spaceBetween: -35
     })
-  },
-  methods: {
-    showLoadingPage () {
-      this.showLoading = true
-      setTimeout(() => {
-        this.$router.push({ name: 'Question' })
-      }, 3000)
-    }
   }
 }
 </script>

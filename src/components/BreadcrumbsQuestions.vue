@@ -4,7 +4,8 @@
       v-for="(question, index) in questions"
       :key="index"
       class="m-2 number-question d-flex align-items-center justify-content-center"
-      :class="{ 'number-question-active': currentIndex === (1 + index), 'answered-question': quesntionAnswered[question.number] }"
+      :class="stylesClasses(index, question)"
+      @click="setCurrentQuestion(index)"
     >
       <span>
         {{ index + 1 }}
@@ -14,21 +15,15 @@
 </template>
 
 <script>
-// import hasOwnProperty from '../helpers/hasOwnProperty'
-import { mapGetters, mapState } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'BreadcrumbsQuestions',
   computed: {
-    ...mapState('questions', {
-      currentIndex: 'current',
-      questions: 'all'
-    }),
-    ...mapState('student', {
-      answers: 'answers'
-    }),
-    ...mapGetters('questions', {
-      amountQuestions: 'amountQuestions'
+    ...mapGetters('quiz', {
+      questions: 'getQuestions',
+      answers: 'getAnswers',
+      currentQuestion: 'getCurrentQuestion'
     }),
     quesntionAnswered () {
       return this.questions.filter(question => {
@@ -37,6 +32,15 @@ export default {
         accumulated[current.number] = true
         return accumulated
       }, {})
+    }
+  },
+  methods: {
+    ...mapActions('quiz', ['setCurrentQuestion']),
+    stylesClasses (index, question) {
+      return {
+        'number-question-active': this.currentQuestion === (index),
+        'answered-question': this.answers.find(answer => answer.questionId === question.id)
+      }
     }
   }
 }
