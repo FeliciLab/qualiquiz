@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div
+    id="question-view-top-id"
+  >
     <b-container>
       <Header
         dark

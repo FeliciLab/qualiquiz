@@ -24,13 +24,13 @@
             >
               <div class="card mx-4">
                 <small class="text-center text-uppercase my-2">O que é?</small>
-                <h5 class="text-center font-weight-bolder text-uppercase txt-orange">
+                <h5 class="text-center font-weight-bolder text-uppercase txt-orange mx-3 mx-sm-0">
                   {{ nameQuiz }}
                 </h5>
                 <WelcomeBody>
                   <span v-html="content.bodyText"></span>
                 </WelcomeBody>
-                <p class="text-center px-5 f-12">
+                <p class="text-center px-5 f-12 mt-4">
                   {{content.text}}
                 </p>
               </div>
@@ -39,14 +39,16 @@
           <!-- If we need pagination -->
           <div class="swiper-pagination position-relative"></div>
         </div>
-        <Button
-          @click="showLoadingPage"
-          class="text-center mt-3"
-          id="formSubmit"
-          color="success"
-          label="Iniciar avaliação"
-          iconClass="icon-arrow-right"
-        />
+        <div class="py-4">
+          <Button
+            @click="showLoadingPage"
+            class="text-center"
+            id="formSubmit"
+            color="success"
+            label="Iniciar avaliação"
+            iconClass="icon-arrow-right"
+          />
+        </div>
       </b-container>
     </div>
   </div>

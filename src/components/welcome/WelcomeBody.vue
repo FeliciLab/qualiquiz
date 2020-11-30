@@ -1,9 +1,10 @@
 <template>
-  <div class="welcome-content">
-    <div class="welcome-sturcture">
-      <slot></slot>
+  <div class="welcome-body">
+    <div class="welcome-content">
+      <div class="welcome-sturcture">
+        <slot></slot>
+      </div>
     </div>
-
   </div>
 </template>
 
@@ -13,11 +14,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+  .welcome-body {
+    display: flex;
+    justify-content: center;
+  }
   .welcome-content {
-    margin-left: 5rem;
-    margin-right: 5rem;
-    margin-bottom: 2rem;
+    max-width: 90%;
     padding: 2rem;
     min-height: 300px;
     height: 100%;
@@ -31,5 +34,14 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  @media (max-width: 500px) {
+    .welcome-body {
+      padding: 0rem 1rem;
+    }
+    .welcome-sturcture {
+      font-size: 13pt;
+      letter-spacing: 2px;
+    }
   }
 </style>

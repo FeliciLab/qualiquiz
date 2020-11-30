@@ -2,13 +2,13 @@
   <div
     v-if="amountQuestions > 0"
     ref="currentQuestion"
-    class="animated faster fadeInLeft"
+    class="animated faster fadeIn"
   >
     <b-row>
       <b-col
         cols="12"
       >
-        <Question />
+        <Question/>
       </b-col>
     </b-row>
     <NavegationButton
@@ -42,27 +42,33 @@ export default {
     ...mapActions('quiz', {
       setCurrentQuestion: 'setCurrentQuestion'
     }),
+    toUp () {
+      const a = document.createElement('a')
+      a.href = '#question-view-top-id'
+      a.click()
+    },
     changeNext () {
-      this.$refs.currentQuestion.classList.value = 'animated faster fadeOutLeft'
-      setTimeout(() => {
-        if ((this.currentQuestion + 1) >= this.amountQuestions) {
-          this.$router.push({ name: 'Confirmation' })
-          return
-        }
-
-        this.setCurrentQuestion(this.currentQuestion + 1)
-        this.$refs.currentQuestion.classList.value = 'animated faster fadeInRight'
-      }, 600)
+      this.changeAnimation(this.currentQuestion + 1)
     },
     changePrevious () {
       if ((this.question.number - 1) <= 0) {
         return
       }
 
-      this.$refs.currentQuestion.classList.value = 'animated faster fadeOutRight'
+      this.changeAnimation(this.currentQuestion - 1)
+    },
+    changeAnimation (newCurrent) {
+      this.$refs.currentQuestion.classList.value = 'animated faster fadeOut'
+
       setTimeout(() => {
-        this.setCurrentQuestion(this.currentQuestion - 1)
-        this.$refs.currentQuestion.classList.value = 'animated faster fadeInLeft'
+        if ((newCurrent) >= this.amountQuestions) {
+          this.$router.push({ name: 'Confirmation' })
+          return
+        }
+
+        this.setCurrentQuestion(newCurrent)
+        this.$refs.currentQuestion.classList.value = 'animated faster fadeIn'
+        this.toUp()
       }, 600)
     }
   }
