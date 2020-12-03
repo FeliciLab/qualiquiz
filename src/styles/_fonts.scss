@@ -17,3 +17,18 @@
   font-family: 'OpenSans-SemiBold';
   src: local('OpenSans-SemiBold'), url('../assets/fonts/OpenSans-SemiBold.ttf')
 }
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Open Sans'), url('../assets/fonts/Roboto-Regular.ttf');
+} 
+
+@font-face {
+  font-family: 'Roboto-Italic';
+  src: local('Open Sans'), url('../assets/fonts/OpenSans-Italic.ttf');
+} 
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: local('Open Sans'), url('../assets/fonts/OpenSans-Bold.ttf');
+} 
