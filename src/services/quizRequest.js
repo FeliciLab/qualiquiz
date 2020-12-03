@@ -1,7 +1,7 @@
 const uri = {
   // dev: 'http://192.168.15.149:7000',
-  dev: 'https://apiisus.dev.org.br/api',
-  prod: 'https://apiisus.inova.esp.br/api/'
+  dev: 'https://apiisus.dev.org.br',
+  prod: 'https://apiisus.inova.esp.br'
 }
 export default {
   getQuiz: (id, devMode) => {
