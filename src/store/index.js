@@ -5,6 +5,7 @@ import student from './modules/student'
 import clock from './modules/clock'
 import authentication from './modules/authentication'
 import quiz from './modules/quiz'
+import application from './modules/application'
 import VuePersist from 'vuex-persist'
 
 Vue.use(Vuex)
@@ -21,7 +22,8 @@ export default new Vuex.Store({
     student,
     clock,
     authentication,
-    quiz
+    quiz,
+    application
   },
   state: {},
   mutations: {},

@@ -82,8 +82,8 @@ export default {
     initTestQuiz: ({ dispatch }) => {
       dispatch('setQuizData', quizTest)
     },
-    initQuiz: ({ dispatch }, codQuiz) => {
-      return quizRequest.getQuiz(codQuiz)
+    initQuiz: ({ dispatch }, { codQuiz, devMode }) => {
+      return quizRequest.getQuiz(codQuiz, devMode)
         .then(result => {
           dispatch('setQuizData', result)
         })
@@ -115,7 +115,7 @@ export default {
       commit('SET_ANSWERS', [])
       commit('SET_CURRENT_QUESTION', 0)
     },
-    saveAnswers (context, token) {
+    saveAnswers (context, { token, devMode }) {
       quizRequest.postAnswers(
         context.state.answers.map(item => {
           return {
@@ -124,7 +124,8 @@ export default {
             alternativaId: item.alternativeId
           }
         }),
-        token
+        token,
+        devMode
       )
     }
   }

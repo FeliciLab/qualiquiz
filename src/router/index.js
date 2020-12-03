@@ -51,7 +51,18 @@ const routes = [
   {
     path: '/isus/login/:codQuiz/:authToken',
     name: 'IsusLogin',
-    component: IsusLogin
+    component: IsusLogin,
+    meta: {
+      dev: false
+    }
+  },
+  {
+    path: '/dev/isus/login/:codQuiz/:authToken',
+    name: 'IsusLoginDev',
+    component: IsusLogin,
+    meta: {
+      dev: true
+    }
   },
   {
     path: '/error',

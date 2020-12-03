@@ -87,7 +87,8 @@ export default {
     }),
     ...mapGetters('authentication', {
       token: 'getToken'
-    })
+    }),
+    ...mapGetters('application', ['getDevelopment'])
   },
   methods: {
     ...mapActions('quiz', ['saveAnswers']),
@@ -101,7 +102,7 @@ export default {
         return
       }
 
-      this.saveAnswers(this.token)
+      this.saveAnswers({ token: this.token, devMode: this.getDevelopment })
         .then(() => {
           this.$router.push({ name: 'Success' })
         })

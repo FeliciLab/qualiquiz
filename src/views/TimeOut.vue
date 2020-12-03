@@ -50,12 +50,13 @@ export default {
     }),
     ...mapGetters('authentication', {
       token: 'getToken'
-    })
+    }),
+    ...mapGetters('application', ['getDevelopment'])
   },
   methods: {
     ...mapActions('quiz', ['saveAnswers']),
     sendAnswers () {
-      this.saveAnswers(this.token)
+      this.saveAnswers({ token: this.token, devMode: this.getDevelopment })
         .then(() => {
           this.redirectConfirmation()
         })
