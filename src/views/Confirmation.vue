@@ -106,7 +106,6 @@ export default {
         .then(() => {
           this.$router.push({ name: 'Success' })
         })
-        .catch(err => console.log(err))
     }
   }
 }

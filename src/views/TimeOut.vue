@@ -60,7 +60,6 @@ export default {
         .then(() => {
           this.redirectConfirmation()
         })
-        .catch(err => console.log(err))
     },
     redirectConfirmation () {
       setTimeout(() => {
