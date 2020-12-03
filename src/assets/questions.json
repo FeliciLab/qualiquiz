@@ -1,236 +1,283 @@
 {
-  "questions": [
+  "id": 0,
+  "quiz": "Quiz de exemplo de teste",
+  "tempo_limite": 5,
+  "questoes": [
     {
-      "question": "Casal adota uma criança de nove meses de idade e solicitam orientação sobre que vacinas a criança deve realizar, já que a mesma somente recebeu as vacinas aplicadas na maternidade. De acordo com o Programa Nacional de Imunização-PNI, quais vacinas devem ser indicadas pela equipe da UAPS?",
-      "answer": "A",
-      "number": 1,
-      "alternatives": [
+      "id": 1,
+      "ordem": 1,
+      "questao": "Casal adota uma criança de nove meses de idade e solicitam orientação sobre que vacinas a criança deve realizar, já que a mesma somente recebeu as vacinas aplicadas na maternidade. De acordo com o Programa Nacional de Imunização-PNI, quais vacinas devem ser indicadas pela equipe da UAPS?",
+      "alternativas": [
         {
-          "character": "A",
-          "answer": "Penta (3 doses), Poliomielite 1, 2 e 3 – VOP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses)."
+          "id": 1,
+          "alternativa": "Penta (3 doses), Poliomielite 1, 2 e 3 – VOP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses).",
+          "ordem": 1
         },
         {
-          "character": "B",
-          "answer": "Penta (3 doses), Rotavírus (2 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses)."
+          "id": 2,
+          "ordem": 2,
+          "alternativa": "Penta (3 doses), Rotavírus (2 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses)."
         },
         {
-          "character": "C",
-          "answer": "Penta (3 doses), Rotavírus (2 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses)."
+          "id": 3,
+          "ordem": 3,
+          "alternativa": "Penta (3 doses), Rotavírus (2 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses)."
         },
         {
-          "character": "D",
-          "answer": "Penta (3 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses)."
+          "id": 4,
+          "ordem": 4,
+          "alternativa": "Penta (3 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses)."
         },
         {
-          "character": "E",
-          "answer": "Penta (3 doses), Poliomielite Salk – VIP (1 doses), Pneumocócica 10 (1 doses) e Meningocócica C (1 doses)."
+          "id": 5,
+          "ordem": 5,
+          "alternativa": "Penta (3 doses), Poliomielite Salk – VIP (1 doses), Pneumocócica 10 (1 doses) e Meningocócica C (1 doses)."
         }
       ]
     },
     {
-      "question": "Câncer de pulmão é um tumor maligno que se inicia em um dos pulmões. O principal fator de risco é o tabagismo. A principal maneira de se prevenir o câncer de pulmão é evitando o tabagismo. No prevenção / redução da mortalidade são necessários exames complementares de alta complexidade e custo. A carga tabágica ajuda na indicação desses exames. Como se realiza o cálculo da carga tabágica?",
-      "answer": "A",
-      "number": 2,
-      "alternatives": [
+      "questao": "Câncer de pulmão é um tumor maligno que se inicia em um dos pulmões. O principal fator de risco é o tabagismo. A principal maneira de se prevenir o câncer de pulmão é evitando o tabagismo. No prevenção / redução da mortalidade são necessários exames complementares de alta complexidade e custo. A carga tabágica ajuda na indicação desses exames. Como se realiza o cálculo da carga tabágica?",
+      "id": 2,
+      "ordem": 2,
+      "alternativas": [
         {
-          "character": "A",
-          "answer": "Multiplicação do número de maços fumados por dia pelo número de anos de tabagismo."
+          "id": 6,
+          "ordem": 1,
+          "alternativa": "Multiplicação do número de maços fumados por dia pelo número de anos de tabagismo."
         },
         {
-          "character": "B",
-          "answer": "Preço do maço de cigarro somado ao número de maços de cigarros multiplicado pelos anos de uso do fumo."
+          "id": 7,
+          "ordem": 2,
+          "alternativa": "Preço do maço de cigarro somado ao número de maços de cigarros multiplicado pelos anos de uso do fumo."
         },
         {
-          "character": "C",
-          "answer": "Número de maços fumados por dia, dividido por 20 e multiplicado pelos anos de tabagismo."
+          "id": 8,
+          "ordem": 3,
+          "alternativa": "Número de maços fumados por dia, dividido por 20 e multiplicado pelos anos de tabagismo."
         },
         {
-          "character": "D",
-          "answer": "Idade do paciente multiplicado pelo número de maços de cigarros fumados por dia. "
+          "id": 9,
+          "ordem": 4,
+          "alternativa": "Idade do paciente multiplicado pelo número de maços de cigarros fumados por dia. "
         }
       ]
     },
     {
-      "question": "M.A.R., 25 anos, 28 semanas de gestação, GII PI A0, teve ITU diagnosticada na consulta anterior e usou cefalexina 500mg de 6 em 6 horas por 7 dias conforme orientação de seu MFC. Traz exames realizados 10 dias após o término do tratamento: sumário de urina normal, cultura de urina com presença de E. coli com mais de 100000 colônias. Exame físico sem alterações, sem queixas. Qual a conduta adequada?/ redução da mortalidade são necessários exames complementares de alta complexidade e custo. A carga tabágica ajuda na indicação desses exames. Como se realiza o cálculo da carga tabágica?",
-      "answer": "B",
-      "number": 3,
-      "alternatives": [
+      "questao": "M.A.R., 25 anos, 28 semanas de gestação, GII PI A0, teve ITU diagnosticada na consulta anterior e usou cefalexina 500mg de 6 em 6 horas por 7 dias conforme orientação de seu MFC. Traz exames realizados 10 dias após o término do tratamento: sumário de urina normal, cultura de urina com presença de E. coli com mais de 100000 colônias. Exame físico sem alterações, sem queixas. Qual a conduta adequada?/ redução da mortalidade são necessários exames complementares de alta complexidade e custo. A carga tabágica ajuda na indicação desses exames. Como se realiza o cálculo da carga tabágica?",
+      "alternativa": "B",
+      "ordem": 3,
+      "id": 3,
+      "alternativas": [
         {
-          "character": "A",
-          "answer": "Confirmar a infecção do trato urinário com nova urinocultura e iniciar profilaxia com nitrofurantoína 100mg/dia até o final da gestação. "
+          "id": 10,
+          "ordem": 1,
+          "alternativa": "Confirmar a infecção do trato urinário com nova urinocultura e iniciar profilaxia com nitrofurantoína 100mg/dia até o final da gestação. "
         },
         {
-          "character": "B",
-          "answer": "Fazer novo ciclo de antibiótico e iniciar profilaxia com nitrofurantoína 100mg de 6 em 6 horas até o final da gestação. "
+          "id": 11,
+          "ordem": 2,
+          "alternativa": "Fazer novo ciclo de antibiótico e iniciar profilaxia com nitrofurantoína 100mg de 6 em 6 horas até o final da gestação. "
         },
         {
-          "character": "C",
-          "answer": "Confirmar a infecção do trato urinário com nova urinocultura e encaminhar para o pré-natal de alto risco. "
+          "id": 12,
+          "ordem": 3,
+          "alternativa": "Confirmar a infecção do trato urinário com nova urinocultura e encaminhar para o pré-natal de alto risco. "
         },
         {
-          "character": "D",
-          "answer": "Fazer novo ciclo de antibiótico com posterior urinocultura, iniciar profilaxia com nitrofurantoína 100mg/dia até o final da gestação. "
+          "id": 13,
+          "ordem": 4,
+          "alternativa": "Fazer novo ciclo de antibiótico com posterior urinocultura, iniciar profilaxia com nitrofurantoína 100mg/dia até o final da gestação. "
         }
       ]
     },
     {
-      "question": "E.G., 3 anos 7 meses de idade, acompanhado de sua mãe. Relata que no último mês, a criança tem apresentado episódios de tosse, chiado no peito e cansaço pelo menos 3 a 4x/semana. Diz também acordar com muita tosse pelo menos 1x/semana, mesmo sem estar dispneico. Quando ele cansa, o leva na emergência, onde fazem uma medicação endovenosa e nebulização com aerossol, e prescrevem para casa prednisolona e salbutamol de 4/4h por 5 dias. Falta a creche com frequência. A atual crise começou há 4 horas. Nascido de parto vaginal, a termo, peso: 2580g, APGAR 9/10, sem intercorrências; acorda espirrando, coça o nariz com frequência e desde os 3 meses apresenta pele áspera em dobras; sua mãe cansava na infância e seu pai espirra com frequência; mora com a avó fumante (25 cigarros/dia) que cria um gato e 2 cachorros. Peso: 16,4kg; EGB; dispneico leve, alerta, afebril; Pele: Lesões descamativas em dobras; AC RCR, 2T, BNF, s/s FC: 104bpm; AP MVU com roncos difusos e sibilos esparso, tiragem subcostal leve. FR: 30irpm SatO2 95%; Abdome: flácido, indolor à palpação, sem VMGs; EXT ppp, s/ edemas ou cianose. E.G. foi avaliado pelo médico da UAPS. Com relação ao caso de E.G., o tratamento deve envolver:",
-      "answer": "A",
-      "number": 4,
-      "alternatives": [
+      "questao": "E.G., 3 anos 7 meses de idade, acompanhado de sua mãe. Relata que no último mês, a criança tem apresentado episódios de tosse, chiado no peito e cansaço pelo menos 3 a 4x/semana. Diz também acordar com muita tosse pelo menos 1x/semana, mesmo sem estar dispneico. Quando ele cansa, o leva na emergência, onde fazem uma medicação endovenosa e nebulização com aerossol, e prescrevem para casa prednisolona e salbutamol de 4/4h por 5 dias. Falta a creche com frequência. A atual crise começou há 4 horas. Nascido de parto vaginal, a termo, peso: 2580g, APGAR 9/10, sem intercorrências; acorda espirrando, coça o nariz com frequência e desde os 3 meses apresenta pele áspera em dobras; sua mãe cansava na infância e seu pai espirra com frequência; mora com a avó fumante (25 cigarros/dia) que cria um gato e 2 cachorros. Peso: 16,4kg; EGB; dispneico leve, alerta, afebril; Pele: Lesões descamativas em dobras; AC RCR, 2T, BNF, s/s FC: 104bpm; AP MVU com roncos difusos e sibilos esparso, tiragem subcostal leve. FR: 30irpm SatO2 95%; Abdome: flácido, indolor à palpação, sem VMGs; EXT ppp, s/ edemas ou cianose. E.G. foi avaliado pelo médico da UAPS. Com relação ao caso de E.G., o tratamento deve envolver:",
+      "id": 4,
+      "ordem": 4,
+      "alternativas": [
         {
-          "character": "A",
-          "answer": "Classificação e tratamento da crise de asma na própria UAPS; início do tratamento de manutenção; retorno em até 30 dias. "
+          "id": 14,
+          "ordem": 1,
+          "alternativa": "Classificação e tratamento da crise de asma na própria UAPS; início do tratamento de manutenção; retorno em até 30 dias. "
         },
         {
-          "character": "B",
-          "answer": "Encaminhamento para a unidade de urgência/emergência mais próxima, o mais breve possível, pelo caráter de gravidade do caso. "
+          "id": 15,
+          "ordem": 2,
+          "alternativa": "Encaminhamento para a unidade de urgência/emergência mais próxima, o mais breve possível, pelo caráter de gravidade do caso. "
         },
         {
-          "character": "C",
-          "answer": "Tratamento da dispneia na própria UAPS e solicitação de exames para definição diagnóstica para posterior tratamento definitivo. "
+          "id": 16,
+          "ordem": 3,
+          "alternativa": "Tratamento da dispneia na própria UAPS e solicitação de exames para definição diagnóstica para posterior tratamento definitivo. "
         },
         {
-          "character": "D",
-          "answer": "Classificação e tratamento da crise de asma na própria UAPS; encaminhamento para pneumopediatra. "
+          "id": 17,
+          "ordem": 4,
+          "alternativa": "Classificação e tratamento da crise de asma na própria UAPS; encaminhamento para pneumopediatra. "
         }
       ]
     },
     {
-      "question": "A Territorialização é um processo do planejamento em saúde que orienta os profissionais sobre características do local em que atuam. Sobre esse termo e seus desdobramentos, qual a afirmativa correta? ",
-      "answer": "B",
-      "number": 5,
-      "alternatives": [
+      "questao": "A Territorialização é um processo do planejamento em saúde que orienta os profissionais sobre características do local em que atuam. Sobre esse termo e seus desdobramentos, qual a afirmativa correta? ",
+      "alternativa": "B",
+      "ordem": 5,
+      "id": 5,
+      "alternativas": [
         {
-          "character": "A",
-          "answer": "É necessário trabalhar com informantes locais para mapear lideranças comunitárias e discutir o serviço a ser oferecido com base na opinião destas e suas necessidades e desejos. "
+          "id": 18,
+          "ordem": 1,
+          "alternativa": "É necessário trabalhar com informantes locais para mapear lideranças comunitárias e discutir o serviço a ser oferecido com base na opinião destas e suas necessidades e desejos. "
         },
         {
-          "character": "B",
-          "answer": "É preciso discutir as características demográficas, sociais e epidemiológicas de uma população em um território, compreendendo a dinâmica local, rede social e identificando lideranças.  "
+          "id": 19,
+          "ordem": 2,
+          "alternativa": "É preciso discutir as características demográficas, sociais e epidemiológicas de uma população em um território, compreendendo a dinâmica local, rede social e identificando lideranças.  "
         },
         {
-          "character": "C",
-          "answer": "É essencial desenhar um mapa da área manualmente ou com o auxílio de softwares, mantendo o foco no estudo da geografia local. "
+          "id": 20,
+          "ordem": 3,
+          "alternativa": "É essencial desenhar um mapa da área manualmente ou com o auxílio de softwares, mantendo o foco no estudo da geografia local. "
         },
         {
-          "character": "D",
-          "answer": "O planejamento estratégico das ações deve ser realizado antes da coleta dos dados, para direcionar a busca no território dos agravos que geram maior morbimortalidade. "
+          "id": 21,
+          "ordem": 4,
+          "alternativa": "O planejamento estratégico das ações deve ser realizado antes da coleta dos dados, para direcionar a busca no território dos agravos que geram maior morbimortalidade. "
         }
       ]
     },
     {
-      "question": "A série histórica da taxa de mortalidade infantil em Fortaleza mostra uma redução nos últimos anos, mas há ainda muitos desafios a serem enfrentados, considerando que esse indicador possui muitos determinantes. Assinale a alternativa que contém o componente da taxa de mortalidade infantil que obteve a maior redução nesse período e ações que contribuíram para essa redução.",
-      "answer": "B",
-      "number": 6,
-      "alternatives": [
+      "questao": "A série histórica da taxa de mortalidade infantil em Fortaleza mostra uma redução nos últimos anos, mas há ainda muitos desafios a serem enfrentados, considerando que esse indicador possui muitos determinantes. Assinale a alternativa que contém o componente da taxa de mortalidade infantil que obteve a maior redução nesse período e ações que contribuíram para essa redução.",
+      "alternativa": "B",
+      "ordem": 6,
+      "id": 6,
+      "alternativas": [
         {
-          "character": "A",
-          "answer": "Mortalidade Infantil Neonatal Tardia – melhoria na qualidade do parto, pré-natal, puericultura e vacinação. "
+          "id": 22,
+          "ordem": 1,
+          "alternativa": "Mortalidade Infantil Neonatal Tardia – melhoria na qualidade do parto, pré-natal, puericultura e vacinação. "
         },
         {
-          "character": "B",
-          "answer": "Mortalidade Infantil pós-neonatal-melhoria das condições de vida, saneamento básico, vacinação, incentivo à amamentação e terapia de reidratação oral. "
+          "id": 23,
+          "ordem": 2,
+          "alternativa": "Mortalidade Infantil pós-neonatal-melhoria das condições de vida, saneamento básico, vacinação, incentivo à amamentação e terapia de reidratação oral. "
         },
         {
-          "character": "C",
-          "answer": "Mortalidade Infantil Neonatal Precoce – melhoria na qualidade do parto e pré-natal, vacinação, uso de antibiótico e incentivo à amamentação. "
+          "id": 24,
+          "ordem": 3,
+          "alternativa": "Mortalidade Infantil Neonatal Precoce – melhoria na qualidade do parto e pré-natal, vacinação, uso de antibiótico e incentivo à amamentação. "
         },
         {
-          "character": "D",
-          "answer": "Mortalidade Infantil Neonatal - melhoria na qualidade do parto, pré-natal, teste do pezinho e expansão da Estratégia de Saúde da Família. "
+          "id": 25,
+          "ordem": 4,
+          "alternativa": "Mortalidade Infantil Neonatal - melhoria na qualidade do parto, pré-natal, teste do pezinho e expansão da Estratégia de Saúde da Família. "
         }
       ]
     },
     {
-      "question": "(baseada na prova de Título de Especialista em Pediatria-TEP 2018) Mãe em amamentação exclusiva chega ao consultório com seu filho de 15 dias de vida queixando-se de fissura em mama direita com sangramento local. G1P1, peso de nascimento: 3.500g. Peso atual: 3.650g. A conduta nesse caso é:",
-      "answer": "D",
-      "number": 7,
-      "alternatives": [
+      "questao": "(baseada na prova de Título de Especialista em Pediatria-TEP 2018) Mãe em amamentação exclusiva chega ao consultório com seu filho de 15 dias de vida queixando-se de fissura em mama direita com sangramento local. G1P1, peso de nascimento: 3.500g. Peso atual: 3.650g. A conduta nesse caso é:",
+      "id": 7,
+      "ordem": 7,
+      "alternativas": [
         {
-          "character": "A",
-          "answer": "Interromper a amamentação e substituir por fórmula infantil adequada para idade. "
+          "id": 26,
+          "ordem": 1,
+          "alternativa": "Interromper a amamentação e substituir por fórmula infantil adequada para idade. "
         },
         {
-          "character": "B",
-          "answer": "Interromper a amamentação somente na mama que sangra. "
+          "id": 27,
+          "ordem": 2,
+          "alternativa": "Interromper a amamentação somente na mama que sangra. "
         },
         {
-          "character": "C",
-          "answer": "Manter a amamentação e complementar com fórmula infantil, até melhora do peso. "
+          "id": 28,
+          "ordem": 3,
+          "alternativa": "Manter a amamentação e complementar com fórmula infantil, até melhora do peso. "
         },
         {
-          "character": "D",
-          "answer": "Manter a amamentação e orientar pega adequada. "
+          "id": 29,
+          "ordem": 4,
+          "alternativa": "Manter a amamentação e orientar pega adequada. "
         }
       ]
     },
     {
-      "question": "João, 15 anos consulta com seu médico de família devido “estar mais baixo que seus colegas”. João é ótimo alunos e gosta de jogar no celular. Nasceu com 3000 gramas e o crescimento esteve dentro das curvas até 3 anos. O pai possui estatura de 1,65 m e a mãe de 1,55 m. Após esse período o crescimento desacelerou. Ao examinar o adolescente o médico observou: Estatura: 1,50; Peso: 45 Kg; Estadiamento de Tanner: P1, G1; Volume testicular: 2,8 ml. Analisando o caso acima assinale a alternativa correta:",
-      "answer": "C",
-      "number": 8,
-      "alternatives": [
+      "questao": "João, 15 anos consulta com seu médico de família devido “estar mais baixo que seus colegas”. João é ótimo alunos e gosta de jogar no celular. Nasceu com 3000 gramas e o crescimento esteve dentro das curvas até 3 anos. O pai possui estatura de 1,65 m e a mãe de 1,55 m. Após esse período o crescimento desacelerou. Ao examinar o adolescente o médico observou: Estatura: 1,50; Peso: 45 Kg; Estadiamento de Tanner: P1, G1; Volume testicular: 2,8 ml. Analisando o caso acima assinale a alternativa correta:",
+      "id": 8,
+      "ordem": 8,
+      "alternativas": [
         {
-          "character": "A",
-          "answer": "O médico deve investigar Síndrome de Turner apenas após de avaliação mais detalhada do perfil hormonal. "
+          "id": 30,
+          "ordem": 1,
+          "alternativa": "O médico deve investigar Síndrome de Turner apenas após de avaliação mais detalhada do perfil hormonal. "
         },
         {
-          "character": "B",
-          "answer": "O volume testicular deve ser medido através de ultra som de testículos. "
+          "id": 31,
+          "ordem": 2,
+          "alternativa": "O volume testicular deve ser medido através de ultra som de testículos. "
         },
         {
-          "character": "C",
-          "answer": "A hipótese de atraso puberal constitucional deve ser considerada. "
+          "id": 32,
+          "ordem": 3,
+          "alternativa": "A hipótese de atraso puberal constitucional deve ser considerada. "
         },
         {
-          "character": "D",
-          "answer": "O Auxograma pode ser construído com os dados antropométricos disponíveis "
+          "id": 33,
+          "ordem": 4,
+          "alternativa": "O Auxograma pode ser construído com os dados antropométricos disponíveis "
         }
       ]
     },
     {
-      "question": "Lactente de 6 meses de idade em aleitamento materno exclusivo foi levado para consulta de rotina na UAPS. Ele apresenta crescimento e desenvolvimento adequados para idade, sem alterações no exame físico. Considerando as orientações para ALIMENTAÇÃO SAUDÁVEL do Ministério da Saúde, qual a melhor orientação nutricional para esse lactente?",
-      "answer": "A",
-      "number": 9,
-      "alternatives": [
+      "questao": "Lactente de 6 meses de idade em aleitamento materno exclusivo foi levado para consulta de rotina na UAPS. Ele apresenta crescimento e desenvolvimento adequados para idade, sem alterações no exame físico. Considerando as orientações para ALIMENTAÇÃO SAUDÁVEL do Ministério da Saúde, qual a melhor orientação nutricional para esse lactente?",
+      "ordem": 9,
+      "id": 9,
+      "alternativas": [
         {
-          "character": "A",
-          "answer": "Manter o aleitamento materno exclusivo, pois a criança apresenta adequado crescimento e desenvolvimento. "
+          "id": 34,
+          "ordem": 1,
+          "alternativa": "Manter o aleitamento materno exclusivo, pois a criança apresenta adequado crescimento e desenvolvimento. "
         },
         {
-          "character": "B",
-          "answer": "Introduzir formula infantil e na dependência da aceitação da criança, complementar com frutas e papinha salgada. "
+          "id": 35,
+          "ordem": 2,
+          "alternativa": "Introduzir formula infantil e na dependência da aceitação da criança, complementar com frutas e papinha salgada. "
         },
         {
-          "character": "C",
-          "answer": "Manter o aleitamento materno, introduzindo suco de frutas 1 vez ao dia e logo em seguida (2 semanas após) a papinha de legumes no horário do almoço. "
+          "id": 36,
+          "ordem": 3,
+          "alternativa": "Manter o aleitamento materno, introduzindo suco de frutas 1 vez ao dia e logo em seguida (2 semanas após) a papinha de legumes no horário do almoço. "
         },
         {
-          "character": "D",
-          "answer": "Manter o aleitamento materno e introduzir alimentos complementares 3 vezes ao dia, preferencialmente com uso de dieta espessada, ofertada de colher. "
+          "id": 37,
+          "ordem": 4,
+          "alternativa": "Manter o aleitamento materno e introduzir alimentos complementares 3 vezes ao dia, preferencialmente com uso de dieta espessada, ofertada de colher. "
         }
       ]
     },
     {
-      "question": "(Baseada no Processo Seletivo do ARES-2018) Casal adota uma criança de nove meses de idade e solicitam orientação sobre que vacinas a criança deve realizar, já que a mesma somente recebeu as vacinas aplicadas na maternidade. De acordo com o Programa Nacional de Imunização-PNI, quais vacinas devem ser indicadas pela equipe da UAPS?",
-      "answer": "B",
-      "number": 10,
-      "alternatives": [
+      "questao": "(Baseada no Processo Seletivo do ARES-2018) Casal adota uma criança de nove meses de idade e solicitam orientação sobre que vacinas a criança deve realizar, já que a mesma somente recebeu as vacinas aplicadas na maternidade. De acordo com o Programa Nacional de Imunização-PNI, quais vacinas devem ser indicadas pela equipe da UAPS?",
+      "id": 10,
+      "ordem": 10,
+      "alternativas": [
         {
-          "character": "A",
-          "answer": "Penta (3 doses), Rotavírus (2 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses). "
+          "id": 38,
+          "ordem": 1,
+          "alternativa": "Penta (3 doses), Rotavírus (2 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses). "
         },
         {
-          "character": "B",
-          "answer": "Penta (3 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses). "
+          "id": 39,
+          "ordem": 2,
+          "alternativa": "Penta (3 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses). "
         },
         {
-          "character": "C",
-          "answer": "Penta (3 doses), Rotavírus (2 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses). "
+          "id": 40,
+          "ordem": 3,
+          "alternativa": "Penta (3 doses), Rotavírus (2 doses), Poliomielite Salk – VIP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses). "
         },
         {
-          "character": "D",
-          "answer": "Penta (3 doses), Poliomielite 1, 2 e 3 – VOP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses). "
+          "id": 41,
+          "ordem": 4,
+          "alternativa": "Penta (3 doses), Poliomielite 1, 2 e 3 – VOP (3 doses), Pneumocócica 10 (2 doses) e Meningocócica C (2 doses). "
         }
       ]
     }

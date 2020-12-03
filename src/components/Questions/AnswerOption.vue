@@ -1,36 +1,62 @@
 <template>
   <button
     ref="button-alternative"
-    class="alternative my-2"
-    @click="$emit('click', answerOption.character)"
+    class="alternative my-2 w-100"
+    @click="$emit('click', alternative.id)"
+    :class="{ chosen: answerTrue() }"
   >
     <b-row class="py-2">
       <b-col
         cols=2
         class="character"
       >
-        {{ answerOption.character }}
+        {{ caracterAlternative }}
       </b-col>
       <b-col cols=10 class="text-left">
-        {{ answerOption.answer }}
+        {{ alternative.alternativa }}
       </b-col>
     </b-row>
   </button>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'AnswerOption',
   props: {
-    answerOption: {
+    alternative: {
       required: true,
       type: Object
-    },
-    answered: {}
+    }
   },
   watch: {
-    answered () {
-      if (this.answered && this.answerOption.character === this.answered.answer) {
+    getAnswers () {
+      this.focusAlternative()
+    },
+    alternative () {
+      this.focusAlternative()
+    }
+  },
+  computed: {
+    ...mapGetters('quiz', {
+      getAnswers: 'getAnswers',
+      question: 'getQuestion'
+    }),
+    caracterAlternative () {
+      const options = ['A', 'B', 'C', 'D', 'E']
+      return options[(this.alternative.ordem - 1)]
+    }
+  },
+  methods: {
+    answerTrue () {
+      return this.getAnswers
+        .find(answer => answer.questionId === this.question.id &&
+          answer.alternativeId === this.alternative.id
+        )
+    },
+    focusAlternative () {
+      if (this.answerTrue()) {
         this.$refs['button-alternative'].focus()
       }
     }
@@ -45,6 +71,13 @@ export default {
   .character {
     font-family: OpenSans-Bold;
     font-size: 2.5rem;
+  }
+
+  .chosen {
+    outline: none;
+    color: $forest-green !important;
+    border: 1px solid $forest-green;
+    border-radius: 6px;
   }
 
   .alternative {

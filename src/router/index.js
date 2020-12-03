@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Welcome from '../views/Welcome.vue'
-import Question from '../views/Question.vue'
+import Home from '../views/Home.vue'
+import QuestionView from '../views/QuestionView.vue'
 import Success from '../views/Success.vue'
 import Confirmation from '../views/Confirmation.vue'
 import Loading from '../components/Loading.vue'
@@ -14,8 +15,8 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'WelcomeLogin',
-    component: Welcome
+    name: 'Home',
+    component: Home
   },
   {
     path: '/welcome',
@@ -25,7 +26,7 @@ const routes = [
   {
     path: '/question',
     name: 'Question',
-    component: Question
+    component: QuestionView
   },
   {
     path: '/loading',
@@ -50,7 +51,18 @@ const routes = [
   {
     path: '/isus/login/:codQuiz/:authToken',
     name: 'IsusLogin',
-    component: IsusLogin
+    component: IsusLogin,
+    meta: {
+      dev: false
+    }
+  },
+  {
+    path: '/dev/isus/login/:codQuiz/:authToken',
+    name: 'IsusLoginDev',
+    component: IsusLogin,
+    meta: {
+      dev: true
+    }
   },
   {
     path: '/error',
