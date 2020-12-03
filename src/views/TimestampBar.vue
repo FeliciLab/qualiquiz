@@ -21,6 +21,11 @@ import moment from 'moment'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'TimestampBar',
+  data () {
+    return {
+      interval: ''
+    }
+  },
   computed: {
     ...mapGetters('clock', {
       finishTime: 'finishTime',
@@ -29,14 +34,20 @@ export default {
       minuteLimit: 'minuteLimit'
     })
   },
-  created () {
-    if (!this.finishTime) {
-      this.setFinishTime(moment().add('10', 'm'))
-    }
+  destroyed () {
+    clearInterval(this.interval)
   },
   mounted () {
-    setInterval(() => {
-      this.setTimeLeft(this.finishTime.diff(moment(), 'minutes'))
+    if (this.finishTime === false) {
+      this.setFinishTime(moment().add(this.minuteLimit, 'm'))
+      this.setTimeLeft(this.minuteLimit)
+    }
+
+    this.interval = setInterval(() => {
+      if (this.timeLeft > moment(this.finishTime).diff(moment(), 'minutes')) {
+        this.setTimeLeft(moment(this.finishTime).diff(moment(), 'minutes'))
+      }
+
       if (this.timeLeft <= 0) {
         this.$router.push('/timeout')
       }

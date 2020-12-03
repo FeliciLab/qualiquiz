@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-show="showLoading">
-      <Loading></Loading>
+      <Loading />
     </div>
     <div v-show="!showLoading" class="animated fadeIn position-absolute background">
       <b-container>
@@ -64,10 +64,11 @@
 </style>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import Loading from '../components/Loading'
-import { mapGetters } from 'vuex'
+
 export default {
   components: {
     Button, Header, Loading
@@ -79,20 +80,33 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('questions', {
-      amountQuestions: 'amountQuestions'
+    ...mapGetters('quiz', {
+      amountQuestions: 'getNumberOfQuestions',
+      amountAnswers: 'getNumberOfAnswers',
+      id: 'getId'
     }),
-    ...mapGetters('student', {
-      amountAnswers: 'amountAnswers'
-    })
+    ...mapGetters('authentication', {
+      token: 'getToken'
+    }),
+    ...mapGetters('application', ['getDevelopment'])
   },
   methods: {
-
+    ...mapActions('quiz', ['saveAnswers']),
     showLoadingPage () {
       this.showLoading = true
-      setTimeout(() => {
-        this.$router.push({ name: 'Success' })
-      }, 3000)
+      if (this.id === 0) {
+        setTimeout(() => {
+          this.$router.push({ name: 'Success' })
+        }, 1000)
+
+        return
+      }
+
+      this.saveAnswers({ token: this.token, devMode: this.getDevelopment })
+        .then(() => {
+          this.$router.push({ name: 'Success' })
+        })
+        .catch(err => console.log(err))
     }
   }
 }

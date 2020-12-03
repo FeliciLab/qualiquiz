@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div
+    id="question-view-top-id"
+  >
     <b-container>
       <Header
         dark
-        :title="`Questão ${currentIndex} / ${amountQuestions}`"
+        :title="`Questão ${currentQuestion + 1} / ${numberOfQuestions}`"
       />
       <b-row>
         <b-col cols=12>
@@ -11,31 +13,30 @@
           <BreadcrumbsQuestions/>
         </b-col>
       </b-row>
-      <Questions/>
+      <QuestionsList />
     </b-container>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 import Header from '../components/Header'
-import Questions from '../components/Questions/Questions'
 import BreadcrumbsQuestions from '../components/BreadcrumbsQuestions'
+import QuestionsList from '../components/Questions/QuestionsList'
 import TimestampBar from './TimestampBar'
 
 export default {
+  name: 'QuestionView',
   components: {
     TimestampBar,
     Header,
-    Questions,
-    BreadcrumbsQuestions
+    BreadcrumbsQuestions,
+    QuestionsList
   },
   computed: {
-    ...mapState('questions', {
-      currentIndex: 'current'
-    }),
-    ...mapGetters('questions', {
-      amountQuestions: 'amountQuestions'
+    ...mapGetters('quiz', {
+      numberOfQuestions: 'getNumberOfQuestions',
+      currentQuestion: 'getCurrentQuestion'
     })
   }
 }

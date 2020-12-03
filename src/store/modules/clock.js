@@ -1,7 +1,7 @@
 export default {
   namespaced: true,
   state: {
-    minuteLimit: 10,
+    minuteLimit: 0,
     timeLeft: 0,
     finishTime: false,
     percent: ''
@@ -19,7 +19,9 @@ export default {
     }
   },
   mutations: {
-    // escreve Caixa alta separadas por _
+    SET_MINUTE_LIMIT: (state, limit) => {
+      state.minuteLimit = limit
+    },
     SET_TIME_LEFT: (state, timeLeft) => {
       state.timeLeft = timeLeft
     },
@@ -33,6 +35,9 @@ export default {
     },
     setFinishTime: ({ commit }, finishTime) => {
       commit('SET_FINISH_TIME', finishTime)
+    },
+    setMinuteLimit: ({ commit }, limit) => {
+      commit('SET_MINUTE_LIMIT', limit)
     }
   }
 }
