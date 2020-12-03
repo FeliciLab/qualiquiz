@@ -1,4 +1,4 @@
-  npm run build
+  yarn build
   cd dist
   git init
   git remote add origin https://github.com/EscolaDeSaudePublica/qualiz-saude.git
