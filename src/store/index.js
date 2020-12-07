@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import questions from './modules/questions'
-import student from './modules/student'
 import clock from './modules/clock'
 import authentication from './modules/authentication'
 import quiz from './modules/quiz'
@@ -18,8 +16,6 @@ const vuePersistStorage = new VuePersist({
 export default new Vuex.Store({
   plugins: [vuePersistStorage.plugin],
   modules: {
-    questions,
-    student,
     clock,
     authentication,
     quiz,

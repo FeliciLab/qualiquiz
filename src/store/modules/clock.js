@@ -1,32 +1,40 @@
+import moment from 'moment'
+
 export default {
   namespaced: true,
   state: {
-    minuteLimit: 0,
+    startTime: moment(),
+    secondLimit: 0,
     timeLeft: 0,
     finishTime: false,
     percent: ''
   },
   getters: {
-    // O parametro é a state
     finishTime: state => state.finishTime,
-    minuteLimit: state => state.minuteLimit,
+    secondLimit: state => state.secondLimit,
     timeLeft: state => state.timeLeft,
+    minuteLeft: state => Math.floor(state.timeLeft / 60),
+    timeSpent: state => state.secondLimit - state.timeLeft,
     percent: state => {
       if (state.timeLeft === 0) {
         return 100
       }
-      return Math.floor((state.timeLeft / state.minuteLimit) * 100)
+
+      return Math.floor((state.timeLeft / state.secondLimit) * 100)
     }
   },
   mutations: {
-    SET_MINUTE_LIMIT: (state, limit) => {
-      state.minuteLimit = limit
+    SET_SECOND_LIMIT: (state, limit) => {
+      state.secondLimit = limit
     },
     SET_TIME_LEFT: (state, timeLeft) => {
       state.timeLeft = timeLeft
     },
     SET_FINISH_TIME: (state, finishTime) => {
       state.finishTime = finishTime
+    },
+    SET_START_TIME: (state, time) => {
+      state.startTime = time
     }
   },
   actions: {
@@ -36,8 +44,17 @@ export default {
     setFinishTime: ({ commit }, finishTime) => {
       commit('SET_FINISH_TIME', finishTime)
     },
-    setMinuteLimit: ({ commit }, limit) => {
-      commit('SET_MINUTE_LIMIT', limit)
+    setSecondLimit: ({ commit }, limit) => {
+      commit('SET_SECOND_LIMIT', limit)
+    },
+    setStartTime: ({ commit }) => {
+      commit('SET_START_TIME', moment())
+    },
+    initClock: ({ dispatch }, time) => {
+      dispatch('setStartTime')
+      dispatch('setFinishTime', moment().add(time, 'm'))
+      dispatch('setSecondLimit', time * 60)
+      dispatch('setTimeLeft', time * 60)
     }
   }
 }
