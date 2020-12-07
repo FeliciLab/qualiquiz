@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  font-family: 'OpenSans-Regular';
+  font-family: 'Roboto';
   font-weight: normal;
 }
 
@@ -20,7 +20,7 @@ h5 {
 }
 
 .background {
-  background: linear-gradient(180deg,rgba(253, 167, 32, 0.1) 0.5%, rgba(252, 104, 54, 0.1) 66.96%, rgba(252, 104, 54, 0) 96.85%);
+  background: #ffffff;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -34,4 +34,12 @@ h5 {
 }
 .f-16 {
   font-size: 16px;
+}
+.header-logo {
+    width: auto;
+    padding: 30px 20px;
+    text-align: center;
+}
+.header-logo > img {
+    width: 200px;
 }

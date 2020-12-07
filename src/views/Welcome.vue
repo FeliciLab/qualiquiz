@@ -8,36 +8,15 @@
       v-show="!showLoading"
     >
       <b-container>
-        <Header
-          dark
-          title="Desejamos as boas vindas"
-        />
-        <!-- Slider main container -->
-        <div class="swiper-container">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div
-              v-for="content in contents"
-              :key="content.text"
-              class="swiper-slide d-flex justify-content-center flex-column"
-            >
-              <div class="card mx-4">
-                <small class="text-center text-uppercase my-2">O que é?</small>
-                <h5 class="text-center font-weight-bolder text-uppercase txt-orange mx-3 mx-sm-0">
-                  {{ nameQuiz }}
-                </h5>
-                <WelcomeBody>
-                  <span v-html="content.bodyText"></span>
-                </WelcomeBody>
-                <p class="text-center px-5 f-12 mt-4">
-                  {{content.text}}
-                </p>
-              </div>
-            </div>
+          <div class="header-logo">
+              <img src="../assets/images/logo-qualiquiz-white.svg">
           </div>
-          <!-- If we need pagination -->
-          <div class="swiper-pagination position-relative"></div>
+          <div v-for="content in contents"
+              :key="content.text">
+          <span v-html="content.bodyText"></span>
+              <h5 class="text-center font-weight-bolder text-uppercase txt-orange mx-3 mx-sm-0">
+                  {{ nameQuiz }}
+              </h5>
         </div>
         <div class="py-4">
           <Button
@@ -57,18 +36,14 @@
 
 <script>
 import Button from '../components/Button'
-import Header from '../components/Header'
 import Swiper from 'swiper'
 import Loading from '../components/Loading'
-import WelcomeBody from '../components/welcome/WelcomeBody'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
     Button,
-    Header,
     Loading,
-    WelcomeBody
   },
   data () {
     return {
@@ -76,10 +51,10 @@ export default {
       contents: [
         {
           bodyText: `
-            <p> Nossas boas vindas ao <strong>QualiQuiz</strong>, o teste de múltipla escolha que vai mensurar seus conhecimentos no campo da Saúde. </p>
-            <p> O <strong>QualiQuiz</strong> é uma criação da <strong>Escola de Saúde Pública do Ceará</strong> para promover avaliações por competências dos profissionais de saúde que atuam na rede do SUS. </p>
+            <p> Nossas boas-vindas ao <strong>QualiQuiz</strong>, o teste de múltipla escolha que vai mensurar seus conhecimentos no campo da Saúde. </p>
+            <p> O <strong>QualiQuiz</strong> é uma criação da <strong>Escola de Saúde Pública do Ceará</strong> para promover avaliações por competências dos profissionais de saúde. </p>
             <p> Ao responder esse quiz, você nos ajuda a conhecer melhor suas potencialidades e fragilidades, e a qualificar nossa política de educação permanente, com base em um planejamento educacional adequado às necessidades do SUS em nosso estado.</p>
-            <p> Para começar seu teste clique no botão abaixo. </p>
+            <p> Para começar seu teste, clique no botão abaixo. </p>
           `,
           text: 'É uma ferramsenta de avaliação longitudinal, de estudantes e de programas educacionais.',
           img: require('../assets/images/blank.png')
