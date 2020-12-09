@@ -43,7 +43,7 @@ import { mapGetters } from 'vuex'
 export default {
   components: {
     Button,
-    Loading,
+    Loading
   },
   data () {
     return {
