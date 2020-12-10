@@ -9,9 +9,9 @@
       aria-valuemax="10"
     ></div>
 
-    <div class="position-absolute" style="width: calc(100% - 30px); text-align: center; ">
+    <div class="position-absolute mt-1" style="width: calc(100% - 30px); text-align: center; ">
       <b-badge variant="light">
-        {{ timeLeft === 0 ? minuteLimit : timeLeft }} min
+        {{ timeLeft === 0 ? `${secondLimit / 60}min` : minuteLeft > 0 ? `${minuteLeft}min ${timeLeft % 60}sec` : `${timeLeft}sec` }}
       </b-badge>
     </div>
   </div>
@@ -19,6 +19,7 @@
 <script>
 import moment from 'moment'
 import { mapGetters, mapActions } from 'vuex'
+
 export default {
   name: 'TimestampBar',
   data () {
@@ -31,21 +32,18 @@ export default {
       finishTime: 'finishTime',
       percent: 'percent',
       timeLeft: 'timeLeft',
-      minuteLimit: 'minuteLimit'
+      minuteLeft: 'minuteLeft',
+      secondLimit: 'secondLimit',
+      timeSpent: 'timeSpent'
     })
   },
   destroyed () {
     clearInterval(this.interval)
   },
   mounted () {
-    if (this.finishTime === false) {
-      this.setFinishTime(moment().add(this.minuteLimit, 'm'))
-      this.setTimeLeft(this.minuteLimit)
-    }
-
     this.interval = setInterval(() => {
-      if (this.timeLeft > moment(this.finishTime).diff(moment(), 'minutes')) {
-        this.setTimeLeft(moment(this.finishTime).diff(moment(), 'minutes'))
+      if (this.timeLeft > moment(this.finishTime).diff(moment(), 'seconds')) {
+        this.setTimeLeft(moment(this.finishTime).diff(moment(), 'seconds'))
       }
 
       if (this.timeLeft <= 0) {
