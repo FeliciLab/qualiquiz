@@ -1,6 +1,14 @@
-import moment from 'moment'
 import quizRequest from '../../services/quizRequest'
 const quizTest = require('../../assets/questions')
+
+const timeSpentModel = { start: '', finish: '' }
+const answerModel = {
+  questionId: -1,
+  alternativeId: -1,
+  timeSpent: 0,
+  startTime: 0,
+  finishTime: 0
+}
 
 export default {
   namespaced: true,
@@ -9,11 +17,8 @@ export default {
     questions: [],
     name: '',
     currentQuestion: 0,
-    answer: {
-      questionId: 0,
-      alternativeId: 0
-    },
-    answers: []
+    answers: [],
+    timeLimit: 0
   },
   getters: {
     getId: state => state.id,
@@ -26,8 +31,10 @@ export default {
     getNumberOfQuestions: state => state.questions.length,
     getCurrentQuestion: state => state.currentQuestion,
     getAnswers: state => state.answers,
-    getNumberOfAnswers: state => state.answers.length,
-    getAnswerModel: state => state.answer
+    getNumberOfAnswers: state => state.answers.filter(i => i.alternativeId >= 0).length,
+    getAnswerModel: () => answerModel,
+    getTimeSpentModel: () => timeSpentModel,
+    getTimeLimit: state => state.timeLimit
   },
   mutations: {
     SET_ID: (state, id) => {
@@ -43,7 +50,7 @@ export default {
       state.clock.timeMinuteLimit = timeLimit
     },
     SET_ANSWERS: (state, answers) => {
-      state.answers = answers
+      state.answers = [...answers]
     },
     SET_ANSWER: (state, alternative) => {
       if (state.answers.length === 0) {
@@ -61,6 +68,29 @@ export default {
     },
     SET_CURRENT_QUESTION: (state, current) => {
       state.currentQuestion = current
+    },
+    SET_TIME_LIMIT: (state, payload) => {
+      state.timeLimit = payload
+    },
+    ADD_TIME_SPENT_QUESTION: (state, { questionId, start, finish }) => {
+      state.answers = [
+        ...state.answers.map(answer => {
+          if (answer.questionId !== questionId) {
+            return answer
+          }
+
+          if (start !== undefined && start >= 0) {
+            answer.startTime = start
+            return answer
+          }
+
+          if (finish !== undefined && finish >= 0) {
+            answer.finishTime = finish
+            answer.timeSpent += (finish - answer.startTime)
+            return answer
+          }
+        })
+      ]
     }
   },
   actions: {
@@ -79,6 +109,9 @@ export default {
     setCurrentQuestion: ({ commit }, current) => {
       commit('SET_CURRENT_QUESTION', current)
     },
+    setTimeLimit: ({ commit }, payload) => {
+      commit('SET_TIME_LIMIT', payload)
+    },
     initTestQuiz: ({ dispatch }) => {
       dispatch('setQuizData', quizTest)
     },
@@ -88,6 +121,15 @@ export default {
           dispatch('setQuizData', result)
         })
     },
+    initVoidAnswers: ({ commit }, questions) => {
+      commit('SET_ANSWERS', questions.map(question => {
+        return {
+          ...answerModel,
+          questionId: question.id,
+          alternativeId: -1
+        }
+      }))
+    },
     setQuizData: ({ dispatch }, result) => {
       dispatch('cleanQuiz')
       if (Object.prototype.hasOwnProperty.call(result, 'id')) {
@@ -96,6 +138,7 @@ export default {
 
       if (Object.prototype.hasOwnProperty.call(result, 'questoes')) {
         dispatch('setQuestions', result.questoes)
+        dispatch('initVoidAnswers', result.questoes)
       }
 
       if (Object.prototype.hasOwnProperty.call(result, 'quiz')) {
@@ -103,9 +146,7 @@ export default {
       }
 
       if (Object.prototype.hasOwnProperty.call(result, 'tempo_limite')) {
-        dispatch('clock/setFinishTime', moment().add(result.tempo_limite, 'm'), { root: true })
-        dispatch('clock/setMinuteLimit', result.tempo_limite, { root: true })
-        dispatch('clock/setTimeLeft', result.tempo_limite, { root: true })
+        dispatch('setTimeLimit', result.tempo_limite)
       }
     },
     cleanQuiz: ({ commit }) => {
@@ -114,19 +155,25 @@ export default {
       commit('SET_NAME', '')
       commit('SET_ANSWERS', [])
       commit('SET_CURRENT_QUESTION', 0)
+      commit('SET_TIME_LIMIT', 0)
     },
-    saveAnswers (context, { token, devMode }) {
+    saveAnswers (context, { token, devMode, timeSpent }) {
       quizRequest.postAnswers(
         context.state.answers.map(item => {
           return {
             quizId: context.state.id,
             questaoId: item.questionId,
-            alternativaId: item.alternativeId
+            alternativaId: item.alternativeId,
+            tempo: item.timesPent
           }
         }),
         token,
-        devMode
+        devMode,
+        timeSpent
       )
+    },
+    addTimeSpentQuestion ({ commit }, { questionId, start, finish }) {
+      commit('ADD_TIME_SPENT_QUESTION', { questionId, start, finish })
     }
   }
 }

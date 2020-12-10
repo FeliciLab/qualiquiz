@@ -39,7 +39,7 @@ export default {
     stylesClasses (index, question) {
       return {
         'number-question-active': this.currentQuestion === (index),
-        'answered-question': this.answers.find(answer => answer.questionId === question.id)
+        'answered-question': this.answers.find(answer => answer.questionId === question.id && answer.alternativeId >= 0)
       }
     }
   }

@@ -1,7 +1,7 @@
 {
   "id": 0,
   "quiz": "Quiz de exemplo de teste",
-  "tempo_limite": 5,
+  "tempo_limite": 10,
   "questoes": [
     {
       "id": 1,

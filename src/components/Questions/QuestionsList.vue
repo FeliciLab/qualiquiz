@@ -36,28 +36,42 @@ export default {
       questions: 'getQuestions',
       amountQuestions: 'getNumberOfQuestions',
       currentQuestion: 'getCurrentQuestion'
+    }),
+    ...mapGetters('clock', {
+      timeLeft: 'timeLeft',
+      timeSpent: 'timeSpent',
+      secondLimit: 'secondLimit'
     })
   },
   methods: {
     ...mapActions('quiz', {
-      setCurrentQuestion: 'setCurrentQuestion'
+      setCurrentQuestion: 'setCurrentQuestion',
+      addTimeSpentQuestion: 'addTimeSpentQuestion'
     }),
     toUp () {
       const a = document.createElement('a')
       a.href = '#question-view-top-id'
       a.click()
     },
+    setTimeFinish (id) {
+      this.addTimeSpentQuestion({ questionId: id, finish: this.timeSpent })
+    },
+    setTimeStart (id) {
+      this.addTimeSpentQuestion({ questionId: id, start: this.timeSpent })
+    },
     changeNext () {
-      this.changeAnimation(this.currentQuestion + 1)
+      this.changeQuestion(this.currentQuestion + 1)
     },
     changePrevious () {
-      if ((this.question.number - 1) <= 0) {
+      this.changeQuestion(this.currentQuestion - 1)
+    },
+    changeQuestion (newCurrent) {
+      this.setTimeFinish(this.question.id)
+
+      if (newCurrent < 0) {
         return
       }
 
-      this.changeAnimation(this.currentQuestion - 1)
-    },
-    changeAnimation (newCurrent) {
       this.$refs.currentQuestion.classList.value = 'animated faster fadeOut'
 
       setTimeout(() => {
@@ -67,14 +81,19 @@ export default {
         }
 
         this.setCurrentQuestion(newCurrent)
+        this.setTimeStart(this.question.id)
         this.$refs.currentQuestion.classList.value = 'animated faster fadeIn'
         this.toUp()
       }, 600)
+    }
+  },
+  mounted () {
+    if (this.currentQuestion === 0) {
+      this.addTimeSpentQuestion({ questionId: this.question.id, start: 0 })
     }
   }
 }
 </script>
 
 <style scoped>
-
 </style>
