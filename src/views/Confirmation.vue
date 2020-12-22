@@ -1,77 +1,55 @@
 <template>
   <div>
-    <div v-show="showLoading">
+    <div v-show='showLoading'>
       <Loading />
     </div>
-    <div v-show="!showLoading" class="animated fadeIn position-absolute background">
+
+    <div
+      v-show='!showLoading'
+      class='animated fadeIn position-absolute background'
+    >
       <b-container>
-        <Header
-          dark
-          title="Confirmação"
-        />
-        <div class="d-flex justify-content-center">
-          <b-img
-            fluid
-            :src="blank"
-          ></b-img>
+        <div class='center mt-50'>
+          <Title title='QUESTÕES RESPONDIDAS' />
         </div>
-         <p
-          class="mx-4 text-center"
-          style="font-family: OpenSans-Bold"
-        >
-          Você respondeu {{ amountAnswers }} / {{ amountQuestions}}
+        <div class='center mt-45'>
+          <AmountAnsweredCard />
+        </div>
+        <p class='mt-50 text-center text-answered'>
+          VOCÊ RESPONDEU {{ amountAnswers }} DE {{ amountQuestions }} QUESTÕES
         </p>
-        <p class="mx-4 text-center f-12">Você respondeu {{ amountAnswers }} / {{ amountQuestions}} questões e está prestes a enviar todas as questões e finalizar esta avaliação. Uma vez
-          enviada, você não poderá alterar as respostas para esta tentativa.</p>
-        <p
-          class="mx-4 text-center"
-          style="font-family: OpenSans-SemiBold"
-        >
-          Você realmente deseja enviar todas as questões?
+
+        <p class='mx-13 mt-18 text-helper'>
+          Você pode revisar as questões ou finalizar o quiz para ver o seu
+          resultado. Após enviar suas respostas, não será possível realizar
+          novas tentativas.
         </p>
-        <b-row>
-          <b-col cols=6>
-            <Button
-              @click="$router.push({name: 'Question'})"
-              class="text-center py-3"
-              id="formSubmit"
-              color="danger"
-              label="Não"
-              iconClass="icon-cross"
-            />
-          </b-col>
-          <b-col cols=6>
-            <Button
-              @click="showLoadingPage()"
-              class="text-center py-3"
-              id="formSubmit"
-              color="success"
-              label="Sim"
-              iconClass="icon-check"
-            />
-          </b-col>
-        </b-row>
+
+        <p class='mt-18 text-form'>Deseja enviar as respostas agora?</p>
+
+        <div class='action-buttons-row'>
+          <NoButton @click="$router.push({ name: 'Question' })" />
+          <YesButton @click='showLoadingPage()' class='ml-55' />
+        </div>
       </b-container>
     </div>
   </div>
 </template>
-
-<style
-  lang="scss"
-  scoped
->
-
-</style>
-
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import Header from '../components/Header'
-import Button from '../components/Button'
+import Title from '../components/Title'
 import Loading from '../components/Loading'
+import AmountAnsweredCard from '../components/Confirmation/AmountAnsweredCard'
+import YesButton from '../components/UX/YesButton'
+import NoButton from '../components/UX/NoButton'
 
 export default {
   components: {
-    Button, Header, Loading
+    Title,
+    Loading,
+    AmountAnsweredCard,
+    YesButton,
+    NoButton
   },
   data () {
     return {
@@ -103,11 +81,55 @@ export default {
         return
       }
 
-      this.saveAnswers({ token: this.token, devMode: this.getDevelopment, timeSpent: this.timeSpent })
-        .then(() => {
-          this.$router.push({ name: 'Success' })
-        })
+      this.saveAnswers({
+        token: this.token,
+        devMode: this.getDevelopment,
+        timeSpent: this.timeSpent
+      }).then(() => {
+        this.$router.push({ name: 'Success' })
+      })
     }
   }
 }
 </script>
+
+<style lang='scss' scoped>
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mx-13 {
+  margin-left: 13px;
+  margin-right: 13px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.mt-45 {
+  margin-top: 45px;
+}
+.mt-18 {
+  margin-top: 18px;
+}
+.ml-55 {
+  margin-left: 55px;
+}
+.text-answered {
+  color: $orange;
+  font-weight: 400;
+  font-size: 16px;
+}
+.text-helper {
+  font-size: 14px;
+}
+.text-form {
+  font-size: 16px;
+  font-family: 'Roboto-Bold';
+  text-align: center;
+}
+.action-buttons-row {
+  display: flex;
+  justify-content: center;
+}
+</style>

@@ -27,10 +27,13 @@ export default {
     this.setToken(this.$route.params.authToken)
     this.setId(this.$route.params.codQuiz)
     this.setDevelopment(this.$route.meta.dev)
-    this.initQuiz({ codQuiz: this.$route.params.codQuiz, devMode: this.$route.meta.dev })
-      .then(() => {
-        this.$router.push('/welcome')
-      })
+    this.initQuiz({
+      codQuiz: this.$route.params.codQuiz,
+      devMode: this.$route.meta.dev,
+      auth: this.$route.params.authToken
+    }).then(() => {
+      this.$router.push('/welcome')
+    })
   }
 }
 </script>
