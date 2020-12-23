@@ -152,7 +152,7 @@ export default {
       }
 
       if (Object.prototype.hasOwnProperty.call(result, 'tempo_limite')) {
-        dispatch('setTimeLimit', result.tempo_limite * 1000)
+        dispatch('setTimeLimit', result.tempo_limite)
       }
     },
     cleanQuiz: ({ commit }) => {
