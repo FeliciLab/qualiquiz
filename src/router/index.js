@@ -3,10 +3,11 @@ import VueRouter from 'vue-router'
 import Welcome from '../views/Welcome.vue'
 import Home from '../views/Home.vue'
 import QuestionView from '../views/QuestionView.vue'
-import Success from '../views/Success.vue'
-import Confirmation from '../views/Confirmation.vue'
+import FinishQuiz from '../views/EndingQuiz/FinishQuiz.vue'
+import Confirmation from '../views/EndingQuiz/Confirmation.vue'
+import TimeOut from '../views/EndingQuiz/TimeOut.vue'
+import Success from '../views/Results/Success.vue'
 import Loading from '../components/Loading.vue'
-import TimeOut from '../views/TimeOut.vue'
 import IsusLogin from '../views/IsusLogin/IsusLogin.vue'
 import ErrorView from '../views/ErrorView.vue'
 
@@ -36,7 +37,10 @@ const routes = [
   {
     path: '/confirmation',
     name: 'Confirmation',
-    component: Confirmation
+    component: FinishQuiz,
+    meta: {
+      component: Confirmation
+    }
   },
   {
     path: '/timeout',

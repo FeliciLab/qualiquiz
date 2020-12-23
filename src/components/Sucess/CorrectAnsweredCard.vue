@@ -1,23 +1,23 @@
 <template>
-  <CircleAmountAnswered>
-    <div class='label'>Você respondeu</div>
-    <div class='number'>{{ answered }}</div>
+  <CircleSucessResult>
+    <div class='label'>Você acertou</div>
+    <div class='number'>{{ result.acertos }}</div>
     <div class='label'>questões</div>
-  </CircleAmountAnswered>
+  </CircleSucessResult>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import CircleAmountAnswered from './CircleAmountAnswered'
+import CircleSucessResult from './CircleSucessResult'
 
 export default {
-  name: 'AmountAnsweredCard',
+  name: 'CorrectAnsweredCard',
   components: {
-    CircleAmountAnswered
+    CircleSucessResult
   },
   computed: {
-    ...mapGetters('quiz', {
-      answered: 'getNumberOfAnswers'
+    ...mapGetters('feedback', {
+      result: 'getResult'
     })
   }
 }
@@ -25,7 +25,6 @@ export default {
 
 <style scoped>
 div {
-  color: white;
   font-family: Roboto-Bold;
   line-height: initial;
 }

@@ -1,6 +1,8 @@
 <template>
   <div class="title text-center">
-    {{ title }}
+    <slot>
+      {{ title }}
+    </slot>
   </div>
 </template>
 
@@ -9,7 +11,7 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      default: ''
     }
   }
 }

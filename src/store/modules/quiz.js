@@ -164,15 +164,17 @@ export default {
       commit('SET_TIME_LIMIT', 0)
     },
     saveAnswers (context, { token, devMode, timeSpent }) {
-      quizRequest.postAnswers(
-        context.state.answers.map((item) => {
-          return {
-            quizId: context.state.id,
-            questaoId: item.questionId,
-            alternativaId: item.alternativeId,
-            tempo: item.timesPent
-          }
-        }),
+      return quizRequest.postAnswers(
+        context.state.answers
+          .filter(item => item.alternativeId > 0)
+          .map((item) => {
+            return {
+              quizId: context.state.id,
+              questaoId: item.questionId,
+              alternativaId: item.alternativeId,
+              tempo: item.timeSpent
+            }
+          }),
         token,
         devMode,
         timeSpent

@@ -9,8 +9,12 @@ const getUri = (devMode) => {
 }
 
 export default {
-  getQuiz: (id, devMode) => {
-    return fetch(`${getUri(devMode)}/api/qualiquiz/quiz/${id}`)
+  getQuiz: (id, devMode, auth) => {
+    return fetch(`${getUri(devMode)}/api/qualiquiz/quiz/${id}`, {
+      headers: {
+        Authorization: `Bearer ${auth}`
+      }
+    })
       .then(result => result.json())
   },
   postAnswers: (data, auth, devMode, timeSpent) => {
@@ -24,5 +28,16 @@ export default {
       },
       body: JSON.stringify({ respostas: data, tempoTotal: timeSpent })
     }).then(result => result.json())
+  },
+  fetchResult: (id, auth, devMode) => {
+    return fetch(
+      `${getUri(devMode)}/api/qualiquiz/resultado/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${auth}`
+        }
+      }
+    )
+      .then((response) => response.json())
   }
 }
