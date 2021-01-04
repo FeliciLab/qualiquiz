@@ -1,6 +1,6 @@
 const uri = {
-  dev: 'http://192.168.15.149:7000',
-  // dev: 'https://apiisus.dev.org.br',
+  // dev: 'http://192.168.15.149:7000',
+  dev: 'https://apiisus.dev.org.br',
   prod: 'https://apiisus.inova.esp.br'
 }
 
