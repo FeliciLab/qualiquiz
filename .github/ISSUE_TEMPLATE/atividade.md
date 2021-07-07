@@ -7,26 +7,31 @@ assignees: ''
 
 ---
 
-**Eu como** _  
-**Quero** _  
-**Para que** _  
+## **Objetivo**
 
-# Contexto
-## O que originou
-_
-## Qual solução proposta
-_
+**Como** persona  
+**Quero** fazer_algo  
+**Para** uma_finalidade
 
-# Fora de Contexto
+## **Contexto**
 
-_
+-
 
-# Critérios de aceitação
+## **Escopo**
 
-- [ ] **Dado que** __não_esquecer_os_2_espaços_ao_fim_da_linha  
-**Quando** __não_esquecer_os_2_espaços_ao_fim_da_linha  
-**Então** _
+- [ ] escopo1
+
+## **Fora de Escopo**
+
+- fora_de_escopo
+
+## **Critérios de Aceitação**
+
+- [ ] titulo  
+**Dado que** algo  
+**Quando** faço  
+**Então** resulta
 
 # Observações
 
-_
+ex: Prototipo
