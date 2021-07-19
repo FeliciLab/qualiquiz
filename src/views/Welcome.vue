@@ -71,7 +71,7 @@ export default {
       this.initClock(this.timeLimit)
       setTimeout(() => {
         this.$router.push({ name: 'Question' })
-      }, 4000)
+      }, 3000)
     }
   },
   mounted () {
