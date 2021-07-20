@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('click')" class="no-button">NÃO</button>
+  <button @click="$emit('click')" class="no-button">VOLTAR</button>
 </template>
 
 <script>
@@ -11,12 +11,10 @@ export default {
 <style lang="scss" scoped>
 .no-button {
   background-color: white;
-  border-radius: 4px;
-  color: $green;
+  color: $purple;
   font-size: 14px;
-  border-color: $green;
   padding: 3px 22px;
-  border-style: solid;
-  border-width: 1px;
+  font-weight: bold;
+  border: none;
 }
 </style>

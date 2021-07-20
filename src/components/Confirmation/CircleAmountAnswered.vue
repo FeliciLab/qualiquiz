@@ -12,7 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 .circle {
-  background-color: $green;
+  background-color: $purple;
   border-radius: 50%;
   width: 262px;
   height: 262px;

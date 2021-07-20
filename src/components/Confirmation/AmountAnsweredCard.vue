@@ -26,7 +26,6 @@ export default {
 <style scoped>
 div {
   color: white;
-  font-family: Roboto-Bold;
   line-height: initial;
 }
 .label {
