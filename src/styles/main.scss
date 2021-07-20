@@ -36,10 +36,21 @@ h5 {
   font-size: 16px;
 }
 .header-logo {
-    width: auto;
+  height: 150px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+
+  background: #61459B;
+
+  box-shadow: 0px 0.5px 1.75px rgba(0, 0, 0, 0.039), 0px 1.85px 6.25px rgba(0, 0, 0, 0.19);
+  border-radius: 0px 0px 16px 16px;
+
+
+    /* width: auto;
     padding: 30px 20px;
-    text-align: center;
+    text-align: center; */
 }
-.header-logo > img {
-    width: 200px;
-}
+/* .header-logo > img {
+    // width: 200px;
+} */
