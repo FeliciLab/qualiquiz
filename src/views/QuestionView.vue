@@ -1,37 +1,20 @@
 <template>
-  <div
-    id="question-view-top-id"
-  >
-    <b-container>
-      <Header
-        dark
-        :title="`Questão ${currentQuestion + 1} / ${numberOfQuestions}`"
-      />
-      <b-row>
-        <b-col cols=12>
-          <TimestampBar/>
-          <BreadcrumbsQuestions/>
-        </b-col>
-      </b-row>
+    <div>
+      <breadcrumbs-questions/>
       <QuestionsList />
-    </b-container>
-  </div>
+    </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import Header from '../components/Header'
-import BreadcrumbsQuestions from '../components/BreadcrumbsQuestions'
 import QuestionsList from '../components/Questions/QuestionsList'
-import TimestampBar from './TimestampBar'
+import BreadcrumbsQuestions from '../components/BreadcrumbsQuestions'
 
 export default {
   name: 'QuestionView',
   components: {
-    TimestampBar,
-    Header,
-    BreadcrumbsQuestions,
-    QuestionsList
+    QuestionsList,
+    BreadcrumbsQuestions
   },
   computed: {
     ...mapGetters('quiz', {

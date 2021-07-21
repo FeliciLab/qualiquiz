@@ -1,8 +1,11 @@
 <template>
   <div>
-    <b-row class="mx-3">
-      <p>{{ question.questao }}</p>
-    </b-row>
+    <div>
+      <b-row class="mx-3">
+        <p class="question">{{ question.questao }}</p>
+        <p class="sub-title">Selecione uma alternativa</p>
+      </b-row>
+    </div>
     <b-row class="mx-3">
       <b-col
         cols="12"
@@ -59,9 +62,20 @@ export default {
     transition: all .2s ease-out;
     background: none;
     box-shadow: 0 0 0 transparent;
-    border: 1px solid $white-smoke;
+    border: 3px solid #E5E5E5;
     text-shadow: 0 0 0 transparent;
     border-radius: 6px;
+    color:$black64;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+/* or 150% */
+
+display: flex;
+align-items: center;
+letter-spacing: 0.15px;
 
     &:hover {
       background: none;
@@ -70,9 +84,28 @@ export default {
 
     &:focus {
       outline: none;
-      color: $forest-green !important;
+      color: $light !important;
       border: 1px solid $forest-green;
       border-radius: 6px;
+      background: $purple;
     }
+  }
+  .question{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: $dark;
+  }
+  .sub-title{
+    color: $black64;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15px;
   }
 </style>

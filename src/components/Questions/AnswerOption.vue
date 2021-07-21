@@ -5,14 +5,8 @@
     @click="$emit('click', alternative.id)"
     :class="{ chosen: answerTrue() }"
   >
-    <b-row class="py-2">
-      <b-col
-        cols=2
-        class="character"
-      >
-        {{ caracterAlternative }}
-      </b-col>
-      <b-col cols=10 class="text-left">
+    <b-row>
+      <b-col class="text-left">
         {{ alternative.alternativa }}
       </b-col>
     </b-row>
@@ -42,11 +36,7 @@ export default {
     ...mapGetters('quiz', {
       getAnswers: 'getAnswers',
       question: 'getQuestion'
-    }),
-    caracterAlternative () {
-      const options = ['A', 'B', 'C', 'D', 'E']
-      return options[(this.alternative.ordem - 1)]
-    }
+    })
   },
   methods: {
     answerTrue () {
@@ -75,7 +65,7 @@ export default {
 
   .chosen {
     outline: none;
-    color: $forest-green !important;
+    color: $black64 !important;
     border: 1px solid $forest-green;
     border-radius: 6px;
   }
@@ -85,9 +75,10 @@ export default {
     transition: all .2s ease-out;
     background: none;
     box-shadow: 0 0 0 transparent;
-    border: 1px solid $white-smoke;
+    border: 1px solid $gray400;
     text-shadow: 0 0 0 transparent;
-    border-radius: 6px;
+    border-radius: 16px;
+    padding: 12px 16px;
 
     &:hover {
       background: none;
