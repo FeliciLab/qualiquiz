@@ -3,7 +3,7 @@
     <template v-slot:actions>
       <div class='action-buttons-row'>
         <NoButton @click="$router.push({ name: 'Question' })" />
-        <SendButton @click="$emit('finish')" />
+        <SendButton @click="$emit('finish')" label="ENVIAR RESPOSTAS" />
       </div>
     </template>
   </BodyFinish>

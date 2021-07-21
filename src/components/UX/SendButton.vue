@@ -1,9 +1,14 @@
 <template>
-  <button @click="$emit('click')" class="send-button">ENVIAR RESPOSTAS</button>
+  <button @click="$emit('click')" class="send-button">{{label}}</button>
 </template>
 
 <script>
 export default {
+  props: {
+    label: {
+      default: ''
+    }
+  },
   name: 'SendButton'
 }
 </script>
