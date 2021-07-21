@@ -85,7 +85,7 @@ letter-spacing: 0.15px;
     &:focus {
       outline: none;
       color: $light !important;
-      border: 1px solid $forest-green;
+      border: 1px solid $purple;
       border-radius: 6px;
       background: $purple;
     }
