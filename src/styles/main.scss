@@ -12,6 +12,11 @@ html {
 body {
   font-family: "Roboto";
   font-weight: normal;
+  background-color: $bg-light;
+}
+
+p {
+  margin-bottom: 8px;
 }
 
 h5 {
@@ -20,7 +25,6 @@ h5 {
 }
 
 .background {
-  background: #ffffff;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -36,10 +40,22 @@ h5 {
   font-size: 16px;
 }
 .header-logo {
-  width: auto;
-  padding: 30px 20px;
-  text-align: center;
+  height: 150px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  padding: 0;
+
+  background: #61459B;
+
+  box-shadow: 0px 0.5px 1.75px rgba(0, 0, 0, 0.039), 0px 1.85px 6.25px rgba(0, 0, 0, 0.19);
+  border-radius: 0px 0px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
 .header-logo > img {
   width: 200px;
 }

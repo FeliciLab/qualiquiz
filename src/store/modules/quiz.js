@@ -18,7 +18,8 @@ export default {
     name: '',
     currentQuestion: 0,
     answers: [],
-    timeLimit: 0
+    timeLimit: 0,
+    description: ''
   },
   getters: {
     getId: (state) => state.id,
@@ -34,7 +35,8 @@ export default {
       state.answers.filter((i) => i.alternativeId >= 0).length,
     getAnswerModel: () => answerModel,
     getTimeSpentModel: () => timeSpentModel,
-    getTimeLimit: (state) => state.timeLimit
+    getTimeLimit: (state) => state.timeLimit,
+    getDescription: (state) => state.description
   },
   mutations: {
     SET_ID: (state, id) => {
@@ -76,6 +78,9 @@ export default {
     SET_TIME_LIMIT: (state, payload) => {
       state.timeLimit = payload
     },
+    SET_DESCRIPTION: (state, payload) => {
+      state.description = payload
+    },
     ADD_TIME_SPENT_QUESTION: (state, { questionId, start, finish }) => {
       state.answers = [
         ...state.answers.map((answer) => {
@@ -116,6 +121,9 @@ export default {
     setTimeLimit: ({ commit }, payload) => {
       commit('SET_TIME_LIMIT', payload)
     },
+    setDescription: ({ commit }, payload) => {
+      commit('SET_DESCRIPTION', payload)
+    },
     initTestQuiz: ({ dispatch }) => {
       dispatch('setQuizData', quizTest)
     },
@@ -154,6 +162,10 @@ export default {
       if (Object.prototype.hasOwnProperty.call(result, 'tempo_limite')) {
         dispatch('setTimeLimit', result.tempo_limite)
       }
+
+      if (Object.prototype.hasOwnProperty.call(result, 'descricao')) {
+        dispatch('setDescription', result.descricao)
+      }
     },
     cleanQuiz: ({ commit }) => {
       commit('SET_ID', 0)
@@ -162,6 +174,7 @@ export default {
       commit('SET_ANSWERS', [])
       commit('SET_CURRENT_QUESTION', 0)
       commit('SET_TIME_LIMIT', 0)
+      commit('SET_DESCRIPTION', '')
     },
     saveAnswers (context, { token, devMode, timeSpent }) {
       return quizRequest.postAnswers(

@@ -1,15 +1,20 @@
 <template>
-  <button @click="$emit('click')" class="send-button">ENVIAR RESPOSTAS</button>
+  <button @click="$emit('click')" class="purple-button">{{label}}</button>
 </template>
 
 <script>
 export default {
-  name: 'SendButton'
+  props: {
+    label: {
+      default: ''
+    }
+  },
+  name: 'PurpleButton'
 }
 </script>
 
 <style lang="scss" scoped>
-.send-button {
+.purple-button {
   background-color: $purple;
   border-radius: 49px;
   display: inline-block;
