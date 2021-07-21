@@ -1,21 +1,21 @@
-@import 'functions';
-@import 'icons';
-@import 'variables';
-@import 'mixins';
-@import 'fonts';
-@import 'node_modules/bootstrap/scss/bootstrap';
-@import 'node_modules/bootstrap-vue/src/index.scss';
+@import "functions";
+@import "icons";
+@import "variables";
+@import "mixins";
+@import "fonts";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap-vue/src/index.scss";
 html {
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: normal;
 }
 
 h5 {
-  font-family: 'OpenSans-ExtraBold';
+  font-family: "OpenSans-ExtraBold";
   font-weight: bold;
 }
 
@@ -54,3 +54,32 @@ h5 {
 /* .header-logo > img {
     // width: 200px;
 } */
+
+.header-logo > img {
+  width: 200px;
+}
+
+.flex-column-items-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mx-13 {
+  margin-left: 13px;
+  margin-right: 13px;
+}
+.mt-18 {
+  margin-top: 18px;
+}
+.mt-45 {
+  margin-top: 45px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.mt-100 {
+  margin-top: 100px;
+}
+.ml-55 {
+  margin-left: 55px;
+}

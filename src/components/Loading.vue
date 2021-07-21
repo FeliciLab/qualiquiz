@@ -1,15 +1,13 @@
 <template>
-  <div class="d-flex flex-wrap align-content-center justify-content-center vh-100">
-    <div class="w-100">
-      <b-img
-        class="my-5 animated infinite pulse"
-        style="width:100%;"
-        fluid
-        :src="loadingLine"
-      ></b-img>
-    </div>
-    <div style="position: fixed; z-index: 10; bottom: 0; left: 37%;">
-      <p class="my-5 text-center loading">Carregando...</p>
+  <div class="loading-body">
+    <img class="animated infinite pulse"
+    id="logoQualiquiz" fluid src="../assets/images/QualiQuiz.svg" />
+    <div class="loading-progress-bar animated infinite pulse">
+    <b-img
+      id="ProgressBar"
+      fluid
+      :src="loadingLine"
+    ></b-img>
     </div>
   </div>
 </template>
@@ -18,7 +16,7 @@
 export default {
   data () {
     return {
-      loadingLine: require('../assets/images/loadingLines.png')
+      loadingLine: require('../assets/images/ProgressBar.svg')
     }
   }
 }
@@ -28,8 +26,15 @@ export default {
   lang="scss"
   scoped
 >
-  .loading {
-    color: $crusoe;
-    font-family: OpenSans-Bold;
-  }
+.loading-body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.loading-progress-bar{
+  margin-top: -2.5rem;
+}
 </style>
