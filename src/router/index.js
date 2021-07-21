@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Welcome from '../views/WelcomeNew.vue'
+import Welcome from '../views/Welcome.vue'
 import Home from '../views/Home.vue'
 import QuestionView from '../views/QuestionView.vue'
 import FinishQuiz from '../views/EndingQuiz/FinishQuiz.vue'
