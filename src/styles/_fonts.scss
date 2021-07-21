@@ -1,17 +1,17 @@
 @font-face {
   font-family: 'OpenSans-Regular';
   src: local('Open Sans'), url('../assets/fonts/OpenSans-Regular.ttf');
-} 
+}
 
 @font-face {
   font-family: 'OpenSans-ExtraBold';
   src: local('Open Sans'), url('../assets/fonts/OpenSans-ExtraBold.ttf');
-} 
+}
 
 @font-face {
   font-family: 'OpenSans-Bold';
   src: local('Open Sans'), url('../assets/fonts/OpenSans-Bold.ttf');
-} 
+}
 
 @font-face {
   font-family: 'OpenSans-SemiBold';
@@ -21,14 +21,18 @@
 @font-face {
   font-family: 'Roboto';
   src: local('Open Sans'), url('../assets/fonts/Roboto-Regular.ttf');
-} 
+}
 
 @font-face {
   font-family: 'Roboto-Italic';
   src: local('Open Sans'), url('../assets/fonts/Roboto-Italic.ttf');
-} 
+}
 
 @font-face {
   font-family: 'Roboto-Bold';
   src: local('Open Sans'), url('../assets/fonts/Roboto-Bold.ttf');
-} 
+}
+
+.roboto-bold{
+  font-family: 'Roboto-Bold';
+}
