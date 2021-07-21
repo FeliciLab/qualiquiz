@@ -57,7 +57,6 @@ export default {
     background: linear-gradient(90deg, $crusoe 0%, $forest-green 100%);
     border: 2px solid #219740;
   }
-
   .btn-gradient-danger {
     background: linear-gradient(90deg, #FC1F2D 0%, #B61721 100%);
     border: 2px solid #FC1F2D;

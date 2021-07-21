@@ -18,23 +18,25 @@ export default {
     name: '',
     currentQuestion: 0,
     answers: [],
-    timeLimit: 0
+    timeLimit: 0,
+    description: ''
   },
   getters: {
-    getId: state => state.id,
-    getQuestions: state => state.questions,
-    getName: state => state.name,
-    getClock: state => state.clock,
-    getQuestion: state => state.questions.length > 0
-      ? state.questions[state.currentQuestion]
-      : {},
-    getNumberOfQuestions: state => state.questions.length,
-    getCurrentQuestion: state => state.currentQuestion,
-    getAnswers: state => state.answers,
-    getNumberOfAnswers: state => state.answers.filter(i => i.alternativeId >= 0).length,
+    getId: (state) => state.id,
+    getQuestions: (state) => state.questions,
+    getName: (state) => state.name,
+    getClock: (state) => state.clock,
+    getQuestion: (state) =>
+      state.questions.length > 0 ? state.questions[state.currentQuestion] : {},
+    getNumberOfQuestions: (state) => state.questions.length,
+    getCurrentQuestion: (state) => state.currentQuestion,
+    getAnswers: (state) => state.answers,
+    getNumberOfAnswers: (state) =>
+      state.answers.filter((i) => i.alternativeId >= 0).length,
     getAnswerModel: () => answerModel,
     getTimeSpentModel: () => timeSpentModel,
-    getTimeLimit: state => state.timeLimit
+    getTimeLimit: (state) => state.timeLimit,
+    getDescription: (state) => state.description
   },
   mutations: {
     SET_ID: (state, id) => {
@@ -59,9 +61,13 @@ export default {
       }
 
       state.answers = [
-        ...state.answers.filter(answer => answer.questionId !== alternative.questionId),
+        ...state.answers.filter(
+          (answer) => answer.questionId !== alternative.questionId
+        ),
         {
-          ...state.answers.find(answer => answer.questionId !== alternative.questionId) || {},
+          ...(state.answers.find(
+            (answer) => answer.questionId !== alternative.questionId
+          ) || {}),
           ...alternative
         }
       ]
@@ -72,9 +78,12 @@ export default {
     SET_TIME_LIMIT: (state, payload) => {
       state.timeLimit = payload
     },
+    SET_DESCRIPTION: (state, payload) => {
+      state.description = payload
+    },
     ADD_TIME_SPENT_QUESTION: (state, { questionId, start, finish }) => {
       state.answers = [
-        ...state.answers.map(answer => {
+        ...state.answers.map((answer) => {
           if (answer.questionId !== questionId) {
             return answer
           }
@@ -86,7 +95,7 @@ export default {
 
           if (finish !== undefined && finish >= 0) {
             answer.finishTime = finish
-            answer.timeSpent += (finish - answer.startTime)
+            answer.timeSpent += finish - answer.startTime
             return answer
           }
         })
@@ -112,23 +121,28 @@ export default {
     setTimeLimit: ({ commit }, payload) => {
       commit('SET_TIME_LIMIT', payload)
     },
+    setDescription: ({ commit }, payload) => {
+      commit('SET_DESCRIPTION', payload)
+    },
     initTestQuiz: ({ dispatch }) => {
       dispatch('setQuizData', quizTest)
     },
-    initQuiz: ({ dispatch }, { codQuiz, devMode }) => {
-      return quizRequest.getQuiz(codQuiz, devMode)
-        .then(result => {
-          dispatch('setQuizData', result)
-        })
+    initQuiz: ({ dispatch }, { codQuiz, devMode, auth }) => {
+      return quizRequest.getQuiz(codQuiz, devMode, auth).then((result) => {
+        dispatch('setQuizData', result)
+      })
     },
     initVoidAnswers: ({ commit }, questions) => {
-      commit('SET_ANSWERS', questions.map(question => {
-        return {
-          ...answerModel,
-          questionId: question.id,
-          alternativeId: -1
-        }
-      }))
+      commit(
+        'SET_ANSWERS',
+        questions.map((question) => {
+          return {
+            ...answerModel,
+            questionId: question.id,
+            alternativeId: -1
+          }
+        })
+      )
     },
     setQuizData: ({ dispatch }, result) => {
       dispatch('cleanQuiz')
@@ -148,6 +162,10 @@ export default {
       if (Object.prototype.hasOwnProperty.call(result, 'tempo_limite')) {
         dispatch('setTimeLimit', result.tempo_limite)
       }
+
+      if (Object.prototype.hasOwnProperty.call(result, 'descricao')) {
+        dispatch('setDescription', result.descricao)
+      }
     },
     cleanQuiz: ({ commit }) => {
       commit('SET_ID', 0)
@@ -156,17 +174,20 @@ export default {
       commit('SET_ANSWERS', [])
       commit('SET_CURRENT_QUESTION', 0)
       commit('SET_TIME_LIMIT', 0)
+      commit('SET_DESCRIPTION', '')
     },
     saveAnswers (context, { token, devMode, timeSpent }) {
-      quizRequest.postAnswers(
-        context.state.answers.map(item => {
-          return {
-            quizId: context.state.id,
-            questaoId: item.questionId,
-            alternativaId: item.alternativeId,
-            tempo: item.timesPent
-          }
-        }),
+      return quizRequest.postAnswers(
+        context.state.answers
+          .filter(item => item.alternativeId > 0)
+          .map((item) => {
+            return {
+              quizId: context.state.id,
+              questaoId: item.questionId,
+              alternativaId: item.alternativeId,
+              tempo: item.timeSpent
+            }
+          }),
         token,
         devMode,
         timeSpent
