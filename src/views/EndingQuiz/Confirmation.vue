@@ -3,7 +3,7 @@
     <template v-slot:actions>
       <div class='action-buttons-row'>
         <NoButton @click="$router.push({ name: 'Question' })" />
-        <SendButton @click="$emit('finish')" label="ENVIAR RESPOSTAS" />
+        <PurpleButton @click="$emit('finish')" label="ENVIAR RESPOSTAS" />
       </div>
     </template>
   </BodyFinish>
@@ -11,13 +11,13 @@
 
 <script>
 import BodyFinish from './BodyFinish'
-import SendButton from '../../components/UX/SendButton'
+import PurpleButton from '../../components/UX/PurpleButton'
 import NoButton from '../../components/UX/NoButton'
 
 export default {
   components: {
     BodyFinish,
-    SendButton,
+    PurpleButton,
     NoButton
   }
 }

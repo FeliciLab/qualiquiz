@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('click')" class="send-button">{{label}}</button>
+  <button @click="$emit('click')" class="purple-button">{{label}}</button>
 </template>
 
 <script>
@@ -9,12 +9,12 @@ export default {
       default: ''
     }
   },
-  name: 'SendButton'
+  name: 'PurpleButton'
 }
 </script>
 
 <style lang="scss" scoped>
-.send-button {
+.purple-button {
   background-color: $purple;
   border-radius: 49px;
   display: inline-block;
