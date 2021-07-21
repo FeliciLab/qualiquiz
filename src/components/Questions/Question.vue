@@ -28,12 +28,15 @@ import AnswerOption from './AnswerOption'
 
 export default {
   name: 'Question',
+  props: {
+    question: { require: true }
+  },
   components: {
     AnswerOption
   },
   computed: {
     ...mapGetters('quiz', {
-      question: 'getQuestion',
+      // question: 'getQuestion',
       answers: 'getAnswers',
       answerModel: 'getAnswerModel'
     })

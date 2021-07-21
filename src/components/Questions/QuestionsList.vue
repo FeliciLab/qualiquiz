@@ -1,5 +1,6 @@
 <template>
   <div
+    id="QuestionsList"
     v-if="amountQuestions > 0"
     ref="currentQuestion"
     class="animated faster fadeIn"
@@ -8,7 +9,12 @@
       <b-col
         cols="12"
       >
-        <Question/>
+        <Question
+          v-for="(q, index) in questions"
+          :key="index"
+          :question="q"
+          v-show="index === currentQuestion"
+        />
       </b-col>
     </b-row>
     <NavegationButton
@@ -50,7 +56,7 @@ export default {
     }),
     toUp () {
       const a = document.createElement('a')
-      a.href = '#question-view-top-id'
+      a.href = '#QuestionsList'
       a.click()
     },
     setTimeFinish (id) {
@@ -96,4 +102,7 @@ export default {
 </script>
 
 <style scoped>
+#QuestionsList{
+  padding-top: 1rem;
+}
 </style>
