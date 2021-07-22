@@ -1,14 +1,14 @@
 <template>
-    <div>
-      <breadcrumbs-questions/>
+    <div class="background">
+      <breadcrumbs-questions />
       <QuestionsList />
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import QuestionsList from '../components/Questions/QuestionsList'
-import BreadcrumbsQuestions from '../components/BreadcrumbsQuestions'
+import BreadcrumbsQuestions from '../components/BreadcrumbsQuestions.vue'
+import QuestionsList from '../components/Questions/QuestionsList.vue'
 
 export default {
   name: 'QuestionView',
@@ -24,3 +24,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .background {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+</style>

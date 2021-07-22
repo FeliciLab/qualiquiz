@@ -13,14 +13,14 @@
     >
       <div
         class="d-flex f-16"
-        style="font-family: OpenSans-Bold"
+        style="font-family: Roboto"
         v-if="label.length > 0"
       >
-        <span>{{label}}</span>
         <span
-          class="icon ml-3 align-self-center"
+          class="icon mr-2 align-self-center"
           :class="{[iconClass] : true}"
         ></span>
+        <span>{{label}}</span>
       </div>
       <div class="d-flex">
         <span class="icon m-1" :class="{[iconClass] : true}" v-if="label.length <= 0"></span>
@@ -28,6 +28,7 @@
     </b-button>
   </div>
 </template>
+
 <script>
 export default {
   props: {
@@ -54,8 +55,8 @@ export default {
   }
   // Fazer Mixin do btn-gradient
   .btn-gradient-success {
-    background: linear-gradient(90deg, $crusoe 0%, $forest-green 100%);
-    border: 2px solid #219740;
+    background: $purple;
+    border: 2px solid $purple;
   }
   .btn-gradient-danger {
     background: linear-gradient(90deg, #FC1F2D 0%, #B61721 100%);

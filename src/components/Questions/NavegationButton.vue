@@ -1,45 +1,57 @@
 <template>
-  <b-row>
+  <b-row class="nav-bar">
     <b-col
+      class="my-3"
       cols="6"
     >
-    <Button
-      @click="$emit('change-previous')"
-      class="text-center py-3"
-      color="light"
-      icon-class="icon-arrow-left-grey"
-      v-if="question.number !== 1"
-    />
+    <TimestampFooter />
     </b-col>
-    <b-col cols="6">
+    <b-col class="py-3 d-flex justify-content-end" cols="6">
     <Button
       @click="$emit('change-next')"
-      class="text-center py-3"
+      class="text-center"
       color="success"
       :label="changeLabel"
-      icon-class="icon-arrow-right"
+      icon-class="icon-play-arrow"
     />
     </b-col>
   </b-row>
 </template>
 
 <script>
-import Button from '../Button'
+import Button from '../Button.vue'
 import { mapGetters } from 'vuex'
+import TimestampFooter from './TimestampFooter.vue'
 
 export default {
   name: 'NavegationButton',
   components: {
-    Button
+    Button,
+    TimestampFooter
   },
   computed: {
     ...mapGetters('quiz', { question: 'getQuestion' }),
     changeLabel: function () {
       if (this.question.number === 10) {
-        return 'Finalizar'
+        return 'FINALIZAR'
       }
-      return 'Próxima'
+      return 'PRÓXIMO'
     }
   }
 }
 </script>
+<style
+  lang="scss"
+  scoped
+>
+  .nav-bar {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14),
+                0px 4px 5px rgba(0, 0, 0, 0.12),
+                0px 1px 10px rgba(0, 0, 0, 0.2);
+    background: white;
+    border-radius: 16px 16px 0px 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    align-items: center;
+  }
+</style>

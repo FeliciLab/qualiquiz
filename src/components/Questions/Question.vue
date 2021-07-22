@@ -76,9 +76,9 @@ export default {
     line-height: 24px;
 /* or 150% */
 
-display: flex;
-align-items: center;
-letter-spacing: 0.15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15px;
 
     &:hover {
       background: none;

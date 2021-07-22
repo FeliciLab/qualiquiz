@@ -5,7 +5,7 @@
     ref="currentQuestion"
     class="animated faster fadeIn"
   >
-    <b-row>
+    <b-row id="content-question">
       <b-col
         cols="12"
       >
@@ -27,8 +27,8 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import Question from './Question'
-import NavegationButton from './NavegationButton'
+import Question from './Question.vue'
+import NavegationButton from './NavegationButton.vue'
 
 export default {
   name: 'QuestionsList',
@@ -101,8 +101,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style
+  lang="scss"
+scoped>
 #QuestionsList{
   padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 40px);
 }
+#content-question{
+  margin: 10px 0px;
+}
+
 </style>
