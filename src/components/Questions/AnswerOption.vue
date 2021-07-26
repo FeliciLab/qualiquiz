@@ -76,20 +76,28 @@ export default {
     background: none;
     box-shadow: 0 0 0 transparent;
     border: 1px solid $gray400;
-    text-shadow: 0 0 0 transparent;
     border-radius: 16px;
+    color: $black64;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15px;
     padding: 12px 16px;
 
     &:hover {
-      background: none;
       color: #4c4c4c;
     }
 
     &:focus {
       outline: none;
-      color: $forest-green !important;
-      border: 1px solid $forest-green;
-      border-radius: 6px;
+      color: $light !important;
+      border: 1px solid $purple;
+      border-radius: 16px;
+      background: $purple;
     }
   }
 </style>
