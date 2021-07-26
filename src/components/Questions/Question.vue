@@ -60,39 +60,6 @@ export default {
   lang="scss"
   scoped
 >
-  .alternative {
-    cursor: pointer;
-    transition: all .2s ease-out;
-    background: none;
-    box-shadow: 0 0 0 transparent;
-    border: 3px solid #E5E5E5;
-    text-shadow: 0 0 0 transparent;
-    border-radius: 6px;
-    color:$black64;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-/* or 150% */
-
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.15px;
-
-    &:hover {
-      background: none;
-      color: #4c4c4c;
-    }
-
-    &:focus {
-      outline: none;
-      color: $light !important;
-      border: 1px solid $purple;
-      border-radius: 6px;
-      background: $purple;
-    }
-  }
   .question{
     font-family: Roboto;
     font-style: normal;
