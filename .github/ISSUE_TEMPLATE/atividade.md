@@ -2,30 +2,30 @@
 name: Atividade
 about: Describe this issue template's purpose here.
 title: ''
-labels: ''
+labels: qualiquiz
 assignees: ''
 
 ---
 
-## **Objetivo**
+# **Objetivo**
 
 **Como** persona  
 **Quero** fazer_algo  
 **Para** uma_finalidade
 
-## **Contexto**
+# **Contexto**
 
 -
 
-## **Escopo**
+# **Escopo**
 
 - [ ] escopo1
 
-## **Fora de Escopo**
+# **Fora de Escopo**
 
-- fora_de_escopo
+- 
 
-## **Critérios de Aceitação**
+# **Critérios de Aceitação**
 
 - [ ] titulo  
 **Dado que** algo  
