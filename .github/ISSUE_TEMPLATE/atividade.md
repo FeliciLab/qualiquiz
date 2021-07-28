@@ -7,25 +7,25 @@ assignees: ''
 
 ---
 
-# **Objetivo**
+# Objetivo
 
 **Como** persona  
 **Quero** fazer_algo  
 **Para** uma_finalidade
 
-# **Contexto**
+# Contexto
 
 -
 
-# **Escopo**
+# Escopo
 
 - [ ] escopo1
 
-# **Fora de Escopo**
+# Fora de Escopo
 
 - 
 
-# **Critérios de Aceitação**
+# Critérios de Aceitação
 
 - [ ] titulo  
 **Dado que** algo  
