@@ -1,7 +1,7 @@
 <template>
   <div class="feedback-item">
     <div>
-        <QuestionNumberIcon />
+        <QuestionNumberIcon :isCorrect="isCorrect" :questionOrder="questionOrder" />
     </div>
     <div>
         <NakedButton label="VER QUESTÃO" color="#000000" bgColor="#FFFFFF" />
@@ -12,12 +12,24 @@
 
 <script>
 import NakedButton from '../UX/NakedButton.vue'
+import QuestionNumberIcon from './QuestionNumberIcon.vue'
 
 export default {
+  props: {
+    isCorrect: {
+      type: Boolean,
+      default: false
+    },
+    questionOrder: {
+      type: Number,
+      default: 0
+    }
+  },
   name: 'QuestionFeedbackItem',
 
   components: {
-    NakedButton
+    NakedButton,
+    QuestionNumberIcon
   },
 
   computed: {
