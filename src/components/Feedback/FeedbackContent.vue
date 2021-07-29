@@ -2,17 +2,15 @@
   <div>
     <Title id="top-explanation">Seu desempenho</Title>
     <SumaryQuiz class="mt-18" />
-    <breadcrumbs-questions-results />
-    <QuestionsExplanations />
+    <question-feedback-item />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import BreadcrumbsQuestionsResults from './BreadcrumbsQuestionsResults'
 import Title from '../Title'
 import SumaryQuiz from './SumaryQuiz'
-import QuestionsExplanations from './QuestionsExplanations'
+import QuestionFeedbackItem from './QuestionFeedbackItem.vue'
 
 export default {
   name: 'FeedbackContent',
@@ -20,8 +18,7 @@ export default {
   components: {
     Title,
     SumaryQuiz,
-    BreadcrumbsQuestionsResults,
-    QuestionsExplanations
+    QuestionFeedbackItem
   },
 
   computed: {
