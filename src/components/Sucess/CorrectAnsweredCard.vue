@@ -23,16 +23,23 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 div {
   font-family: Roboto-Bold;
   line-height: initial;
 }
 .label {
+  color: $green04;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
   font-size: 24px;
+  line-height: 28px;
+  text-align: center;
 }
 .number {
-  font-family: 'Roboto-Bold';
+  font-family: Roboto;
   font-size: 100px;
+  color: $green04;
 }
 </style>

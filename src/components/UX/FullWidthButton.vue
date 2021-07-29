@@ -5,6 +5,7 @@
     :class="color"
   >
     <slot></slot>
+    <img class="arrow" src="@/assets/images/arrow.svg">
   </button>
 </template>
 
@@ -28,17 +29,17 @@ export default {
   text-align: center;
   width: 100%;
   height: 36px;
-  border-radius: 4px;
   font-size: 14px;
+  padding-top: 36px;
+  align-items: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 .green-inverted {
-  background-color: $green;
-  border-color: white;
-  border-style: solid;
+  border-style: none;
   color: white;
-  &:focus {
-    background-color: white;
-    color: $green;
-  }
+}
+.arrow{
+  padding-left: 11px;
 }
 </style>

@@ -5,7 +5,6 @@
       :key="index"
       class="number-question d-flex align-items-center justify-content-center"
       :class="stylesClasses(index, question)"
-      @click="setCurrentQuestion(index)"
     >
     </div>
   </div>
@@ -55,12 +54,6 @@ export default {
     background-color: $gray5;
     margin: 2.5vw;
   }
-
-  /* .number-question-active {
-    background: linear-gradient(90deg, $light-orange 0%, $burning-orange 100%);
-    border: 1px solid $burning-orange;
-    color: white !important;
-  } */
 
   .answered-question {
     background-color: $purple;

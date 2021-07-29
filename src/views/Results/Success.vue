@@ -1,13 +1,13 @@
 <template>
   <div class="animated fadeIn sucess-page">
     <div class="bg-green">
-      <div class="flex-column-items-center">
-        <Title class="title mt-50">PARABÉNS!</Title>
-      </div>
-      <div class="flex-column-items-center mt-45">
+      <div class="circulo">
         <CorrectAnsweredCard />
       </div>
-      <div class="flex-colum-items-center mt-100 mx-13">
+      <div class="texto">
+        <p>Parabéns, você concluiu a avaliação Manejo Clínico da Covid-19 2021.1, abaixo estão as respostas que farão parte de seu histórico.</p>
+      </div>
+      <div>
         <FullWidthButton @click="showFeedback = true">
           CONFERIR RESPOSTAS
         </FullWidthButton>
@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import Title from '../../components/Title'
 import CorrectAnsweredCard from '../../components/Sucess/CorrectAnsweredCard'
 import FullWidthButton from '../../components/UX/FullWidthButton'
 import FeedbackContent from '../../components/Feedback/FeedbackContent'
@@ -29,7 +28,6 @@ export default {
   name: 'Success',
 
   components: {
-    Title,
     CorrectAnsweredCard,
     FullWidthButton,
     FeedbackContent
@@ -47,9 +45,6 @@ export default {
   .sucess-page {
     min-height: 100vh;
   }
-  .title {
-    color: white;
-  }
   .full-width-content {
     margin-top: 80px;
   }
@@ -59,6 +54,21 @@ export default {
     -o-background-size: cover;
     background-size: cover;
     min-height: 100vh;
-    background-color: $green;
+    background-color: $green142;
+    padding-top: 56px;
+  }
+  .circulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .texto{
+    font-family: Roboto;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    padding-top: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
 </style>
