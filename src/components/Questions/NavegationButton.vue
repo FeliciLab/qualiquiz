@@ -30,9 +30,11 @@ export default {
     TimestampFooter
   },
   computed: {
-    ...mapGetters('quiz', { question: 'getQuestion' }),
+    ...mapGetters('quiz', { question: 'getCurrentQuestion' }),
+    ...mapGetters('quiz', ['getNumberOfQuestions']),
     changeLabel: function () {
-      if (this.question.number === 10) {
+      const currentQuestion = this.question + 1
+      if (currentQuestion === this.getNumberOfQuestions) {
         return 'FINALIZAR'
       }
       return 'PRÓXIMO'
