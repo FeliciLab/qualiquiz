@@ -3,13 +3,9 @@
     <div
       v-for="(question, index) in questions"
       :key="index"
-      class="m-2 number-question d-flex align-items-center justify-content-center"
+      class="number-question d-flex align-items-center justify-content-center"
       :class="stylesClasses(index, question)"
-      @click="setCurrentQuestion(index)"
     >
-      <span>
-        {{ index + 1 }}
-      </span>
     </div>
   </div>
 </template>
@@ -51,23 +47,19 @@ export default {
   scoped
 >
   .number-question {
-    border-radius: 100%;
-    width: 24px;
-    height: 24px;
-    background-color: $white-smoke;
-    font-family: OpenSans-Bold;
-    font-size: 12px;
-  }
-
-  .number-question-active {
-    background: linear-gradient(90deg, $light-orange 0%, $burning-orange 100%);
-    border: 1px solid $burning-orange;
-    color: white !important;
+    border-radius: 16px;
+    width: 14vw;
+    left: 71.8px;
+    height: 12px;
+    background-color: $gray5;
+    margin: 2.5vw;
   }
 
   .answered-question {
-    background-color: $white-smoke;
-    border: 1px solid $burning-orange;
-    color: $burning-orange;
+    background-color: $purple;
+    width: 14vw;
+    border-radius: 16px;
+    color: $purple;
+    margin: 2.5vw;
   }
 </style>
