@@ -1,7 +1,7 @@
 <template>
   <div class="sumary-quiz mx-13">
     <p>
-      <span class="title-sumary"> {{ quizName }} </span> <br>
+      <span class="roboto-bold"> {{ quizName }} </span> <br>
       <span>Tempo de resposta: {{ getTimeString }}</span><br>
       <span>Taxa de acerto: {{ result.acertos }} de  {{ amountQuestions }} questões</span><br>
       <span>Nota: {{ (result.percentagem / 10).toFixed(1) }}</span>
@@ -30,8 +30,5 @@ export default {
 <style lang="scss" scoped>
 .sumary-quiz {
   font-size: 14px;
-}
-.title-sumary {
-  font-weight: bold
 }
 </style>

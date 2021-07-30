@@ -1,7 +1,10 @@
 <template>
-  <div>
+  <div class="question-list">
     <div v-for="(item, index) in answers" :key="index">
       <question-feedback-item :isCorrect="item.acerto" :questionOrder="item.ordem_questao"/>
+    </div>
+    <div v-for="(item2, index) in explanations" :key="index">
+      <question-feedback-item v-if="teste"  :explanations="explanations" />
     </div>
   </div>
 </template>
@@ -24,17 +27,16 @@ export default {
       answers: 'getAnswers'
     })
 
+  },
+  data () {
+    return {
+      teste: false
+    }
   }
 }
 </script>
 <style lang="scss" scoped>
-  .feedback-item{
-    height: 93px;
-    left: 16px;
-    top: 207px;
-    background: #FFFFFF;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.039);
-    border-radius: 16px;
-    padding: 3px;
+  .question-list{
+    padding: 10px;
   }
 </style>

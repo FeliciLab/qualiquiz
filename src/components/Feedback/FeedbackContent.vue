@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div id="feedback">
     <Title id="top-explanation">Seu desempenho</Title>
     <SumaryQuiz class="mt-18" />
-    <question-feedback-list />
+    <img id="feedback-bar" src="../../assets/images/feedback-bar.svg" />
+    <question-feedback-list class="question-list" />
   </div>
 </template>
 
@@ -28,3 +29,16 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+  #feedback{
+    margin-top: 24px;
+  }
+  #feedback-bar{
+    padding: 0px 16px;
+    width: 100vw;
+  }
+  .question-list{
+    margin: 0px 16px;
+    padding: 0px;
+  }
+</style>
