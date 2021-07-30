@@ -65,9 +65,11 @@ export default {
 
   .chosen {
     outline: none;
-    color: $black64 !important;
-    border: 1px solid $forest-green;
-    border-radius: 6px;
+    color: $light !important;
+    border: 1px solid $purple;
+    border-radius: 16px;
+    background: $purple !important;
+    border: 1px solid $gray400 !important;
   }
 
   .alternative {
