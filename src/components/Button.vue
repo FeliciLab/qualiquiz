@@ -1,12 +1,14 @@
 <template>
   <div>
     <b-button
-      @click="$emit('click')"
+      @click="disabled ? '' : $emit('click')"
       type="typeBtn"
       :class="{
-      'btn-light': color == 'light',
-      'btn-gradient-success': color == 'success',
-      'btn-gradient-danger': color == 'danger'}"
+        'btn-light': color == 'light',
+        'btn-gradient-success': color == 'success',
+        'btn-gradient-danger': color == 'danger',
+      }"
+      :disabled="disabled"
       pill
       size="lg"
       :id="id"
@@ -40,7 +42,8 @@ export default {
     iconClass: {},
     typeBtn: {
       default: 'button'
-    }
+    },
+    disabled: Boolean
   }
 }
 </script>

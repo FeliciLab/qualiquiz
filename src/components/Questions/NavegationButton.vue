@@ -11,6 +11,7 @@
       @click="$emit('change-next')"
       class="text-center"
       color="success"
+      :disabled="!hasAlternativeChose"
       :label="changeLabel"
       icon-class="icon-play-arrow"
     />
@@ -31,16 +32,20 @@ export default {
   },
   computed: {
     ...mapGetters('quiz', { question: 'getCurrentQuestion' }),
-    ...mapGetters('quiz', ['getNumberOfQuestions']),
+    ...mapGetters('quiz', ['getNumberOfQuestions', 'getIfAnsweredQuestion']),
     changeLabel: function () {
       const currentQuestion = this.question + 1
       if (currentQuestion === this.getNumberOfQuestions) {
         return 'FINALIZAR'
       }
       return 'PRÓXIMO'
+    },
+    hasAlternativeChose: function () {
+      return this.getIfAnsweredQuestion
     }
   }
 }
+
 </script>
 <style
   lang="scss"
