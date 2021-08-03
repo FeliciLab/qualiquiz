@@ -4,7 +4,11 @@
       <QuestionNumberIcon :isCorrect="isCorrect" :questionOrder="questionOrder" />
     </div>
     <div v-if="knowMore" class=collapsed>
-      <QuestionExplanationCollapsed :correctItem="explanations" />
+      <QuestionExplanationCollapsed
+        :correctAlternative="getTextCorrectAlternative(questionId, correctAlternative)"
+        :questionId="questionId"
+        :explanation="getDescription(questionId)"
+      />
     </div>
     <div class="buttons">
       <NakedButton label="VER QUESTÃO" color="#000000" bgColor="#FFFFFF" />
@@ -22,6 +26,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import NakedButton from '../UX/NakedButton.vue'
 import QuestionNumberIcon from './QuestionNumberIcon.vue'
 import QuestionExplanationCollapsed from './QuestionExplanationCollapsed.vue'
@@ -29,16 +34,24 @@ import QuestionExplanationCollapsed from './QuestionExplanationCollapsed.vue'
 export default {
   props: {
     isCorrect: {
-      type: Boolean,
-      default: false
+      type: Number,
+      default: 0
     },
     questionOrder: {
       type: Number,
       default: 0
     },
-    explanations: {
+    questionId: {
+      type: Number,
+      default: 0
+    },
+    explanation: {
       type: Array,
       default: () => []
+    },
+    correctAlternative: {
+      type: Number,
+      default: 0
     }
   },
   name: 'QuestionFeedbackItem',
@@ -55,7 +68,23 @@ export default {
     }
   },
   computed: {
-
+    ...mapGetters('feedback', {
+      explanations: 'getExplanations'
+    }),
+    ...mapGetters('quiz', {
+      questions: 'getQuestions'
+    })
+  },
+  /* TODO: finalizar método getText  */
+  methods: {
+    getDescription (id) {
+      return this.explanations.find(exp => exp.questao === id)?.descricao
+    },
+    getTextCorrectAlternative (questionId, alternativeId) {
+      return 'parei aqui'
+      // return this.questions[questionId].alternativas.find(alt => alt.id === alternativeId)
+      /* return this.questions.find(question => question.id === questionId).alternativas[alternativeId] */
+    }
   }
 }
 </script>

@@ -1,10 +1,12 @@
 <template>
   <div class="question-list">
     <div v-for="(item, index) in answers" :key="index">
-      <question-feedback-item :isCorrect="item.acerto" :questionOrder="item.ordem_questao"/>
-    </div>
-    <div v-for="(item2, index) in explanations" :key="index">
-      <question-feedback-item v-if="teste"  :explanations="explanations" />
+      <question-feedback-item
+        :isCorrect="item.acerto"
+        :questionOrder="item.ordem_questao"
+        :correctAlternative="item.cod_alternativa_correta"
+        :questionId="item.cod_questao"
+      />
     </div>
   </div>
 </template>
@@ -30,7 +32,7 @@ export default {
   },
   data () {
     return {
-      teste: false
+      teste: true
     }
   }
 }

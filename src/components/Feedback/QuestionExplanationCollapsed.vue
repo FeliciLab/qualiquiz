@@ -1,16 +1,10 @@
 <template>
   <div>
     <div class=correct-item>
-      <span>{{correctItem}}</span>
-      <span>Collapsed here</span>
-
+      <span>{{correctAlternative}}</span>
     </div>
-    <!-- <div class="feedback-video">
-      {{feedbackVideo}}
+    <div v-html="explanation">
     </div>
-    <div class="feedback-text">
-      {{feedbackText}}
-    </div> -->
   </div>
 </template>
 
@@ -18,27 +12,16 @@
 
 export default {
   props: {
-    corretcItem: {
-      type: Array,
-      default: () => []
-    }
-  /*     feedbackVideo: {
-      type: String,
-      default: ''
+    correctAlternative: {
+      type: Number,
+      default: 0
     },
-    feedbackText: {
+    explanation: {
       type: String,
       default: ''
-    } */
+    }
   },
-  name: 'QuestionExplanationCollapsed',
-
-  components: {
-  },
-
-  computed: {
-
-  }
+  name: 'QuestionExplanationCollapsed'
 }
 </script>
 <style lang="scss" scoped>
