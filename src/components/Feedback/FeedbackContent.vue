@@ -9,10 +9,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import BreadcrumbsQuestionsResults from './BreadcrumbsQuestionsResults'
-import Title from '../Title'
-import SumaryQuiz from './SumaryQuiz'
-import QuestionsExplanations from './QuestionsExplanations'
+import BreadcrumbsQuestionsResults from './BreadcrumbsQuestionsResults.vue'
+import Title from '../Title.vue'
+import SumaryQuiz from './SumaryQuiz.vue'
+import QuestionsExplanations from './QuestionsExplanations.vue'
 
 export default {
   name: 'FeedbackContent',

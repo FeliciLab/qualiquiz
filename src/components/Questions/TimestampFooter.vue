@@ -2,7 +2,7 @@
   <div class="timestamp-footer">
     <div class="icon icon-alarm" style="width: 24px; height:24px"></div>
     <div class="roboto-bold" style="font-size:20px; mar">
-      {{ timeLeft === 0 ? `${secondLimit / 60}min` : minuteLeft > 0 ? `${minuteLeft}min ${timeLeft % 60}s` : `${timeLeft}s` }}
+      {{ onChangeTime() }}
     </div>
   </div>
 </template>
@@ -47,7 +47,20 @@ export default {
     ...mapActions('clock', {
       setFinishTime: 'setFinishTime',
       setTimeLeft: 'setTimeLeft'
-    })
+    }),
+    onChangeTime: function () {
+      if (this.timeLeft === 0) {
+        return `${this.secondLimit / 60}min`
+      }
+      if (this.minuteLeft < 10) {
+        return `0${this.minuteLeft}min ${this.timeLeft % 60}s`
+      }
+      if (this.minuteLeft > 0) {
+        return `${this.minuteLeft}min ${this.timeLeft % 60}s`
+      }
+
+      return `${this.timeLeft}s`
+    }
   }
 }
 </script>

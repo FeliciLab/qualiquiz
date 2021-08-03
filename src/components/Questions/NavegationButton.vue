@@ -13,7 +13,7 @@
       color="success"
       :disabled="!hasAlternativeChose"
       :label="changeLabel"
-      icon-class="icon-play-arrow"
+      :icon-class="changeIcon"
     />
     </b-col>
   </b-row>
@@ -35,13 +35,14 @@ export default {
     ...mapGetters('quiz', ['getNumberOfQuestions', 'getIfAnsweredQuestion']),
     changeLabel: function () {
       const currentQuestion = this.question + 1
-      if (currentQuestion === this.getNumberOfQuestions) {
-        return 'FINALIZAR'
-      }
-      return 'PRÓXIMO'
+      return currentQuestion === this.getNumberOfQuestions ? 'FINALIZAR' : 'PRÓXIMO'
     },
     hasAlternativeChose: function () {
       return this.getIfAnsweredQuestion
+    },
+    changeIcon: function () {
+      const currentQuestion = this.question + 1
+      return currentQuestion === this.getNumberOfQuestions ? 'icon-check' : 'icon-play-arrow'
     }
   }
 }
