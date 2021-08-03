@@ -75,15 +75,17 @@ export default {
       questions: 'getQuestions'
     })
   },
-  /* TODO: finalizar método getText  */
   methods: {
     getDescription (id) {
       return this.explanations.find(exp => exp.questao === id)?.descricao
     },
     getTextCorrectAlternative (questionId, alternativeId) {
-      return 'parei aqui'
-      // return this.questions[questionId].alternativas.find(alt => alt.id === alternativeId)
-      /* return this.questions.find(question => question.id === questionId).alternativas[alternativeId] */
+      const alternatives = this.questions.find(question => question.id === questionId)?.alternativas
+      for (const property in alternatives) {
+        if (alternatives[property].id === alternativeId) {
+          return alternatives[property].alternativa
+        }
+      }
     }
   }
 }
