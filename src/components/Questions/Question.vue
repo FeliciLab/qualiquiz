@@ -24,7 +24,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import AnswerOption from './AnswerOption'
+import AnswerOption from './AnswerOption.vue'
 
 export default {
   name: 'Question',
