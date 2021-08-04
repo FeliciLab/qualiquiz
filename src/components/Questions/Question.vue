@@ -1,27 +1,22 @@
 <template>
   <div>
     <div>
-      <b-row>
-        <p class="question">{{ question.questao }}</p>
-      </b-row>
-      <b-row class="my-2">
-        <p class="roboto-bold sub-title">Selecione uma alternativa</p>
-      </b-row>
+      <p class="question">{{ question.questao }}</p>
+      <p class="roboto-bold sub-title my-3">Selecione uma alternativa</p>
     </div>
-    <b-row>
-      <b-col
-        class="alternativeColum"
-        cols="12"
-        md=6
-        v-for="(alternative, index) in question.alternativas"
-        :key="index"
-      >
-        <AnswerOption
-          @click="setAnswerChosen"
-          :alternative="alternative"
-        />
-      </b-col>
-    </b-row>
+
+    <div
+      class="alternativeColum"
+      cols="12"
+      md=6
+      v-for="(alternative, index) in question.alternativas"
+      :key="index"
+    >
+      <AnswerOption
+        @click="setAnswerChosen"
+        :alternative="alternative"
+      />
+    </div>
   </div>
 </template>
 
@@ -39,7 +34,6 @@ export default {
   },
   computed: {
     ...mapGetters('quiz', {
-      // question: 'getQuestion',
       answers: 'getAnswers',
       answerModel: 'getAnswerModel'
     })
