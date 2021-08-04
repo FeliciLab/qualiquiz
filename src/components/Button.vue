@@ -1,34 +1,31 @@
 <template>
-  <div>
-    <b-button
-      @click="disabled ? '' : $emit('click')"
-      type="typeBtn"
-      :class="{
-        'btn-light': color == 'light',
-        'btn-gradient-success': color == 'success',
-        'btn-gradient-danger': color == 'danger',
-      }"
-      :disabled="disabled"
-      pill
-      size="lg"
-      :id="id"
+  <button
+    @click="disabled ? '' : $emit('click')"
+    :type="typeBtn"
+    :class="{
+      'btn-light': color == 'light',
+      'btn-gradient-success': color == 'success',
+      'btn-gradient-danger': color == 'danger',
+    }"
+    :disabled="disabled"
+    :id="id"
+    class="my-btn"
+  >
+    <div
+      class="d-flex f-16"
+      style="font-family: Roboto"
+      v-if="label.length > 0"
     >
-      <div
-        class="d-flex f-16"
-        style="font-family: Roboto"
-        v-if="label.length > 0"
-      >
-        <span
-          class="icon mr-2 align-self-center"
-          :class="{[iconClass] : true}"
-        ></span>
-        <span>{{label}}</span>
-      </div>
-      <div class="d-flex">
-        <span class="icon m-1" :class="{[iconClass] : true}" v-if="label.length <= 0"></span>
-      </div>
-    </b-button>
-  </div>
+      <span
+        class="icon mr-2 align-self-center"
+        :class="{[iconClass] : true}"
+      ></span>
+      <span>{{label}}</span>
+    </div>
+    <div class="d-flex">
+      <span class="icon m-1" :class="{[iconClass] : true}" v-if="label.length <= 0"></span>
+    </div>
+  </button>
 </template>
 
 <script>
@@ -52,6 +49,16 @@ export default {
   lang="scss"
   scoped
 >
+  .my-btn {
+    background-color: $purple;
+    border-radius: 49px;
+    display: inline-block;
+    border-radius: 50px;
+    color: white;
+    font-size: 14px;
+    border-color: rgba(0, 0, 0, 0%);
+    padding: 10px 22px;
+  }
   .btn-light {
     background-color: white;
     border: 2px solid $silver;
