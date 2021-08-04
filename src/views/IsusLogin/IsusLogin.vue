@@ -14,7 +14,7 @@ export default {
   methods: {
     ...mapActions('authentication', ['setToken']),
     ...mapActions('quiz', ['setId', 'cleanQuiz', 'initQuiz']),
-    ...mapActions('application', ['setDevelopment'])
+    ...mapActions('application', ['setDevelopment', 'setAppMocked'])
   },
   mounted () {
     this.cleanQuiz()
@@ -27,6 +27,7 @@ export default {
     this.setToken(this.$route.params.authToken)
     this.setId(this.$route.params.codQuiz)
     this.setDevelopment(this.$route.meta.dev)
+    this.setAppMocked(false)
     this.initQuiz({
       codQuiz: this.$route.params.codQuiz,
       devMode: this.$route.meta.dev,

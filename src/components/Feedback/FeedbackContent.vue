@@ -1,18 +1,17 @@
 <template>
-  <div>
+  <div id="feedback">
     <Title id="top-explanation">Seu desempenho</Title>
     <SumaryQuiz class="mt-18" />
-    <breadcrumbs-questions-results />
-    <QuestionsExplanations />
+    <img id="feedback-bar" src="../../assets/images/feedback-bar.svg" />
+    <question-feedback-list class="question-list" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import BreadcrumbsQuestionsResults from './BreadcrumbsQuestionsResults.vue'
-import Title from '../Title.vue'
-import SumaryQuiz from './SumaryQuiz.vue'
-import QuestionsExplanations from './QuestionsExplanations.vue'
+import Title from '../Title'
+import SumaryQuiz from './SumaryQuiz'
+import QuestionFeedbackList from './QuestionFeedbackList.vue'
 
 export default {
   name: 'FeedbackContent',
@@ -20,8 +19,7 @@ export default {
   components: {
     Title,
     SumaryQuiz,
-    BreadcrumbsQuestionsResults,
-    QuestionsExplanations
+    QuestionFeedbackList
   },
 
   computed: {
@@ -31,3 +29,19 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+  #feedback{
+    margin-top: 24px;
+  }
+  #feedback-bar{
+    padding: 0px 16px;
+    width: 100vw;
+  }
+  #top-explanation{
+    color: $black87;
+  }
+  .question-list{
+    margin: 0px 16px;
+    padding: 0px;
+  }
+</style>

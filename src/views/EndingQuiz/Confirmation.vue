@@ -2,7 +2,7 @@
   <BodyFinish>
     <template v-slot:actions>
       <div class='action-buttons-row'>
-        <NoButton @click="$router.push({ name: 'Question' })" />
+        <NakedButton label="REVISAR" color="#61459B" bgColor="#f4f4f4" @click="$router.push({ name: 'Question' })" />
         <PurpleButton @click="$emit('finish')" label="ENVIAR RESPOSTAS" />
       </div>
     </template>
@@ -12,13 +12,13 @@
 <script>
 import BodyFinish from './BodyFinish'
 import PurpleButton from '../../components/UX/PurpleButton'
-import NoButton from '../../components/UX/NoButton'
+import NakedButton from '../../components/UX/NakedButton'
 
 export default {
   components: {
     BodyFinish,
     PurpleButton,
-    NoButton
+    NakedButton
   }
 }
 </script>
