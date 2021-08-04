@@ -1,13 +1,16 @@
 <template>
   <div>
     <div>
-      <b-row class="mx-3">
+      <b-row>
         <p class="question">{{ question.questao }}</p>
-        <p class="sub-title">Selecione uma alternativa</p>
+      </b-row>
+      <b-row class="my-2">
+        <p class="roboto-bold sub-title">Selecione uma alternativa</p>
       </b-row>
     </div>
-    <b-row class="mx-3">
+    <b-row>
       <b-col
+        class="alternativeColum"
         cols="12"
         md=6
         v-for="(alternative, index) in question.alternativas"
@@ -77,5 +80,9 @@ export default {
     display: flex;
     align-items: center;
     letter-spacing: 0.15px;
+  }
+  .alternativeColum {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 </style>

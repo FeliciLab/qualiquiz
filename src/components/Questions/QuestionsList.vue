@@ -105,11 +105,11 @@ export default {
   lang="scss"
 scoped>
 #QuestionsList{
-  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: calc(100% - 40px);
+  padding: 16px 16px 16px 16px;
 }
 #content-question{
   margin: 10px 0px;
