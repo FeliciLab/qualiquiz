@@ -5,18 +5,14 @@
     ref="currentQuestion"
     class="animated faster fadeIn"
   >
-    <b-row id="content-question">
-      <b-col
-        cols="12"
-      >
-        <Question
-          v-for="(q, index) in questions"
-          :key="index"
-          :question="q"
-          v-show="index === currentQuestion"
-        />
-      </b-col>
-    </b-row>
+    <div id="content-question">
+      <Question
+        v-for="(q, index) in questions"
+        :key="index"
+        :question="q"
+        v-show="index === currentQuestion"
+      />
+    </div>
     <NavegationButton
       :question-number="currentQuestion"
       @change-previous="changePrevious"
@@ -105,7 +101,6 @@ export default {
   lang="scss"
 scoped>
 #QuestionsList{
-  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -113,6 +108,7 @@ scoped>
 }
 #content-question{
   margin: 10px 0px;
+  padding: 16px 16px 16px 16px;
 }
 
 </style>
