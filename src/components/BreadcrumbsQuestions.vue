@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-wrap justify-content-center">
+  <div class="d-flex flex-wrap justify-content-center breadcrumbs">
     <div
       v-for="(question, index) in questions"
       :key="index"
@@ -61,5 +61,8 @@ export default {
     border-radius: 16px;
     color: $purple;
     margin: 2.5vw;
+  }
+  .breadcrumbs {
+    padding-top: 24px;
   }
 </style>
