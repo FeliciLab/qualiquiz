@@ -2,7 +2,7 @@
   <BodyFinish>
     <template v-slot:actions>
       <div class='action-buttons-row'>
-        <NakedButton label="REVISAR" color="#61459B" bgColor="#f4f4f4" @click="$router.push({ name: 'Question' })" />
+        <NakedButton label="REVISAR" color="#61459B" bgColor="#f4f4f4" @click="onClick()" />
         <PurpleButton @click="$emit('finish')" label="ENVIAR RESPOSTAS" />
       </div>
     </template>
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import BodyFinish from './BodyFinish'
 import PurpleButton from '../../components/UX/PurpleButton'
 import NakedButton from '../../components/UX/NakedButton'
@@ -19,6 +20,13 @@ export default {
     BodyFinish,
     PurpleButton,
     NakedButton
+  },
+  methods: {
+    ...mapActions('quiz', ['setCurrentQuestion']),
+    onClick () {
+      this.setCurrentQuestion(0)
+      this.$router.push({ name: 'Question' })
+    }
   }
 }
 
