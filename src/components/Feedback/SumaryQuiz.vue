@@ -1,10 +1,10 @@
 <template>
   <div class="sumary-quiz mx-13">
     <p>
-      <span class="title-sumary"> {{ quizName }} </span> <br>
-      <span>Tempo de resposta: {{ getTimeString }}</span><br>
-      <span>Taxa de acerto: {{ result.acertos }} de  {{ amountQuestions }} questões</span><br>
-      <span>Nota: {{ (result.percentagem / 10).toFixed(1) }}</span>
+      <span class="roboto-bold quiz-name"> {{ quizName }} </span> <br>
+      <span class="roboto-bold">Tempo de resposta:</span><span> {{ getTimeString }}</span><br>
+      <span class="roboto-bold">Taxa de acerto:</span><span> {{ result.acertos }} de  {{ amountQuestions }} questões</span><br>
+      <span class="roboto-bold">Nota:</span><span> {{ (result.percentagem / 10).toFixed(1) }}</span>
     </p>
   </div>
 </template>
@@ -30,8 +30,6 @@ export default {
 <style lang="scss" scoped>
 .sumary-quiz {
   font-size: 14px;
-}
-.title-sumary {
-  font-weight: bold
+  color: $black64;
 }
 </style>
