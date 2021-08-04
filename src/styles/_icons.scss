@@ -7,12 +7,15 @@
     .icon-#{$icon_name} {
         background-image: url('../assets/icons/#{$icon_name}.svg');
         background-repeat: no-repeat;
+        background-size: contain;
     }
 }
 
+@include icon('alarm');
 @include icon('arrow-left');
 @include icon('arrow-left-grey');
 @include icon('arrow-right');
 @include icon('check');
 @include icon('clock');
 @include icon('cross');
+@include icon('play-arrow');
