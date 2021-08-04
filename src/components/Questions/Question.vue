@@ -2,7 +2,7 @@
   <div>
     <div>
       <b-row class="mx-3">
-        <p class="question">{{ question.questao }}</p>
+        <p class="question" v-html="question.questao"></p>
         <p class="sub-title">Selecione uma alternativa</p>
       </b-row>
     </div>
