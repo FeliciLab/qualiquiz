@@ -8,21 +8,21 @@
         <p>Parabéns, você concluiu a avaliação Manejo Clínico da Covid-19 2021.1, abaixo estão as respostas que farão parte de seu histórico.</p>
       </div>
       <div>
-        <FullWidthButton @click="showFeedback = true">
+        <FullWidthButton @click="onClick()">
           CONFERIR RESPOSTAS
         </FullWidthButton>
       </div>
     </div>
-    <div v-if="showFeedback">
+    <div v-show="showFeedback">
       <FeedbackContent class="full-width-content" />
     </div>
   </div>
 </template>
 
 <script>
-import CorrectAnsweredCard from '../../components/Sucess/CorrectAnsweredCard'
-import FullWidthButton from '../../components/UX/FullWidthButton'
-import FeedbackContent from '../../components/Feedback/FeedbackContent'
+import CorrectAnsweredCard from '../../components/Sucess/CorrectAnsweredCard.vue'
+import FullWidthButton from '../../components/UX/FullWidthButton.vue'
+import FeedbackContent from '../../components/Feedback/FeedbackContent.vue'
 
 export default {
   name: 'Success',
@@ -36,6 +36,14 @@ export default {
   data () {
     return {
       showFeedback: false
+    }
+  },
+  methods: {
+    onClick () {
+      this.showFeedback = true
+      const scrollToQuestion = document.createElement('a')
+      scrollToQuestion.href = '#top-explanation'
+      scrollToQuestion.click()
     }
   }
 }
