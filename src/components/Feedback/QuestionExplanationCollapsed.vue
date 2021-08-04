@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <div class=correct-item>
-      <span>{{correctAlternative}}</span>
+  <div class="collapsed">
+    <div class="correct-item roboto-bold">
+      <span>{{correctAlternativeText}}</span>
     </div>
     <div v-html="explanation">
     </div>
@@ -12,9 +12,9 @@
 
 export default {
   props: {
-    correctAlternative: {
-      type: Number,
-      default: 0
+    correctAlternativeText: {
+      type: String,
+      default: ''
     },
     explanation: {
       type: String,
@@ -25,5 +25,15 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+  .correct-item {
+    color: #0D8E48;
+    padding-top: 12px;
+    padding-bottom: 8px;
+  }
+  .collapsed{
+    padding: 0px 16px 0px 16px;
+  }
+  iframe{
+    border: 8px solid red;
+  }
 </style>

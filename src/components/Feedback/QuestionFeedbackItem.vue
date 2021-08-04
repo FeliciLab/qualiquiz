@@ -5,9 +5,9 @@
     </div>
     <div v-if="knowMore" class=collapsed>
       <QuestionExplanationCollapsed
-        :correctAlternative="getTextCorrectAlternative(questionId, correctAlternative)"
+        :correctAlternativeText="getTextCorrectAlternative(questionId, correctAlternative)"
         :questionId="questionId"
-        :explanation="getDescription(questionId)"
+        :explanation="getDescription(questionOrder)"
       />
     </div>
     <div class="buttons">
@@ -45,10 +45,6 @@ export default {
       type: Number,
       default: 0
     },
-    explanation: {
-      type: Array,
-      default: () => []
-    },
     correctAlternative: {
       type: Number,
       default: 0
@@ -78,6 +74,7 @@ export default {
   methods: {
     getDescription (id) {
       return this.explanations.find(exp => exp.questao === id)?.descricao
+      // return this.explanations.find(exp => exp.questao === id)?.descricao
     },
     getTextCorrectAlternative (questionId, alternativeId) {
       const alternatives = this.questions.find(question => question.id === questionId)?.alternativas

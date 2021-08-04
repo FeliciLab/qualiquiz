@@ -37,6 +37,9 @@ export default {
     padding: 0px 16px;
     width: 100vw;
   }
+  #top-explanation{
+    color: $black87;
+  }
   .question-list{
     margin: 0px 16px;
     padding: 0px;

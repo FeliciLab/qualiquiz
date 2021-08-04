@@ -16,24 +16,16 @@ import { mapGetters } from 'vuex'
 import QuestionFeedbackItem from './QuestionFeedbackItem.vue'
 
 export default {
-
   name: 'QuestionFeedbackList',
-
   components: {
     QuestionFeedbackItem
   },
-
   computed: {
     ...mapGetters('feedback', {
       explanations: 'getExplanations',
       answers: 'getAnswers'
     })
 
-  },
-  data () {
-    return {
-      teste: true
-    }
   }
 }
 </script>
