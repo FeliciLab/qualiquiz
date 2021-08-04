@@ -1,8 +1,8 @@
 <template>
   <div class="timestamp-footer">
     <div class="icon icon-alarm" style="width: 24px; height:24px"></div>
-    <div class="roboto-bold" style="font-size:20px; mar">
-      {{ timeLeft === 0 ? `${secondLimit / 60}min` : minuteLeft > 0 ? `${minuteLeft}min ${timeLeft % 60}s` : `${timeLeft}s` }}
+    <div class="mx-2 roboto-bold" style="font-size:20px; mar">
+      {{ onChangeTime() }}
     </div>
   </div>
 </template>
@@ -47,7 +47,21 @@ export default {
     ...mapActions('clock', {
       setFinishTime: 'setFinishTime',
       setTimeLeft: 'setTimeLeft'
-    })
+    }),
+    onChangeTime: function () {
+      const timeLeftConverted = this.timeLeft % 60 < 10 ? `0${this.timeLeft % 60}` : this.timeLeft % 60
+      if (this.timeLeft === 0) {
+        return `${this.secondLimit / 60}min`
+      }
+      if (this.minuteLeft < 10) {
+        return `0${this.minuteLeft}m${timeLeftConverted}s`
+      }
+      if (this.minuteLeft > 0) {
+        return `${this.minuteLeft}m${timeLeftConverted}s`
+      }
+
+      return `${timeLeftConverted}s`
+    }
   }
 }
 </script>
@@ -59,8 +73,7 @@ export default {
   .timestamp-footer {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-evenly;
     align-items: center;
-    width: 120px;
+    width: 100%;
   }
 </style>
