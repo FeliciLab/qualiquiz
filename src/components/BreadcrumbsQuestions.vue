@@ -1,9 +1,9 @@
 <template>
-  <div class="d-flex flex-wrap justify-content-center breadcrumbs">
+  <div class="breadcrumbs-questions">
     <div
       v-for="(question, index) in questions"
       :key="index"
-      class="number-question d-flex align-items-center justify-content-center"
+      class="breadcrumbs-item"
       :class="stylesClasses(index, question)"
     >
     </div>
@@ -46,23 +46,25 @@ export default {
   lang="scss"
   scoped
 >
-  .number-question {
+  .breadcrumbs-questions {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding-top: 24px;
+    width: 100%;
+  }
+  .breadcrumbs-item {
     border-radius: 16px;
-    width: 14vw;
-    left: 71.8px;
+    width: 20%;
     height: 12px;
     background-color: $gray5;
-    margin: 2.5vw;
+    margin: 0px 8px;
   }
-
+  .number-question-active {
+    background-color: #fff !important;
+    border: 1px solid $purple !important;
+  }
   .answered-question {
     background-color: $purple;
-    width: 14vw;
-    border-radius: 16px;
-    color: $purple;
-    margin: 2.5vw;
-  }
-  .breadcrumbs {
-    padding-top: 24px;
   }
 </style>

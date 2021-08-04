@@ -3,9 +3,10 @@
     @click="disabled ? '' : $emit('click')"
     :type="typeBtn"
     :class="{
-      'btn-light': color == 'light',
-      'btn-gradient-success': color == 'success',
-      'btn-gradient-danger': color == 'danger',
+      'btn-disabled': disabled,
+      'btn-light': !disabled && color == 'light',
+      'btn-gradient-success': !disabled && color == 'success',
+      'btn-gradient-danger': !disabled && color == 'danger',
     }"
     :disabled="disabled"
     :id="id"
@@ -59,13 +60,17 @@ export default {
     border-color: rgba(0, 0, 0, 0%);
     padding: 10px 22px;
   }
+  .btn-disabled {
+    border-color: rgba(0, 0, 0, 0%);
+    background-color: $gray400;
+  }
   .btn-light {
     background-color: white;
     border: 2px solid $silver;
   }
   // Fazer Mixin do btn-gradient
   .btn-gradient-success {
-    background: $purple;
+    background-color: $purple;
     border: 2px solid $purple;
   }
   .btn-gradient-danger {
