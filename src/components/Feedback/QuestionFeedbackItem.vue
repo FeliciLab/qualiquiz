@@ -1,7 +1,7 @@
 <template>
   <div class="feedback-item">
     <div>
-      <QuestionNumberIcon :isCorrect="isCorrect" :questionOrder="questionOrder" />
+      <QuestionNumberIcon id="question-number-icon" :isCorrect="isCorrect" :questionOrder="questionOrder" />
     </div>
     <div v-if="knowMore" class=collapsed>
       <QuestionExplanationCollapsed
@@ -15,7 +15,6 @@
       <SeeQuestionModal
         v-if="showModal"
         @close="showModal = false"
-        :isCorrect="isCorrect"
         :questionOrder="questionOrder"
       >
         <template v-slot:title>
@@ -101,6 +100,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+  #question-number-icon {
+    margin-left: 17.5px;
+    margin-top: 16px;
+  }
   .feedback-item{
     min-height: 93px;
     height: auto;
