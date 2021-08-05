@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <p class="question">{{ question.questao }}</p>
+      <p class="question" v-html="question.questao"></p>
       <p class="roboto-bold sub-title my-3">Selecione uma alternativa</p>
     </div>
 
