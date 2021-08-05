@@ -11,7 +11,17 @@
       />
     </div>
     <div class="buttons">
-      <NakedButton label="VER QUESTÃO" color="#000000" bgColor="#FFFFFF" />
+      <NakedButton id="show-modal" @click="showModal = true" label="VER QUESTÃO" color="#000000" bgColor="#FFFFFF" />
+      <SeeQuestionModal
+        v-if="showModal"
+        @close="showModal = false"
+        :isCorrect="isCorrect"
+        :questionOrder="questionOrder"
+      >
+        <template v-slot:title>
+          <QuestionNumberIcon :isCorrect="isCorrect" :questionOrder="questionOrder" />
+        </template>
+      </SeeQuestionModal>
       <div class="expand-less" v-if="knowMore">
         <img src="../../assets/images/expandLess.svg" @click="knowMore = false">
       </div>
@@ -30,6 +40,7 @@ import { mapGetters } from 'vuex'
 import NakedButton from '../UX/NakedButton.vue'
 import QuestionNumberIcon from './QuestionNumberIcon.vue'
 import QuestionExplanationCollapsed from './QuestionExplanationCollapsed.vue'
+import SeeQuestionModal from './SeeQuestionModal.vue'
 
 export default {
   props: {
@@ -55,12 +66,14 @@ export default {
   components: {
     NakedButton,
     QuestionNumberIcon,
-    QuestionExplanationCollapsed
+    QuestionExplanationCollapsed,
+    SeeQuestionModal
   },
 
   data () {
     return {
-      knowMore: false
+      knowMore: false,
+      showModal: false
     }
   },
   computed: {
