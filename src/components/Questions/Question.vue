@@ -15,6 +15,7 @@
       <AnswerOption
         @click="setAnswerChosen"
         :alternative="alternative"
+        :resultViewOnly="resultViewOnly"
       />
     </div>
   </div>
@@ -27,7 +28,8 @@ import AnswerOption from './AnswerOption.vue'
 export default {
   name: 'Question',
   props: {
-    question: { require: true }
+    question: { require: true },
+    resultViewOnly: { default: false, type: Boolean }
   },
   components: {
     AnswerOption

@@ -32,8 +32,6 @@ export default {
 </script>
 <style lang="scss" scoped>
   .question{
-    margin-left: 17.5px;
-    margin-top: 16px;
     display: flex;
     flex-direction: row;
     align-items: flex-end;

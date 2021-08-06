@@ -33,7 +33,4 @@ export default {
   .collapsed{
     padding: 0px 16px 0px 16px;
   }
-  iframe{
-    border: 8px solid red;
-  }
 </style>
