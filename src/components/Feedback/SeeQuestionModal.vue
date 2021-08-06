@@ -7,7 +7,7 @@
       </div>
     </template>
     <template v-slot:body>
-      <QuestionsListModal/>
+      <Question :question="question" resultViewOnly />
     </template>
     <template v-slot:footer>
       <PurpleButton @click="$emit('close')" label="FECHAR" />
@@ -16,24 +16,24 @@
 </template>
 
 <script>
-import QuestionsListModal from '../Questions/QuestionsListModal'
+import { mapGetters } from 'vuex'
+import Question from '../Questions/Question'
 import Modal from '../UX/Modal'
 import NakedButton from '../UX/NakedButton'
 import PurpleButton from '../UX/PurpleButton'
 
 export default {
-  props: {
-    questionOrder: {
-      type: Number,
-      default: 0
-    }
-  },
   name: 'SeeQuestionModal',
   components: {
     Modal,
     NakedButton,
     PurpleButton,
-    QuestionsListModal
+    Question
+  },
+  computed: {
+    ...mapGetters('quiz', {
+      question: 'getQuestion'
+    })
   }
 }
 

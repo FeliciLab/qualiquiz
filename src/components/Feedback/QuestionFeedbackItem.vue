@@ -11,7 +11,13 @@
       />
     </div>
     <div class="buttons">
-      <NakedButton id="show-modal" @click="showModal = true" label="VER QUESTÃO" color="#000000" bgColor="#FFFFFF" />
+      <NakedButton
+        id="show-modal"
+        @click="onShowModal(questionOrder)"
+        label="VER QUESTÃO"
+        color="#000000"
+        bgColor="#FFFFFF"
+      />
       <SeeQuestionModal
         v-if="showModal"
         @close="showModal = false"
@@ -35,7 +41,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import NakedButton from '../UX/NakedButton.vue'
 import QuestionNumberIcon from './QuestionNumberIcon.vue'
 import QuestionExplanationCollapsed from './QuestionExplanationCollapsed.vue'
@@ -84,9 +90,11 @@ export default {
     })
   },
   methods: {
+    ...mapActions('quiz', {
+      setCurrentQuestion: 'setCurrentQuestion'
+    }),
     getDescription (id) {
       return this.explanations.find(exp => exp.questao === id)?.descricao
-      // return this.explanations.find(exp => exp.questao === id)?.descricao
     },
     getTextCorrectAlternative (questionId, alternativeId) {
       const alternatives = this.questions.find(question => question.id === questionId)?.alternativas
@@ -95,6 +103,10 @@ export default {
           return alternatives[property].alternativa
         }
       }
+    },
+    onShowModal (qOrder) {
+      this.showModal = true
+      this.setCurrentQuestion(qOrder - 1)
     }
   }
 }
