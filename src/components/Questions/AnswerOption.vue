@@ -3,7 +3,7 @@
     ref="button-alternative"
     class="alternative my-2 w-100"
     @click="$emit('click', alternative.id)"
-    :class="alternativeClasses()"
+    :class="alternativeClasses"
     :disabled="disabled"
   >
     <b-row>
@@ -47,7 +47,39 @@ export default {
     }),
     ...mapGetters('feedback', {
       getAnswersFeedback: 'getAnswers'
-    })
+    }),
+    alternativeClasses () {
+      const classes = { chosen: this.answerTrue() }
+      if (!this.resultViewOnly) {
+        return classes
+      }
+
+      return {
+        alternativeCorrect: this.checkAlternativeCorrect,
+        alternativeChosenCorrect: this.checkAlternativeChosenCorrect,
+        alternativeChosenIncorrect: this.checkAlternativeChosenIncorrect
+      }
+    },
+    checkAlternativeCorrect () {
+      return this.getAnswersFeedback.some(
+        answer => answer.questionId === this.getAnswersFeedback.cod_questao &&
+          this.alternative.id === answer.cod_alternativa_correta
+      )
+    },
+    checkAlternativeChosenCorrect () {
+      return this.getAnswersFeedback.some(
+        answer => answer.questionId === this.getAnswersFeedback.cod_questao &&
+          this.alternative.id === answer.cod_alternativa_correta &&
+          this.alternative.id === answer.cod_alternativa_marcada
+      )
+    },
+    checkAlternativeChosenIncorrect () {
+      return this.getAnswersFeedback.some(
+        answer => answer.questionId === this.getAnswersFeedback.cod_questao &&
+          this.alternative.id !== answer.cod_alternativa_correta &&
+          this.alternative.id === answer.cod_alternativa_marcada
+      )
+    }
   },
   methods: {
     answerTrue () {
@@ -60,32 +92,6 @@ export default {
       if (this.answerTrue()) {
         this.$refs['button-alternative'].focus()
       }
-    },
-    alternativeClasses () {
-      console.log(this.question.id)
-      const classes = { chosen: this.answerTrue() }
-      if (!this.resultViewOnly) {
-        return classes
-      }
-      return {
-        alternativeCorrect: this.checkAlternativeCorrect(),
-        alternativeChosenCorrect: this.checkAlternativeChosenCorrect()
-        /* alternativeChosenIncorrect: this.checkAlternativeChosenIncorrect() */
-      }
-    },
-    checkAlternativeCorrect () {
-      const answerQuestion = this.getAnswersFeedback.find(answer => answer.questionId === this.getAnswersFeedback.cod_questao)
-      if (this.alternative.id === answerQuestion.cod_alternativa_correta) {
-        return true
-      }
-      return false
-    },
-    checkAlternativeChosenCorrect () {
-      const answerQuestion = this.getAnswersFeedback.find(answer => answer.questionId === this.getAnswersFeedback.cod_questao)
-      if (this.alternative.id === answerQuestion.cod_alternativa_correta && this.alternative.id === answerQuestion.cod_alternativa_marcada) {
-        return true
-      }
-      return false
     }
   }
 }
@@ -97,6 +103,8 @@ export default {
 >
   .alternativeCorrect {
     border-color: $green !important;
+    border-width: 2px;
+    background-color: $greenA22;
   }
   .alternativeChosenCorrect {
     background-color: $green !important;
@@ -105,12 +113,12 @@ export default {
   .alternativeChosenIncorrect {
     background-color: $red !important;
     border-color: $red !important;
+    color: $light !important;
   }
   .character {
     font-family: OpenSans-Bold;
     font-size: 2.5rem;
   }
-
   .chosen {
     color: $light !important;
     background-color: $purple !important;
@@ -125,7 +133,6 @@ export default {
     border-color: $gray400;
     cursor: pointer;
     transition: all .2s ease-out;
-    background: none;
     border-radius: 16px;
     font-family: Roboto;
     font-style: normal;

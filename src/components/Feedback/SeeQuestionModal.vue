@@ -3,14 +3,14 @@
     <template v-slot:header>
       <div id="header-question">
         <slot name="title" id="question-icon"></slot>
-        <NakedButton @click="$emit('close')" label="X" color="#61459B" bgColor="#FFFFFF" />
+        <NakedButton @click="$emit('close')" label="x" color="#61459B" bgColor="#FFFFFF" />
       </div>
     </template>
     <template v-slot:body>
       <Question :question="question" resultViewOnly />
     </template>
     <template v-slot:footer>
-      <PurpleButton @click="$emit('close')" label="FECHAR" />
+      <NakedButton @click="$emit('close')" label="FECHAR" color="#61459B" bgColor="#FFFFFF" />
     </template>
   </Modal>
 </template>
@@ -20,14 +20,12 @@ import { mapGetters } from 'vuex'
 import Question from '../Questions/Question'
 import Modal from '../UX/Modal'
 import NakedButton from '../UX/NakedButton'
-import PurpleButton from '../UX/PurpleButton'
 
 export default {
   name: 'SeeQuestionModal',
   components: {
     Modal,
     NakedButton,
-    PurpleButton,
     Question
   },
   computed: {
