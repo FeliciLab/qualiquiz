@@ -1,16 +1,18 @@
 <template>
   <div
+    id="QuestionsList"
     v-if="amountQuestions > 0"
     ref="currentQuestion"
     class="animated faster fadeIn"
   >
-    <b-row>
-      <b-col
-        cols="12"
-      >
-        <Question/>
-      </b-col>
-    </b-row>
+    <div id="content-question">
+      <Question
+        v-for="(q, index) in questions"
+        :key="index"
+        :question="q"
+        v-show="index === currentQuestion"
+      />
+    </div>
     <NavegationButton
       :question-number="currentQuestion"
       @change-previous="changePrevious"
@@ -21,8 +23,8 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import Question from './Question'
-import NavegationButton from './NavegationButton'
+import Question from './Question.vue'
+import NavegationButton from './NavegationButton.vue'
 
 export default {
   name: 'QuestionsList',
@@ -50,7 +52,7 @@ export default {
     }),
     toUp () {
       const a = document.createElement('a')
-      a.href = '#question-view-top-id'
+      a.href = '#QuestionsList'
       a.click()
     },
     setTimeFinish (id) {
@@ -95,5 +97,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style
+  lang="scss"
+scoped>
+#QuestionsList{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 40px);
+}
+#content-question{
+  margin: 10px 0px;
+  padding: 16px 16px 16px 16px;
+}
+
 </style>

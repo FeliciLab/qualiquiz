@@ -1,36 +1,41 @@
 <template>
   <div>
-    <b-row class="mx-3">
-      <p>{{ question.questao }}</p>
-    </b-row>
-    <b-row class="mx-3">
-      <b-col
-        cols="12"
-        md=6
-        v-for="(alternative, index) in question.alternativas"
-        :key="index"
-      >
-        <AnswerOption
-          @click="setAnswerChosen"
-          :alternative="alternative"
-        />
-      </b-col>
-    </b-row>
+    <div>
+      <p class="question" v-html="question.questao"></p>
+      <p class="roboto-bold sub-title my-3">Selecione uma alternativa</p>
+    </div>
+
+    <div
+      class="alternativeColum"
+      cols="12"
+      md=6
+      v-for="(alternative, index) in question.alternativas"
+      :key="index"
+    >
+      <AnswerOption
+        @click="setAnswerChosen"
+        :alternative="alternative"
+        :resultViewOnly="resultViewOnly"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import AnswerOption from './AnswerOption'
+import AnswerOption from './AnswerOption.vue'
 
 export default {
   name: 'Question',
+  props: {
+    question: { require: true },
+    resultViewOnly: { default: false, type: Boolean }
+  },
   components: {
     AnswerOption
   },
   computed: {
     ...mapGetters('quiz', {
-      question: 'getQuestion',
       answers: 'getAnswers',
       answerModel: 'getAnswerModel'
     })
@@ -54,25 +59,26 @@ export default {
   lang="scss"
   scoped
 >
-  .alternative {
-    cursor: pointer;
-    transition: all .2s ease-out;
-    background: none;
-    box-shadow: 0 0 0 transparent;
-    border: 1px solid $white-smoke;
-    text-shadow: 0 0 0 transparent;
-    border-radius: 6px;
-
-    &:hover {
-      background: none;
-      color: #4c4c4c;
-    }
-
-    &:focus {
-      outline: none;
-      color: $forest-green !important;
-      border: 1px solid $forest-green;
-      border-radius: 6px;
-    }
+  .question{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: $dark;
+  }
+  .sub-title{
+    color: $black64;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15px;
+  }
+  .alternativeColum {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 </style>

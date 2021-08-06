@@ -38,24 +38,23 @@ export default {
     ...mapGetters('authentication', {
       token: 'getToken'
     }),
-    ...mapGetters('application', ['getDevelopment']),
+    ...mapGetters('application', ['getDevelopment', 'getAppMocked']),
     ...mapGetters('clock', ['timeSpent'])
   },
 
   methods: {
     ...mapActions('quiz', ['saveAnswers']),
-    ...mapActions('feedback', ['fetchResult']),
+    ...mapActions('feedback', ['fetchResult', 'fetchResultMocked']),
     finish () {
       this.showLoading = true
 
-      if (this.id === 0) {
+      if (this.getAppMocked) {
         setTimeout(() => {
           this.$router.push({ name: 'Success' })
         }, 1000)
 
         return
       }
-
       this.saveAnswers({
         token: this.token,
         devMode: this.getDevelopment,

@@ -31,6 +31,9 @@ export default {
     getNumberOfQuestions: (state) => state.questions.length,
     getCurrentQuestion: (state) => state.currentQuestion,
     getAnswers: (state) => state.answers,
+    getIfAnsweredQuestion: (state) => state.answers.some(
+      (answer) => answer.questionId === state.questions[state.currentQuestion]?.id && answer.alternativeId > 0
+    ),
     getNumberOfAnswers: (state) =>
       state.answers.filter((i) => i.alternativeId >= 0).length,
     getAnswerModel: () => answerModel,
@@ -66,7 +69,7 @@ export default {
         ),
         {
           ...(state.answers.find(
-            (answer) => answer.questionId !== alternative.questionId
+            (answer) => answer.questionId === alternative.questionId
           ) || {}),
           ...alternative
         }

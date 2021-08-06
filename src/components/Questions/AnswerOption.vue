@@ -3,16 +3,11 @@
     ref="button-alternative"
     class="alternative my-2 w-100"
     @click="$emit('click', alternative.id)"
-    :class="{ chosen: answerTrue() }"
+    :class="alternativeClasses"
+    :disabled="disabled"
   >
-    <b-row class="py-2">
-      <b-col
-        cols=2
-        class="character"
-      >
-        {{ caracterAlternative }}
-      </b-col>
-      <b-col cols=10 class="text-left">
+    <b-row>
+      <b-col class="text-left">
         {{ alternative.alternativa }}
       </b-col>
     </b-row>
@@ -28,6 +23,10 @@ export default {
     alternative: {
       required: true,
       type: Object
+    },
+    resultViewOnly: {
+      default: false,
+      type: Boolean
     }
   },
   watch: {
@@ -39,13 +38,47 @@ export default {
     }
   },
   computed: {
+    disabled () {
+      return this.resultViewOnly
+    },
     ...mapGetters('quiz', {
       getAnswers: 'getAnswers',
       question: 'getQuestion'
     }),
-    caracterAlternative () {
-      const options = ['A', 'B', 'C', 'D', 'E']
-      return options[(this.alternative.ordem - 1)]
+    ...mapGetters('feedback', {
+      getAnswersFeedback: 'getAnswers'
+    }),
+    alternativeClasses () {
+      const classes = { chosen: this.answerTrue() }
+      if (!this.resultViewOnly) {
+        return classes
+      }
+
+      return {
+        alternativeCorrect: this.checkAlternativeCorrect,
+        alternativeChosenCorrect: this.checkAlternativeChosenCorrect,
+        alternativeChosenIncorrect: this.checkAlternativeChosenIncorrect
+      }
+    },
+    checkAlternativeCorrect () {
+      return this.getAnswersFeedback.some(
+        answer => answer.questionId === this.getAnswersFeedback.cod_questao &&
+          this.alternative.id === answer.cod_alternativa_correta
+      )
+    },
+    checkAlternativeChosenCorrect () {
+      return this.getAnswersFeedback.some(
+        answer => answer.questionId === this.getAnswersFeedback.cod_questao &&
+          this.alternative.id === answer.cod_alternativa_correta &&
+          this.alternative.id === answer.cod_alternativa_marcada
+      )
+    },
+    checkAlternativeChosenIncorrect () {
+      return this.getAnswersFeedback.some(
+        answer => answer.questionId === this.getAnswersFeedback.cod_questao &&
+          this.alternative.id !== answer.cod_alternativa_correta &&
+          this.alternative.id === answer.cod_alternativa_marcada
+      )
     }
   },
   methods: {
@@ -68,37 +101,59 @@ export default {
   lang="scss"
   scoped
 >
+  .alternativeCorrect {
+    border-color: $green !important;
+    border-width: 2px;
+    background-color: $greenA22;
+  }
+  .alternativeChosenCorrect {
+    background-color: $green !important;
+    color: $light !important;
+  }
+  .alternativeChosenIncorrect {
+    background-color: $red !important;
+    border-color: $red !important;
+    color: $light !important;
+  }
   .character {
     font-family: OpenSans-Bold;
     font-size: 2.5rem;
   }
-
   .chosen {
-    outline: none;
-    color: $forest-green !important;
-    border: 1px solid $forest-green;
-    border-radius: 6px;
+    color: $light !important;
+    background-color: $purple !important;
+    border-color: $purple !important;
   }
 
   .alternative {
+    box-shadow: 0 0 0 transparent;
+    color: $black64;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $gray400;
     cursor: pointer;
     transition: all .2s ease-out;
-    background: none;
-    box-shadow: 0 0 0 transparent;
-    border: 1px solid $white-smoke;
-    text-shadow: 0 0 0 transparent;
-    border-radius: 6px;
+    border-radius: 16px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15px;
+    padding: 12px 16px;
 
     &:hover {
-      background: none;
       color: #4c4c4c;
     }
 
     &:focus {
       outline: none;
-      color: $forest-green !important;
-      border: 1px solid $forest-green;
-      border-radius: 6px;
+      color: $light !important;
+      border: 1px solid $purple;
+      border-radius: 16px;
+      background: $purple;
     }
   }
 </style>

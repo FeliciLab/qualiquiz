@@ -1,5 +1,7 @@
 import quizRequest from '../../services/quizRequest'
 
+const resultado = require('@/assets/resultado.json')
+
 const resultModel = {
   acertos: 0,
   erros: 0,
@@ -11,7 +13,7 @@ const answersModel = {
   cod_quiz: 0,
   cod_questao: 0,
   ordem_questao: 0,
-  cod_altertiva_marcada: 0,
+  cod_alternativa_marcada: 0,
   ordem_alternativa_marcada: 0,
   cod_alternativa_correta: 0,
   ordem_alternativa: 0,
@@ -67,6 +69,11 @@ export default {
     },
     setAnswers ({ commit }, answers) {
       commit('SET_ANSWERS', answers)
+    },
+    fetchResultMocked ({ dispatch }) {
+      dispatch('setResult', resultado.resultado)
+      dispatch('setExplanations', resultado.comentarioQuestoes)
+      dispatch('setAnswers', resultado.respostas)
     },
     fetchResult ({ dispatch }, { id, auth, devMode }) {
       return quizRequest.fetchResult(id, auth, devMode)

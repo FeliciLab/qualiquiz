@@ -1,15 +1,11 @@
 <template>
-  <div class="d-flex flex-wrap justify-content-center">
+  <div class="breadcrumbs-questions">
     <div
       v-for="(question, index) in questions"
       :key="index"
-      class="m-2 number-question d-flex align-items-center justify-content-center"
+      class="breadcrumbs-item"
       :class="stylesClasses(index, question)"
-      @click="setCurrentQuestion(index)"
     >
-      <span>
-        {{ index + 1 }}
-      </span>
     </div>
   </div>
 </template>
@@ -50,24 +46,25 @@ export default {
   lang="scss"
   scoped
 >
-  .number-question {
-    border-radius: 100%;
-    width: 24px;
-    height: 24px;
-    background-color: $white-smoke;
-    font-family: OpenSans-Bold;
-    font-size: 12px;
+  .breadcrumbs-questions {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding-top: 24px;
+    width: 100%;
   }
-
+  .breadcrumbs-item {
+    border-radius: 16px;
+    width: 20%;
+    height: 12px;
+    background-color: $gray5;
+    margin: 0px 8px;
+  }
   .number-question-active {
-    background: linear-gradient(90deg, $light-orange 0%, $burning-orange 100%);
-    border: 1px solid $burning-orange;
-    color: white !important;
+    background-color: #fff !important;
+    border: 1px solid $purple !important;
   }
-
   .answered-question {
-    background-color: $white-smoke;
-    border: 1px solid $burning-orange;
-    color: $burning-orange;
+    background-color: $purple;
   }
 </style>
