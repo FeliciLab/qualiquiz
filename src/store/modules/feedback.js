@@ -13,7 +13,7 @@ const answersModel = {
   cod_quiz: 0,
   cod_questao: 0,
   ordem_questao: 0,
-  cod_altertiva_marcada: 0,
+  cod_alternativa_marcada: 0,
   ordem_alternativa_marcada: 0,
   cod_alternativa_correta: 0,
   ordem_alternativa: 0,
