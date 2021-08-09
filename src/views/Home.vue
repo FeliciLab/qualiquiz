@@ -4,6 +4,8 @@
 
 <script>
 import { mapActions } from 'vuex'
+import auth from '../assets/auth'
+
 export default {
   name: 'Home',
   methods: {
@@ -14,10 +16,9 @@ export default {
     ...mapActions('feedback', ['fetchResultMocked'])
   },
   mounted () {
-    this.setAppMocked(true)
-    this.fetchResultMocked()
-    this.initTestQuiz(this.$route.params.codQuiz)
-    this.$router.push('/welcome')
+    this.setAppMocked(false)
+    // this.fetchResultMocked()
+    this.$router.push(`/dev/isus/login/1/${auth.token}`)
   }
 }
 </script>
