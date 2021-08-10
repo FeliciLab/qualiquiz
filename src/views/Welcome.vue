@@ -13,7 +13,7 @@
     </div>
       <b-container class="content">
         <div class="content-text">
-          <p> O <span class="roboto-bold">QualiQuiz</span> é uma iniciativa da Escola de Saúde Pública do Ceará para promover avaliar conhecimentos, habilidades e atitudes dos profissionais de saúde. </p>
+          <p> O <span class="roboto-bold">QualiQuiz</span> é uma iniciativa da Escola de Saúde Pública do Ceará para  avaliar conhecimentos, habilidades e atitudes dos profissionais de saúde. </p>
           <p> Ao responder esse quiz, você nos ajuda a conhecer melhor suas potencialidades e fragilidades, e a qualificar a nossa política de educação permanente, com base em um planejamento educacional adequado às necessidades da força de trabalho do SUS.</p>
 
           <h5 id="nameQuiz" class="mx-0 mx-sm-0">
