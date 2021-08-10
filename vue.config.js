@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: '/qualiquiz/',
+  publicPath: '/',
   css: {
     loaderOptions: {
       scss: {
