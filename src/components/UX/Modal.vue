@@ -45,7 +45,7 @@ export default {
     margin: 0px auto;
     padding: 0px;
     background-color: #fff;
-    border-radius: 2px;
+    border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
     font-family: Helvetica, Arial, sans-serif;
@@ -56,8 +56,17 @@ export default {
     margin-top: 0;
     color: #42b983;
   }
+  .modal-header {
+    border: none !important;
+    padding: 24px 24px 16px 24px !important;
+  }
+  .modal-footer {
+    border: none !important;
+    padding: 18px 24px 26px 24px;
+  }
   .modal-body {
     margin: 0px;
+    padding: 0px 24px 0px 24px !important;
   }
   .modal-default-button {
     float: right;

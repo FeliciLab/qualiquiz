@@ -7,7 +7,15 @@
       class="position-absolute background"
       v-show="!showLoading"
     >
-    <div class="header-logo">
+    <div class="header-logo" >
+      <div>
+      </div>
+      <div id="div-sobre">
+      <button id="buttonSobre" @click="openModal">
+        <img id="logoSobre" src="@/assets/icons/sobre.svg">
+      </button>
+      </div>
+      <SobreModal v-model="modalOpen"></SobreModal>
       <img id="logo" src="../assets/images/qualiquiz-white.svg">
       <img id="logo-description" src="../assets/images/qualiquiz-description.svg">
     </div>
@@ -37,6 +45,7 @@
 
 <script>
 import PurpleButton from '../components/UX/PurpleButton'
+import SobreModal from '../components/UX/SobreModal'
 import Swiper from 'swiper'
 import Loading from '../components/Loading'
 import { mapGetters, mapActions } from 'vuex'
@@ -44,12 +53,14 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   components: {
     PurpleButton,
-    Loading
+    Loading,
+    SobreModal
   },
   data () {
     return {
       showLoading: false,
-      img: require('../assets/images/blank.png')
+      img: require('../assets/images/blank.png'),
+      modalOpen: false
     }
   },
   computed: {
@@ -68,6 +79,9 @@ export default {
       setTimeout(() => {
         this.$router.push({ name: 'Question' })
       }, 4000)
+    },
+    openModal () {
+      this.modalOpen = !this.modalOpen
     }
   },
   mounted () {
@@ -92,6 +106,10 @@ export default {
     font-family: 'Roboto';
   }
 
+  .header-logo {
+    position: relative;
+    height: 118px;
+  }
   .swiper-container {
     width: 100%;
   }
@@ -113,7 +131,24 @@ export default {
   .swiper-pagination-bullet-active {
     background-color: $burning-orange !important;
   }
-
+  #div-sobre {
+    display: flex;
+    justify-content: flex-end;
+    width: 95%;
+  }
+  #logoSobre {
+    width: 20px;
+    height: 20px;
+  }
+  #buttonSobre {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background-color:#61459B;
+    border: none;
+    padding: 0px !important;
+    line-height: unset !important;
+  }
   #logo {
     width: 203px;
     height: 40px;
@@ -126,6 +161,7 @@ export default {
     height: 10px;
     left: 87px;
     top: 74px;
+    margin-top: 6px;
   }
 
   #nameQuiz{
