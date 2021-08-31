@@ -2,7 +2,7 @@
     <Modal v-show="value">
       <template v-slot:header>
         <div id="header">
-            <p id="titleText">Sobre o Qualiquiz</p>
+            <p id="titleText" class="roboto-bold">Sobre o Qualiquiz</p>
             <NakedButton id="button-x"
              @click="close"
              label="X"
@@ -17,10 +17,10 @@
     </template>
     <template v-slot:footer>
       <NakedButton
-      id="button-closed"
       @click="close"
+      color="#000000A3"
       label="VOLTAR"
-      ></NakedButton>
+      />
     </template>
     </Modal>
 </template>
@@ -65,20 +65,9 @@ export default {
     line-height: 22px;
   }
   #titleText {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
     font-size: 20px;
     color:$black87;
     margin-bottom: 0px !important;
-  }
-  #button-closed {
-  background-color: white;
-  font-family: Roboto;
-  font-style: normal;
-  font-size: 14px;
-  color:$black64;
-  border: none !important;
   }
   #button-x {
     height: 14px;
