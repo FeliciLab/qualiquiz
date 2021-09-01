@@ -7,19 +7,25 @@
       class="position-absolute background"
       v-show="!showLoading"
     >
-    <div class="header-logo" >
-      <div>
+      <div class="header-logo" >
+        <div>
+        </div>
+        <div id="div-sobre">
+          <button id="buttonSobre" @click="openModal">
+            <img id="logoSobre" src="@/assets/icons/sobre.svg">
+          </button>
+        </div>
+        <SobreModal v-model="modalOpen"></SobreModal>
+        <img id="logo" src="../assets/images/qualiquiz-white.svg">
+        <img id="logo-description" src="../assets/images/qualiquiz-description.svg">
       </div>
-      <div id="div-sobre">
-      <button id="buttonSobre" @click="openModal">
-        <img id="logoSobre" src="@/assets/icons/sobre.svg">
-      </button>
-      </div>
-      <SobreModal v-model="modalOpen"></SobreModal>
-      <img id="logo" src="../assets/images/qualiquiz-white.svg">
-      <img id="logo-description" src="../assets/images/qualiquiz-description.svg">
-    </div>
       <b-container class="content">
+        <card-avaliacoes
+          titulo="Manejo Covid -19"
+          :dataCriacao="data"
+          :concluida="concluida"
+          :acertos="acertos"
+        />
         <div class="content-text">
           <p> O <span class="roboto-bold">QualiQuiz</span> é uma iniciativa da Escola de Saúde Pública do Ceará para  avaliar conhecimentos, habilidades e atitudes dos profissionais de saúde. </p>
           <p> Ao responder esse quiz, você nos ajuda a conhecer melhor suas potencialidades e fragilidades, e a qualificar a nossa política de educação permanente, com base em um planejamento educacional adequado às necessidades da força de trabalho do SUS.</p>
@@ -49,18 +55,24 @@ import SobreModal from '../components/UX/SobreModal'
 import Swiper from 'swiper'
 import Loading from '../components/Loading'
 import { mapGetters, mapActions } from 'vuex'
+import CardAvaliacoes from '../components/Home/CardAvaliacoes.vue'
+import moment from 'moment'
 
 export default {
   components: {
     PurpleButton,
     Loading,
-    SobreModal
+    SobreModal,
+    CardAvaliacoes
   },
   data () {
     return {
       showLoading: false,
       img: require('../assets/images/blank.png'),
-      modalOpen: false
+      modalOpen: false,
+      concluida: true,
+      acertos: 4,
+      data: moment().format('LL')
     }
   },
   computed: {
