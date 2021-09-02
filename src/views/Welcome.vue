@@ -90,6 +90,7 @@ export default {
   computed: {
     ...mapGetters('quiz', {
       nameQuiz: 'getName',
+      answers: 'getAnswers',
       timeLimit: 'getTimeLimit',
       currentQuestion: 'getCurrentQuestion',
       description: 'getDescription'

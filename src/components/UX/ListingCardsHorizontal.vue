@@ -1,20 +1,45 @@
 <template>
-<div class="container">
-  <div class="cards">
+  <div class="container">
+    <div v-for="(avaliacao, index) in avaliacoes" :key="index">
+      <CardAvaliacoes
+        :titulo="avaliacao.titulo"
+        :acertos="avaliacao.acertos"
+        :concluida="avaliacao.concluida"
+        :dataCriacao="avaliacao.dataCriacao"
+      />
+    </div>
   </div>
-  <div class="cards">
-  </div>
-  <div class="cards">
-  </div>
-  <div class="cards">
-  </div>
-  <div class="cards">
-  </div>
-</div>
 </template>
 
 <script>
+import CardAvaliacoes from '../Home/CardAvaliacoes.vue'
+
 export default {
+  components: { CardAvaliacoes },
+  data () {
+    return {
+      avaliacoes: [
+        {
+          titulo: 'Manejo Covid -19',
+          dataCriacao: new Date(),
+          concluida: false,
+          acertos: 0
+        },
+        {
+          titulo: 'Manejo Covid -19',
+          dataCriacao: new Date(),
+          concluida: false,
+          acertos: 0
+        },
+        {
+          titulo: 'Manejo Covid -19',
+          dataCriacao: new Date(),
+          concluida: false,
+          acertos: 0
+        }
+      ]
+    }
+  },
   name: 'ListingCardsHorizontal'
 }
 </script>
@@ -28,7 +53,7 @@ export default {
 }
 
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .cards {

@@ -1,8 +1,12 @@
 <template>
   <div class="card-avaliacao">
-    <div class="titulo-avaliacao roboto-bold">{{titulo}}</div>
-    <div class="data-criacao">{{dataCriacao}}</div>
-    <progresso-acertos id="barra-progresso" v-if="concluida" :acertos="acertos" />
+    <div class="titulo-avaliacao roboto-bold">{{ titulo }}</div>
+    <div class="data-criacao">{{ dataCriacao }}</div>
+    <progresso-acertos
+      id="barra-progresso"
+      v-if="concluida"
+      :acertos="acertos"
+    />
     <!-- TODO: INCLUIR ACAO DO BOTAO DE ACORDO COM PARÂMETRO CONCLUIDA - SE CONCLUIDA REVISAR SE NAO INICIAR  -->
     <NakedButton
       id="button-iniciar"
@@ -44,35 +48,35 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-   .card-avaliacao{
-    width: 100%;
-    background: #FFFFFF;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.039), 0px 7px 24px rgba(0, 0, 0, 0.19);
-    border-radius: 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-  }
-  .titulo-avaliacao{
-    font-size: 16px;
-    line-height: 20px;
-    letter-spacing: 0.1px;
-    margin-bottom: 8px;
-  }
-  .data-criacao{
-    height: 16px;
-    font-family: Roboto;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.4px;
-    color: $black64;
-    margin-bottom: 12px;
-  }
-  #barra-progresso{
-    justify-content: center;
-  }
-  #button-iniciar{
-    align-self: flex-end;
-    margin-top: 12px;
-  }
+.card-avaliacao {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.039), 0px 7px 24px rgba(0, 0, 0, 0.19);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.titulo-avaliacao {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  margin-bottom: 8px;
+}
+.data-criacao {
+  height: 16px;
+  font-family: Roboto;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  color: $black64;
+  margin-bottom: 12px;
+}
+#barra-progresso {
+  justify-content: center;
+}
+#button-iniciar {
+  align-self: flex-end;
+  margin-top: 12px;
+}
 </style>
