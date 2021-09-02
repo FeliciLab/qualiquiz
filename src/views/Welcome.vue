@@ -6,6 +6,28 @@
     <div class="position-absolute background" v-show="!showLoading">
       <HeaderLogo />
       <b-container class="content">
+        <div class="title">
+          <h1 class="label-title roboto-bold">Avaliações disponíveis</h1>
+        </div>
+        <div class="wrapper-horizontal-list">
+          <ListingCardsHorizontal />
+        </div>
+        <div class="wrapper-button">
+          <NakedButton
+            label="TODAS AVALIAÇÕES >"
+            bgColor="transparent"
+            color="#6200EE"
+          />
+        </div>
+        <div class="title">
+          <h1 class="label-title roboto-bold">Avaliações concluídas</h1>
+        </div>
+        <div class="wrapper-vertical-list">
+          <ListingCardsVertical />
+        </div>
+      </b-container>
+      <!--
+      <b-container class="content">
         <div class="content-text">
           <p>
             O <span class="roboto-bold">QualiQuiz</span> é uma iniciativa da
@@ -34,22 +56,29 @@
           />
         </div>
       </b-container>
+      -->
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import PurpleButton from '../components/UX/PurpleButton'
+// import PurpleButton from '../components/UX/PurpleButton'
 import Swiper from 'swiper'
 import Loading from '../components/Loading'
 import HeaderLogo from '../components/HeaderLogo.vue'
+import ListingCardsHorizontal from '../components/UX/ListingCardsHorizontal'
+import ListingCardsVertical from '../components/UX/ListingCardsVertical'
+import NakedButton from '../components/UX/NakedButton'
 
 export default {
   components: {
-    PurpleButton,
+    // PurpleButton,
     Loading,
-    HeaderLogo
+    HeaderLogo,
+    ListingCardsHorizontal,
+    ListingCardsVertical,
+    NakedButton
   },
   data () {
     return {
@@ -157,5 +186,33 @@ small {
   height: calc(100% - 150px);
   box-sizing: border-box;
   padding: 0;
+}
+
+.title {
+  display: flex;
+  padding: 16px;
+}
+
+.label-title {
+  font-size: 24px;
+}
+
+.wrapper-horizontal-list {
+  display: flex;
+}
+
+.wrapper-button {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.wrapper-vertical-list {
+  display: flex;
 }
 </style>
