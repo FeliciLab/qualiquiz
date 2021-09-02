@@ -3,21 +3,27 @@
     <div v-show="showLoading">
       <Loading></Loading>
     </div>
-    <div
-      class="position-absolute background"
-      v-show="!showLoading"
-    >
+    <div class="position-absolute background" v-show="!showLoading">
       <HeaderLogo />
       <b-container class="content">
         <div class="content-text">
-          <p> O <span class="roboto-bold">QualiQuiz</span> é uma iniciativa da Escola de Saúde Pública do Ceará para  avaliar conhecimentos, habilidades e atitudes dos profissionais de saúde. </p>
-          <p> Ao responder esse quiz, você nos ajuda a conhecer melhor suas potencialidades e fragilidades, e a qualificar a nossa política de educação permanente, com base em um planejamento educacional adequado às necessidades da força de trabalho do SUS.</p>
+          <p>
+            O <span class="roboto-bold">QualiQuiz</span> é uma iniciativa da
+            Escola de Saúde Pública do Ceará para avaliar conhecimentos,
+            habilidades e atitudes dos profissionais de saúde.
+          </p>
+          <p>
+            Ao responder esse quiz, você nos ajuda a conhecer melhor suas
+            potencialidades e fragilidades, e a qualificar a nossa política de
+            educação permanente, com base em um planejamento educacional
+            adequado às necessidades da força de trabalho do SUS.
+          </p>
 
           <h5 id="nameQuiz" class="mx-0 mx-sm-0">
             {{ nameQuiz }}
           </h5>
 
-          <p> {{ description }}</p>
+          <p>{{ description }}</p>
         </div>
 
         <div class="button">
@@ -87,74 +93,69 @@ export default {
 }
 </script>
 
-<style
-  lang="scss"
-  scoped
->
-  small {
-    font-family: 'Roboto';
-  }
-  .swiper-container {
-    width: 100%;
-  }
+<style lang="scss" scoped>
+small {
+  font-family: 'Roboto';
+}
+.swiper-container {
+  width: 100%;
+}
 
-  .txt-orange {
-    color: $burning-orange;
-  }
+.txt-orange {
+  color: $burning-orange;
+}
 
-  .swiper-pagination {
-    bottom: 0 !important;
-  }
+.swiper-pagination {
+  bottom: 0 !important;
+}
 
-  .swiper-pagination-bullet
-  .swiper-pagination-bullet-active {
-    margin: 5px
-  }
+.swiper-pagination-bullet .swiper-pagination-bullet-active {
+  margin: 5px;
+}
 
-  .swiper-pagination ::v-deep
-  .swiper-pagination-bullet-active {
-    background-color: $burning-orange !important;
-  }
-  #nameQuiz{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: 0.25px;
-    color: rgba(0, 0, 0, 0.87);
-    margin-bottom: 11px;
-    margin-top: 26px;
-    padding: 0;
-  }
+.swiper-pagination ::v-deep .swiper-pagination-bullet-active {
+  background-color: $burning-orange !important;
+}
+#nameQuiz {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.25px;
+  color: rgba(0, 0, 0, 0.87);
+  margin-bottom: 11px;
+  margin-top: 26px;
+  padding: 0;
+}
 
-  .content-text{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 16px 16px;
-  }
+.content-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 16px 16px;
+}
 
-  .content-text > p {
-    padding: 0px;
-    line-height: 22px;
-    font-size: 14px;
-  }
+.content-text > p {
+  padding: 0px;
+  line-height: 22px;
+  font-size: 14px;
+}
 
-  .button{
-    display: flex;
-    justify-content: flex-end;
-    padding: 0px 16px 24px 0px;
-    width: 100%;
-  }
+.button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 16px 24px 0px;
+  width: 100%;
+}
 
-  .content{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: left;
-    height: calc(100% - 150px);
-    box-sizing: border-box;
-    padding:0;
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  height: calc(100% - 150px);
+  box-sizing: border-box;
+  padding: 0;
 }
 </style>
