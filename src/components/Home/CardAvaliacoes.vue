@@ -3,13 +3,12 @@
     <div class="titulo-avaliacao roboto-bold">{{titulo}}</div>
     <div class="data-criacao">{{dataCriacao}}</div>
     <progresso-acertos id="barra-progresso" v-if="concluida" :acertos="acertos" />
-    <!-- TODO ACAO DO BOTAO E NOME DO BOTAO DE ACORDO COM CONCLUIDA -->
+    <!-- TODO: INCLUIR ACAO DO BOTAO DE ACORDO COM PARÂMETRO CONCLUIDA - SE CONCLUIDA REVISAR SE NAO INICIAR  -->
     <NakedButton
       id="button-iniciar"
       :label="labelBotao"
       color="#61459B"
       bgColor="#FFFFFF"
-      @click="FALTASETAR"
     />
   </div>
 </template>
@@ -42,15 +41,11 @@ export default {
     }
   },
   components: { NakedButton, ProgressoAcertos }
-  /* methods () {
-    acaoBotao: this.concluida ?
-  } */
 }
 </script>
 <style lang="scss" scoped>
    .card-avaliacao{
     width: 100%;
-    height: 150px;// altura de acordo com acertos.
     background: #FFFFFF;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.039), 0px 7px 24px rgba(0, 0, 0, 0.19);
     border-radius: 16px;
