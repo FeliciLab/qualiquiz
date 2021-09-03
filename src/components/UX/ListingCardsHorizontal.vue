@@ -1,12 +1,14 @@
 <template>
   <div class="container">
     <div v-for="(avaliacao, index) in avaliacoes" :key="index">
-      <CardAvaliacoes
-        :titulo="avaliacao.titulo"
-        :acertos="avaliacao.acertos"
-        :concluida="avaliacao.concluida"
-        :dataCriacao="avaliacao.dataCriacao"
-      />
+      <div class="wrapper-card">
+        <CardAvaliacoes
+          :titulo="avaliacao.titulo"
+          :acertos="avaliacao.acertos"
+          :concluida="avaliacao.concluida"
+          :dataCriacao="avaliacao.dataCriacao"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -46,27 +48,21 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  overflow-x: scroll;
   display: flex;
   align-items: center;
-  padding: 0px 0px 0px 16px;
+  overflow-x: scroll;
+  padding: 16px;
+  overflow-y: inherit;
 }
 
 ::-webkit-scrollbar {
   display: none;
 }
 
-.cards {
+.wrapper-card {
   margin-right: 12px;
-  width: 188px;
-  height: 155px;
   scroll-snap-align: start;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  text-align: center;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.039), 0px 7px 24px rgba(0, 0, 0, 0.19);
-  border-radius: 16px;
 }
 
 .cards:nth-child(1n) {

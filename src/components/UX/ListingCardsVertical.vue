@@ -47,6 +47,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   overflow-x: scroll;
+  overflow: inherit;
   /* padding: 0px 16px 0px 16px; */
 }
 
@@ -59,7 +60,6 @@ export default {
   width: 100%;
   height: 155px;
   scroll-snap-align: start;
-  text-align: center;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.039), 0px 7px 24px rgba(0, 0, 0, 0.19);
   border-radius: 16px;
 }
