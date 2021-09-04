@@ -4,7 +4,7 @@ const uri = {
   prod: 'https://apiisus.inova.esp.br'
 }
 
-const getUri = (devMode) => {
+const getUri = devMode => {
   return devMode ? uri.dev : uri.prod
 }
 
@@ -14,8 +14,7 @@ export default {
       headers: {
         Authorization: `Bearer ${auth}`
       }
-    })
-      .then(result => result.json())
+    }).then(result => result.json())
   },
   postAnswers: (data, auth, devMode, timeSpent) => {
     return fetch(`${getUri(devMode)}/api/qualiquiz/respostas`, {
@@ -30,14 +29,10 @@ export default {
     }).then(result => result.json())
   },
   fetchResult: (id, auth, devMode) => {
-    return fetch(
-      `${getUri(devMode)}/api/qualiquiz/resultado/${id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${auth}`
-        }
+    return fetch(`${getUri(devMode)}/api/qualiquiz/resultado/${id}`, {
+      headers: {
+        Authorization: `Bearer ${auth}`
       }
-    )
-      .then((response) => response.json())
+    }).then(response => response.json())
   }
 }

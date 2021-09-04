@@ -1,7 +1,7 @@
 <template>
   <div class="card-avaliacao">
     <div class="titulo-avaliacao roboto-bold">{{ titulo }}</div>
-    <div class="data-criacao">{{ dataCriacao }}</div>
+    <h4 class="data-criacao">{{ dataCriacao }}</h4>
     <progresso-acertos
       class="barra-progresso"
       v-if="concluida"
@@ -9,11 +9,7 @@
     />
     <!-- TODO: INCLUIR ACAO DO BOTAO DE ACORDO COM PARÂMETRO CONCLUIDA - SE CONCLUIDA REVISAR SE NAO INICIAR  -->
     <div class="wrapper-button">
-      <NakedButton
-        :label="labelBotao"
-        color="#61459B"
-        bgColor="#FFFFFF"
-      />
+      <NakedButton :label="labelBotao" color="#61459B" bgColor="#FFFFFF" />
     </div>
   </div>
 </template>
@@ -53,6 +49,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   min-width: 188px;
   padding: 16px;
   background: #ffffff;
@@ -83,10 +80,8 @@ export default {
 
 .wrapper-button {
   display: flex;
-  margin-top: 12px;
   flex-direction: column;
   width: 100%;
   align-items: flex-end;
 }
-
 </style>

@@ -26,44 +26,12 @@
           <ListingCardsVertical />
         </div>
       </b-container>
-      <!--
-      <b-container class="content">
-        <div class="content-text">
-          <p>
-            O <span class="roboto-bold">QualiQuiz</span> é uma iniciativa da
-            Escola de Saúde Pública do Ceará para avaliar conhecimentos,
-            habilidades e atitudes dos profissionais de saúde.
-          </p>
-          <p>
-            Ao responder esse quiz, você nos ajuda a conhecer melhor suas
-            potencialidades e fragilidades, e a qualificar a nossa política de
-            educação permanente, com base em um planejamento educacional
-            adequado às necessidades da força de trabalho do SUS.
-          </p>
-
-          <h5 id="nameQuiz" class="mx-0 mx-sm-0">
-            {{ nameQuiz }}
-          </h5>
-
-          <p>{{ description }}</p>
-        </div>
-
-        <div class="button">
-          <PurpleButton
-            @click="iniciarQuiz"
-            class="text-center"
-            label="INICIAR AVALIAÇÃO"
-          />
-        </div>
-      </b-container>
-      -->
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-// import PurpleButton from '../components/UX/PurpleButton'
 import Swiper from 'swiper'
 import Loading from '../components/Loading'
 import HeaderLogo from '../components/HeaderLogo.vue'
@@ -73,7 +41,6 @@ import NakedButton from '../components/UX/NakedButton'
 
 export default {
   components: {
-    // PurpleButton,
     Loading,
     HeaderLogo,
     ListingCardsHorizontal,
@@ -131,10 +98,6 @@ small {
   width: 100%;
 }
 
-.txt-orange {
-  color: $burning-orange;
-}
-
 .swiper-pagination {
   bottom: 0 !important;
 }
@@ -145,31 +108,6 @@ small {
 
 .swiper-pagination ::v-deep .swiper-pagination-bullet-active {
   background-color: $burning-orange !important;
-}
-#nameQuiz {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
-  letter-spacing: 0.25px;
-  color: rgba(0, 0, 0, 0.87);
-  margin-bottom: 11px;
-  margin-top: 26px;
-  padding: 0;
-}
-
-.content-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 16px 16px;
-}
-
-.content-text > p {
-  padding: 0px;
-  line-height: 22px;
-  font-size: 14px;
 }
 
 .button {
@@ -191,11 +129,12 @@ small {
 
 .title {
   display: flex;
-  padding: 16px;
+  padding: 16px 16px 0;
 }
 
 .label-title {
   font-size: 24px;
+  margin: 0;
 }
 
 .wrapper-horizontal-list {
@@ -208,12 +147,12 @@ small {
   flex-direction: column;
   align-items: flex-end;
   padding: 10px 16px;
-  margin-top: 20px;
-  margin-bottom: 20px;
   justify-content: center;
 }
 
 .wrapper-vertical-list {
   display: flex;
+  flex-direction: column;
+  padding: 16px 0;
 }
 </style>

@@ -22,20 +22,20 @@ export default {
     return {
       avaliacoes: [
         {
-          titulo: 'Manejo Covid -19',
-          dataCriacao: new Date(),
+          titulo: 'Manejo Covid -19 sdasd dasd',
+          dataCriacao: new Date().toLocaleDateString(),
           concluida: false,
           acertos: 0
         },
         {
           titulo: 'Manejo Covid -19',
-          dataCriacao: new Date(),
+          dataCriacao: new Date().toLocaleDateString(),
           concluida: false,
           acertos: 0
         },
         {
           titulo: 'Manejo Covid -19',
-          dataCriacao: new Date(),
+          dataCriacao: new Date().toLocaleDateString(),
           concluida: false,
           acertos: 0
         }
@@ -49,10 +49,9 @@ export default {
 <style lang="scss" scoped>
 .container {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   overflow-x: scroll;
-  padding: 16px;
-  overflow-y: inherit;
+  padding: 16px 16px 30px;
 }
 
 ::-webkit-scrollbar {
@@ -63,10 +62,6 @@ export default {
   margin-right: 12px;
   scroll-snap-align: start;
   display: flex;
-}
-
-.cards:nth-child(1n) {
-  background-color: $light;
-  flex: 0 0 60%;
+  align-items: center;
 }
 </style>
