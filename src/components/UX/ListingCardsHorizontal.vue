@@ -22,7 +22,7 @@ export default {
     return {
       avaliacoes: [
         {
-          titulo: 'Manejo Covid -19 sdasd dasd',
+          titulo: 'Outro tipo de nome maior',
           dataCriacao: new Date().toLocaleDateString(),
           concluida: false,
           acertos: 0

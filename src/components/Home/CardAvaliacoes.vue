@@ -62,6 +62,10 @@ export default {
   line-height: 20px;
   letter-spacing: 0.1px;
   margin-bottom: 8px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 150px;
 }
 
 .data-criacao {
