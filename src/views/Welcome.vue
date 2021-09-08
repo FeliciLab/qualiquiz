@@ -10,7 +10,7 @@
           <h1 class="label-title roboto-bold">Avaliações disponíveis</h1>
         </div>
         <div class="wrapper-horizontal-list">
-          <ListingCardsHorizontal />
+          <ListingCardsHorizontal :data="getUserQuizzesDisponiveis" />
         </div>
         <div class="wrapper-button">
           <NakedButton
@@ -23,7 +23,7 @@
           <h1 class="label-title roboto-bold">Avaliações concluídas</h1>
         </div>
         <div class="wrapper-vertical-list">
-          <ListingCardsVertical />
+          <ListingCardsVertical :data="getUserQuizzesConcluidas" />
         </div>
       </b-container>
     </div>
@@ -60,11 +60,14 @@ export default {
       answers: 'getAnswers',
       timeLimit: 'getTimeLimit',
       currentQuestion: 'getCurrentQuestion',
-      description: 'getDescription'
+      description: 'getDescription',
+      getUserQuizzesDisponiveis: 'getUserQuizzesDisponiveis',
+      getUserQuizzesConcluidas: 'getUserQuizzesConcluidas'
     })
   },
   methods: {
     ...mapActions('clock', ['initClock']),
+    ...mapActions('quiz', ['initUserQuizzes']),
     iniciarQuiz () {
       this.showLoading = true
       this.initClock(this.timeLimit)
@@ -77,6 +80,8 @@ export default {
     }
   },
   mounted () {
+    console.log(this.userQuizzes)
+
     // eslint-disable-next-line no-new
     new Swiper('.swiper-container', {
       // If we need pagination

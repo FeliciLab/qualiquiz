@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <div v-for="(avaliacao, index) in avaliacoes" :key="index">
+    <div v-for="(avaliacao, index) in data" :key="index">
       <CardAvaliacoes
         :titulo="avaliacao.titulo"
         :acertos="avaliacao.acertos"
-        :concluida="avaliacao.concluida"
-        :dataCriacao="avaliacao.dataCriacao"
+        :concluida="avaliacao.respondido"
+        :dataCriacao="avaliacao.data_criacao"
       />
     </div>
   </div>
@@ -15,34 +15,11 @@
 import CardAvaliacoes from '../Home/CardAvaliacoes.vue'
 
 export default {
-  data () {
-    return {
-      avaliacoes: [
-        {
-          titulo: 'Manejo Covid -19',
-          dataCriacao: new Date().toLocaleDateString(),
-          concluida: true,
-          acertos: 1
-        },
-        {
-          titulo: 'Manejo Covid -19',
-          dataCriacao: new Date().toLocaleDateString(),
-          concluida: true,
-          acertos: 0
-        },
-        {
-          titulo: 'Manejo Covid -19',
-          dataCriacao: new Date().toLocaleDateString(),
-          concluida: true,
-          acertos: 0
-        },
-        {
-          titulo: 'Manejo Covid -19',
-          dataCriacao: new Date().toLocaleDateString(),
-          concluida: true,
-          acertos: 0
-        }
-      ]
+  props: {
+    data: {
+      type: Array,
+      required: true,
+      default: () => []
     }
   },
   components: { CardAvaliacoes },
