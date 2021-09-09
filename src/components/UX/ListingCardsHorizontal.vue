@@ -6,9 +6,9 @@
           <CardAvaliacoes
             :id="avaliacao.id"
             :titulo="avaliacao.titulo"
-            :acertos="avaliacao.acertos"
+          :acertos="Number(avaliacao.acertos)"
             :concluida="avaliacao.respondido"
-            :dataCriacao="avaliacao.data_criacao"
+            :dataCriacao="new Date(avaliacao.data_criacao)"
           />
         </div>
       </div>

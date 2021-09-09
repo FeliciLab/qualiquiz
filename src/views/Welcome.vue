@@ -80,8 +80,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.userQuizzes)
-
     // eslint-disable-next-line no-new
     new Swiper('.swiper-container', {
       // If we need pagination

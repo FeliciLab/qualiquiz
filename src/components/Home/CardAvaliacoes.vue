@@ -1,7 +1,7 @@
 <template>
   <div class="card-avaliacao">
     <div class="titulo-avaliacao roboto-bold">{{ titulo }}</div>
-    <h4 class="data-criacao">{{ dataCriacao }}</h4>
+    <h4 class="data-criacao">{{ dataCriacaoFormated }}</h4>
     <progresso-acertos
       class="barra-progresso"
       v-if="concluida"
@@ -19,13 +19,15 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
+import moment from 'moment'
 import NakedButton from '../UX/NakedButton.vue'
 import ProgressoAcertos from './ProgressoAcertos.vue'
 export default {
   name: 'CardAvaliacoes',
   data () {
     return {
-      labelBotao: this.concluida ? 'REVISAR' : 'INICIAR'
+      labelBotao: this.concluida ? 'REVISAR' : 'INICIAR',
+      dataCriacaoFormated: moment(this.dataCriacao).format('L')
     }
   },
   methods: {
