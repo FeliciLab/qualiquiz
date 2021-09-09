@@ -39,6 +39,7 @@ import Loading from '../components/Loading'
 import HeaderLogo from '../components/HeaderLogo.vue'
 import ListingCardsHorizontal from '../components/UX/ListingCardsHorizontal'
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
+import routerNames from '../router/routerNames'
 
 export default {
   components: {
@@ -75,7 +76,7 @@ export default {
       }, 4000)
     },
     handdleGoToAllQuizzes () {
-      this.$router.push('/quizzes')
+      this.$router.push(routerNames.quizzes)
     }
   },
   mounted () {
