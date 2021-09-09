@@ -32,6 +32,7 @@ export default {
     answers: [],
     timeLimit: 0,
     description: '',
+    currentQuizId: 0,
     quizzes: []
   },
   getters: {
@@ -61,7 +62,8 @@ export default {
     getUserQuizzesDisponiveis: state =>
       state.quizzes.filter(quiz => !quiz.respondido),
     getUserQuizzesConcluidas: state =>
-      state.quizzes.filter(quiz => quiz.respondido)
+      state.quizzes.filter(quiz => quiz.respondido),
+    getCurrentQuizId: state => state.currentQuizId
   },
   mutations: {
     SET_ID: (state, id) => {
@@ -109,6 +111,9 @@ export default {
     SET_USER_QUIZZES: (state, quizzes) => {
       state.quizzes = quizzes
     },
+    SET_CURRENT_QUIZ_ID: (state, quizId) => {
+      state.currentQuizId = quizId
+    },
     ADD_TIME_SPENT_QUESTION: (state, { questionId, start, finish }) => {
       state.answers = [
         ...state.answers.map(answer => {
@@ -154,6 +159,9 @@ export default {
     },
     setUserQuizzes: ({ commit }, quizzes) => {
       commit('SET_USER_QUIZZES', quizzes)
+    },
+    setCurrentQuizId: ({ commit }, quizId) => {
+      commit('SET_CURRENT_QUIZ_ID', quizId)
     },
     initTestQuiz: ({ dispatch }) => {
       dispatch('setQuizData', quizTest)

@@ -10,6 +10,8 @@ import Success from '../views/Results/Success.vue'
 import Loading from '../components/Loading.vue'
 import IsusLogin from '../views/IsusLogin/IsusLogin.vue'
 import ErrorView from '../views/ErrorView.vue'
+import InitQuiz from '../views/InitQuiz'
+import AllQuizzes from '../views/AllQuizzes'
 
 Vue.use(VueRouter)
 
@@ -23,6 +25,16 @@ const routes = [
     path: '/welcome',
     name: 'Welcome',
     component: Welcome
+  },
+  {
+    path: '/quiz',
+    name: 'InitQuiz',
+    component: InitQuiz
+  },
+  {
+    path: '/quizzes',
+    name: 'Quizzes',
+    component: AllQuizzes
   },
   {
     path: '/question',

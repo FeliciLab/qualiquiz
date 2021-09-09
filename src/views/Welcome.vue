@@ -10,20 +10,22 @@
           <h1 class="label-title roboto-bold">Avaliações disponíveis</h1>
         </div>
         <div class="wrapper-horizontal-list">
-          <ListingCardsHorizontal :data="getUserQuizzesDisponiveis" />
+          <ListingCardsHorizontal :data="userQuizzesDisponiveis" />
         </div>
         <div class="wrapper-button">
-          <NakedButton
-            label="TODAS AVALIAÇÕES >"
-            bgColor="transparent"
-            color="#6200EE"
-          />
+          <b-button
+            class="btn-todas-avaliacoes"
+            variant="link"
+            @click="handdleGoToAllQuizzes"
+          >
+            TODAS AVALIAÇÕES<b-icon-chevron-right></b-icon-chevron-right>
+          </b-button>
         </div>
         <div class="title">
           <h1 class="label-title roboto-bold">Avaliações concluídas</h1>
         </div>
         <div class="wrapper-vertical-list">
-          <ListingCardsVertical :data="getUserQuizzesConcluidas" />
+          <ListingCardsVertical :data="userQuizzesConcluidas" />
         </div>
       </b-container>
     </div>
@@ -37,21 +39,18 @@ import Loading from '../components/Loading'
 import HeaderLogo from '../components/HeaderLogo.vue'
 import ListingCardsHorizontal from '../components/UX/ListingCardsHorizontal'
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
-import NakedButton from '../components/UX/NakedButton'
 
 export default {
   components: {
     Loading,
     HeaderLogo,
     ListingCardsHorizontal,
-    ListingCardsVertical,
-    NakedButton
+    ListingCardsVertical
   },
   data () {
     return {
       showLoading: false,
-      img: require('../assets/images/blank.png'),
-      modalOpen: false
+      img: require('../assets/images/blank.png')
     }
   },
   computed: {
@@ -61,8 +60,8 @@ export default {
       timeLimit: 'getTimeLimit',
       currentQuestion: 'getCurrentQuestion',
       description: 'getDescription',
-      getUserQuizzesDisponiveis: 'getUserQuizzesDisponiveis',
-      getUserQuizzesConcluidas: 'getUserQuizzesConcluidas'
+      userQuizzesDisponiveis: 'getUserQuizzesDisponiveis',
+      userQuizzesConcluidas: 'getUserQuizzesConcluidas'
     })
   },
   methods: {
@@ -75,8 +74,8 @@ export default {
         this.$router.push({ name: 'Question' })
       }, 4000)
     },
-    openModal () {
-      this.modalOpen = !this.modalOpen
+    handdleGoToAllQuizzes () {
+      this.$router.push('/quizzes')
     }
   },
   mounted () {
@@ -159,5 +158,15 @@ small {
   display: flex;
   flex-direction: column;
   padding: 16px 0;
+}
+
+.btn-todas-avaliacoes {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 1.5px;
+  color: #6200ee;
 }
 </style>

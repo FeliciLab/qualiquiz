@@ -18,6 +18,7 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 import NakedButton from '../UX/NakedButton.vue'
 import ProgressoAcertos from './ProgressoAcertos.vue'
 export default {
@@ -28,13 +29,13 @@ export default {
     }
   },
   methods: {
+    ...mapActions('quiz', ['setCurrentQuizId']),
     handleClickButton () {
+      this.setCurrentQuizId(this.id)
       if (this.concluida) {
-        console.log(this.id)
-        this.$router.push('/success')
+        this.$router.push('/quiz')
       } else {
-        console.log(this.id)
-        this.$router.push('/success')
+        this.$router.push('/quiz')
       }
     }
   },
