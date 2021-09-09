@@ -3,29 +3,29 @@
     <div v-show="showLoading">
       <Loading></Loading>
     </div>
-    <div
-      class="position-absolute background"
-      v-show="!showLoading"
-    >
+    <div class="position-absolute background" v-show="!showLoading">
       <HeaderLogo />
       <b-container class="content">
-        <div class="content-text">
-          <p> O <span class="roboto-bold">QualiQuiz</span> é uma iniciativa da Escola de Saúde Pública do Ceará para  avaliar conhecimentos, habilidades e atitudes dos profissionais de saúde. </p>
-          <p> Ao responder esse quiz, você nos ajuda a conhecer melhor suas potencialidades e fragilidades, e a qualificar a nossa política de educação permanente, com base em um planejamento educacional adequado às necessidades da força de trabalho do SUS.</p>
-
-          <h5 id="nameQuiz" class="mx-0 mx-sm-0">
-            {{ nameQuiz }}
-          </h5>
-
-          <p> {{ description }}</p>
+        <div class="title">
+          <h1 class="label-title roboto-bold">Avaliações disponíveis</h1>
         </div>
-
-        <div class="button">
-          <PurpleButton
-            @click="iniciarQuiz"
-            class="text-center"
-            label="INICIAR AVALIAÇÃO"
-          />
+        <div class="wrapper-horizontal-list">
+          <ListingCardsHorizontal :data="userQuizzesDisponiveis" />
+        </div>
+        <div class="wrapper-button">
+          <b-button
+            class="btn-todas-avaliacoes"
+            variant="link"
+            @click="handdleGoToAllQuizzes"
+          >
+            TODAS AVALIAÇÕES<b-icon-chevron-right></b-icon-chevron-right>
+          </b-button>
+        </div>
+        <div class="title">
+          <h1 class="label-title roboto-bold">Avaliações concluídas</h1>
+        </div>
+        <div class="wrapper-vertical-list">
+          <ListingCardsVertical :data="userQuizzesConcluidas" />
         </div>
       </b-container>
     </div>
@@ -34,34 +34,40 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import PurpleButton from '../components/UX/PurpleButton'
 import Swiper from 'swiper'
 import Loading from '../components/Loading'
 import HeaderLogo from '../components/HeaderLogo.vue'
+import ListingCardsHorizontal from '../components/UX/ListingCardsHorizontal'
+import ListingCardsVertical from '../components/UX/ListingCardsVertical'
+import routerNames from '../router/routerNames'
 
 export default {
   components: {
-    PurpleButton,
     Loading,
-    HeaderLogo
+    HeaderLogo,
+    ListingCardsHorizontal,
+    ListingCardsVertical
   },
   data () {
     return {
       showLoading: false,
-      img: require('../assets/images/blank.png'),
-      modalOpen: false
+      img: require('../assets/images/blank.png')
     }
   },
   computed: {
     ...mapGetters('quiz', {
       nameQuiz: 'getName',
+      answers: 'getAnswers',
       timeLimit: 'getTimeLimit',
       currentQuestion: 'getCurrentQuestion',
-      description: 'getDescription'
+      description: 'getDescription',
+      userQuizzesDisponiveis: 'getUserQuizzesDisponiveis',
+      userQuizzesConcluidas: 'getUserQuizzesConcluidas'
     })
   },
   methods: {
     ...mapActions('clock', ['initClock']),
+    ...mapActions('quiz', ['initUserQuizzes']),
     iniciarQuiz () {
       this.showLoading = true
       this.initClock(this.timeLimit)
@@ -69,8 +75,8 @@ export default {
         this.$router.push({ name: 'Question' })
       }, 4000)
     },
-    openModal () {
-      this.modalOpen = !this.modalOpen
+    handdleGoToAllQuizzes () {
+      this.$router.push(routerNames.quizzes)
     }
   },
   mounted () {
@@ -87,74 +93,78 @@ export default {
 }
 </script>
 
-<style
-  lang="scss"
-  scoped
->
-  small {
-    font-family: 'Roboto';
-  }
-  .swiper-container {
-    width: 100%;
-  }
+<style lang="scss" scoped>
+small {
+  font-family: 'Roboto';
+}
+.swiper-container {
+  width: 100%;
+}
 
-  .txt-orange {
-    color: $burning-orange;
-  }
+.swiper-pagination {
+  bottom: 0 !important;
+}
 
-  .swiper-pagination {
-    bottom: 0 !important;
-  }
+.swiper-pagination-bullet .swiper-pagination-bullet-active {
+  margin: 5px;
+}
 
-  .swiper-pagination-bullet
-  .swiper-pagination-bullet-active {
-    margin: 5px
-  }
+.swiper-pagination ::v-deep .swiper-pagination-bullet-active {
+  background-color: $burning-orange !important;
+}
 
-  .swiper-pagination ::v-deep
-  .swiper-pagination-bullet-active {
-    background-color: $burning-orange !important;
-  }
-  #nameQuiz{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: 0.25px;
-    color: rgba(0, 0, 0, 0.87);
-    margin-bottom: 11px;
-    margin-top: 26px;
-    padding: 0;
-  }
+.button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 16px 24px 0px;
+  width: 100%;
+}
 
-  .content-text{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 16px 16px;
-  }
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  height: calc(100% - 150px);
+  box-sizing: border-box;
+  padding: 0;
+}
 
-  .content-text > p {
-    padding: 0px;
-    line-height: 22px;
-    font-size: 14px;
-  }
+.title {
+  display: flex;
+  padding: 16px 16px 0;
+}
 
-  .button{
-    display: flex;
-    justify-content: flex-end;
-    padding: 0px 16px 24px 0px;
-    width: 100%;
-  }
+.label-title {
+  font-size: 24px;
+  margin: 0;
+}
 
-  .content{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: left;
-    height: calc(100% - 150px);
-    box-sizing: border-box;
-    padding:0;
+.wrapper-horizontal-list {
+  display: flex;
+}
+
+.wrapper-button {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px 16px;
+  justify-content: center;
+}
+
+.wrapper-vertical-list {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+}
+
+.btn-todas-avaliacoes {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 1.5px;
+  color: #6200ee;
 }
 </style>

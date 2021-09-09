@@ -1,47 +1,45 @@
 <template>
-<div class="container">
-  <div class="cards">
+  <div class="container">
+    <div v-if="data.length > 0">
+      <div v-for="(avaliacao, index) in data" :key="index">
+        <CardAvaliacoes
+          :id="avaliacao.id"
+          :titulo="avaliacao.titulo"
+          :acertos="Number(avaliacao.acertos)"
+          :concluida="avaliacao.respondido"
+          :dataCriacao="new Date(avaliacao.data_criacao)"
+        />
+      </div>
+    </div>
+    <div v-else class="not-content-wrapper">
+      <NotContentCard
+        message="Você ainda não possui avaliações concluídas.
+Responda a sua prmeira avaliação!"
+      />
+    </div>
   </div>
-  <div class="cards">
-  </div>
-  <div class="cards">
-  </div>
-  <div class="cards">
-  </div>
-  <div class="cards">
-  </div>
-</div>
 </template>
 
 <script>
+import CardAvaliacoes from '../Home/CardAvaliacoes.vue'
+import NotContentCard from '../NotContentCard.vue'
 
 export default {
+  props: {
+    data: {
+      type: Array,
+      required: true,
+      default: () => []
+    }
+  },
+  components: { CardAvaliacoes, NotContentCard },
   name: 'ListingCardsVertical'
 }
 </script>
 
 <style lang="scss" scoped>
 .container {
-  overflow-x: scroll;
-  padding: 0px 16px 0px 16px;
-}
-
-::-webkit-scrollbar {
-    display: none;
-}
-
-.cards {
-  margin-bottom: 16px;
-  width: 100%;
-  height: 155px;
-  scroll-snap-align: start;
-  text-align: center;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.039), 0px 7px 24px rgba(0, 0, 0, 0.19);
-  border-radius: 16px;
-}
-
-.cards:nth-child(1n) {
-  background-color: $light;
-  flex: 0 0 60%;
+  display: grid;
+  gap: 16px;
 }
 </style>

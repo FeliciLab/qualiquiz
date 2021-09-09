@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     ...mapActions('authentication', ['setToken']),
-    ...mapActions('quiz', ['setId', 'cleanQuiz', 'initQuiz']),
+    ...mapActions('quiz', ['setId', 'cleanQuiz', 'initUserQuizzes']),
     ...mapActions('application', ['setDevelopment', 'setAppMocked'])
   },
   mounted () {
@@ -28,13 +28,20 @@ export default {
     this.setId(this.$route.params.codQuiz)
     this.setDevelopment(this.$route.meta.dev)
     this.setAppMocked(false)
-    this.initQuiz({
-      codQuiz: this.$route.params.codQuiz,
+    this.initUserQuizzes({
       devMode: this.$route.meta.dev,
       auth: this.$route.params.authToken
     }).then(() => {
       this.$router.push('/welcome')
     })
+    // TODO: vamos usar esse trecho de código em outro lugar
+    // this.initQuiz({
+    //   codQuiz: this.$route.params.codQuiz,
+    //   devMode: this.$route.meta.dev,
+    //   auth: this.$route.params.authToken
+    // }).then(() => {
+    //   this.$router.push('/welcome')
+    // })
   }
 }
 </script>

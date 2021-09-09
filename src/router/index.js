@@ -10,32 +10,45 @@ import Success from '../views/Results/Success.vue'
 import Loading from '../components/Loading.vue'
 import IsusLogin from '../views/IsusLogin/IsusLogin.vue'
 import ErrorView from '../views/ErrorView.vue'
+import InitQuiz from '../views/InitQuiz'
+import AllQuizzes from '../views/AllQuizzes'
+import routerNames from './routerNames'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: routerNames.home,
     name: 'Home',
     component: Home
   },
   {
-    path: '/welcome',
+    path: routerNames.welcome,
     name: 'Welcome',
     component: Welcome
   },
   {
-    path: '/question',
+    path: routerNames.quiz,
+    name: 'InitQuiz',
+    component: InitQuiz
+  },
+  {
+    path: routerNames.quizzes,
+    name: 'Quizzes',
+    component: AllQuizzes
+  },
+  {
+    path: routerNames.question,
     name: 'Question',
     component: QuestionView
   },
   {
-    path: '/loading',
+    path: routerNames.loading,
     name: 'Loading',
     component: Loading
   },
   {
-    path: '/confirmation',
+    path: routerNames.confirmation,
     name: 'Confirmation',
     component: FinishQuiz,
     meta: {
@@ -43,17 +56,17 @@ const routes = [
     }
   },
   {
-    path: '/timeout',
+    path: routerNames.timeout,
     name: 'Time Out',
     component: TimeOut
   },
   {
-    path: '/success',
+    path: routerNames.success,
     name: 'Success',
     component: Success
   },
   {
-    path: '/isus/login/:codQuiz/:authToken',
+    path: routerNames.isusLogin,
     name: 'IsusLogin',
     component: IsusLogin,
     meta: {
@@ -61,7 +74,7 @@ const routes = [
     }
   },
   {
-    path: '/dev/isus/login/:codQuiz/:authToken',
+    path: routerNames.isusLoginDev,
     name: 'IsusLoginDev',
     component: IsusLogin,
     meta: {
@@ -69,7 +82,7 @@ const routes = [
     }
   },
   {
-    path: '/error',
+    path: routerNames.error,
     name: 'Error',
     component: ErrorView
   }

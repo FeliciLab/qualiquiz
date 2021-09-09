@@ -9,11 +9,15 @@ import 'swiper/css/swiper.min.css'
 import VueTheMask from 'vue-the-mask'
 import 'animate.css/animate.min.css'
 import Vuelidate from 'vuelidate'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 
 Vue.config.productionTip = false
+
+Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)
 Vue.use(Vuelidate)
-Vue.use(VueTheMask
-)
+Vue.use(VueTheMask)
+
 new Vue({
   router,
   store,

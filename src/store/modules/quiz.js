@@ -2,12 +2,24 @@ import quizRequest from '../../services/quizRequest'
 const quizTest = require('../../assets/questions')
 
 const timeSpentModel = { start: '', finish: '' }
+
 const answerModel = {
   questionId: -1,
   alternativeId: -1,
   timeSpent: 0,
   startTime: 0,
   finishTime: 0
+}
+
+const quizModel = {
+  id: 0,
+  cod_quiz: '',
+  titulo: '',
+  data_criacao: '',
+  total_questoes: 0,
+  respondido: false,
+  acertos: -1,
+  data_resposta: ''
 }
 
 export default {
@@ -19,27 +31,39 @@ export default {
     currentQuestion: 0,
     answers: [],
     timeLimit: 0,
-    description: ''
+    description: '',
+    currentQuizId: 0,
+    quizzes: []
   },
   getters: {
-    getId: (state) => state.id,
-    getQuestions: (state) => state.questions,
-    getName: (state) => state.name,
-    getClock: (state) => state.clock,
-    getQuestion: (state) =>
+    getId: state => state.id,
+    getQuestions: state => state.questions,
+    getName: state => state.name,
+    getClock: state => state.clock,
+    getQuestion: state =>
       state.questions.length > 0 ? state.questions[state.currentQuestion] : {},
-    getNumberOfQuestions: (state) => state.questions.length,
-    getCurrentQuestion: (state) => state.currentQuestion,
-    getAnswers: (state) => state.answers,
-    getIfAnsweredQuestion: (state) => state.answers.some(
-      (answer) => answer.questionId === state.questions[state.currentQuestion]?.id && answer.alternativeId > 0
-    ),
-    getNumberOfAnswers: (state) =>
-      state.answers.filter((i) => i.alternativeId >= 0).length,
+    getNumberOfQuestions: state => state.questions.length,
+    getCurrentQuestion: state => state.currentQuestion,
+    getAnswers: state => state.answers,
+    getIfAnsweredQuestion: state =>
+      state.answers.some(
+        answer =>
+          answer.questionId === state.questions[state.currentQuestion]?.id &&
+          answer.alternativeId > 0
+      ),
+    getNumberOfAnswers: state =>
+      state.answers.filter(i => i.alternativeId >= 0).length,
     getAnswerModel: () => answerModel,
+    getQuizModel: () => quizModel,
     getTimeSpentModel: () => timeSpentModel,
-    getTimeLimit: (state) => state.timeLimit,
-    getDescription: (state) => state.description
+    getTimeLimit: state => state.timeLimit,
+    getDescription: state => state.description,
+    getUserQuizzes: state => state.quizzes,
+    getUserQuizzesDisponiveis: state =>
+      state.quizzes.filter(quiz => !quiz.respondido),
+    getUserQuizzesConcluidas: state =>
+      state.quizzes.filter(quiz => quiz.respondido),
+    getCurrentQuizId: state => state.currentQuizId
   },
   mutations: {
     SET_ID: (state, id) => {
@@ -65,11 +89,11 @@ export default {
 
       state.answers = [
         ...state.answers.filter(
-          (answer) => answer.questionId !== alternative.questionId
+          answer => answer.questionId !== alternative.questionId
         ),
         {
           ...(state.answers.find(
-            (answer) => answer.questionId === alternative.questionId
+            answer => answer.questionId === alternative.questionId
           ) || {}),
           ...alternative
         }
@@ -84,9 +108,15 @@ export default {
     SET_DESCRIPTION: (state, payload) => {
       state.description = payload
     },
+    SET_USER_QUIZZES: (state, quizzes) => {
+      state.quizzes = quizzes
+    },
+    SET_CURRENT_QUIZ_ID: (state, quizId) => {
+      state.currentQuizId = quizId
+    },
     ADD_TIME_SPENT_QUESTION: (state, { questionId, start, finish }) => {
       state.answers = [
-        ...state.answers.map((answer) => {
+        ...state.answers.map(answer => {
           if (answer.questionId !== questionId) {
             return answer
           }
@@ -127,18 +157,29 @@ export default {
     setDescription: ({ commit }, payload) => {
       commit('SET_DESCRIPTION', payload)
     },
+    setUserQuizzes: ({ commit }, quizzes) => {
+      commit('SET_USER_QUIZZES', quizzes)
+    },
+    setCurrentQuizId: ({ commit }, quizId) => {
+      commit('SET_CURRENT_QUIZ_ID', quizId)
+    },
     initTestQuiz: ({ dispatch }) => {
       dispatch('setQuizData', quizTest)
     },
     initQuiz: ({ dispatch }, { codQuiz, devMode, auth }) => {
-      return quizRequest.getQuiz(codQuiz, devMode, auth).then((result) => {
+      return quizRequest.getQuiz(codQuiz, devMode, auth).then(result => {
         dispatch('setQuizData', result)
+      })
+    },
+    initUserQuizzes: ({ dispatch }, { devMode, auth }) => {
+      return quizRequest.getUserQuizzes(devMode, auth).then(result => {
+        dispatch('setUserQuizzes', result)
       })
     },
     initVoidAnswers: ({ commit }, questions) => {
       commit(
         'SET_ANSWERS',
-        questions.map((question) => {
+        questions.map(question => {
           return {
             ...answerModel,
             questionId: question.id,
@@ -183,7 +224,7 @@ export default {
       return quizRequest.postAnswers(
         context.state.answers
           .filter(item => item.alternativeId > 0)
-          .map((item) => {
+          .map(item => {
             return {
               quizId: context.state.id,
               questaoId: item.questionId,

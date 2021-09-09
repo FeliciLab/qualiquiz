@@ -1,51 +1,66 @@
 <template>
-<div class="container">
-  <div class="cards">
+  <div class="container">
+    <div v-if="data.length > 0">
+      <div v-for="(avaliacao, index) in data" :key="index">
+        <div class="wrapper-card">
+          <CardAvaliacoes
+            :id="avaliacao.id"
+            :titulo="avaliacao.titulo"
+          :acertos="Number(avaliacao.acertos)"
+            :concluida="avaliacao.respondido"
+            :dataCriacao="new Date(avaliacao.data_criacao)"
+          />
+        </div>
+      </div>
+    </div>
+    <div v-else class="not-content-wrapper">
+      <NotContentCard
+        message="Você ainda não possui novas avaliações.
+Aguarde que logo estará disponível!"
+      />
+    </div>
   </div>
-  <div class="cards">
-  </div>
-  <div class="cards">
-  </div>
-  <div class="cards">
-  </div>
-  <div class="cards">
-  </div>
-</div>
 </template>
 
 <script>
+import CardAvaliacoes from '../Home/CardAvaliacoes.vue'
+import NotContentCard from '../NotContentCard.vue'
+
 export default {
-  name: 'ListingCardsHorizontal'
+  name: 'ListingCardsHorizontal',
+  components: { CardAvaliacoes, NotContentCard },
+  props: {
+    data: {
+      type: Array,
+      required: true,
+      default: () => []
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .container {
-  overflow-x: scroll;
   display: flex;
-  align-items: center;
-  padding: 0px 0px 0px 16px;
+  align-items: stretch;
+  overflow-x: scroll;
+  padding: 16px 16px 30px;
 }
 
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
-.cards {
+.wrapper-card {
   margin-right: 12px;
-  width: 188px;
-  height: 155px;
   scroll-snap-align: start;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  text-align: center;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.039), 0px 7px 24px rgba(0, 0, 0, 0.19);
-  border-radius: 16px;
+  align-items: center;
 }
 
-.cards:nth-child(1n) {
-  background-color: $light;
-  flex: 0 0 60%;
+.not-content-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
 </style>
