@@ -12,6 +12,7 @@ const answerModel = {
 }
 
 const quizModel = {
+  id: 0,
   cod_quiz: '',
   titulo: '',
   data_criacao: '',

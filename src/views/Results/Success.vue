@@ -26,13 +26,11 @@ import FeedbackContent from '../../components/Feedback/FeedbackContent.vue'
 
 export default {
   name: 'Success',
-
   components: {
     CorrectAnsweredCard,
     FullWidthButton,
     FeedbackContent
   },
-
   data () {
     return {
       showFeedback: false

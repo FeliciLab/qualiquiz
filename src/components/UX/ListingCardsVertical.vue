@@ -2,6 +2,7 @@
   <div class="container">
     <div v-for="(avaliacao, index) in data" :key="index">
       <CardAvaliacoes
+        :id="avaliacao.id"
         :titulo="avaliacao.titulo"
         :acertos="avaliacao.acertos"
         :concluida="avaliacao.respondido"

@@ -9,7 +9,12 @@
     />
     <!-- TODO: INCLUIR ACAO DO BOTAO DE ACORDO COM PARÂMETRO CONCLUIDA - SE CONCLUIDA REVISAR SE NAO INICIAR  -->
     <div class="wrapper-button">
-      <NakedButton :label="labelBotao" color="#61459B" bgColor="#FFFFFF" />
+      <NakedButton
+        :label="labelBotao"
+        color="#61459B"
+        bgColor="#FFFFFF"
+        @click="handleClickButton"
+      />
     </div>
   </div>
 </template>
@@ -23,7 +28,22 @@ export default {
       labelBotao: this.concluida ? 'REVISAR' : 'INICIAR'
     }
   },
+  methods: {
+    handleClickButton () {
+      if (this.concluida) {
+        console.log(this.id)
+        this.$router.push('/success')
+      } else {
+        console.log(this.id)
+        this.$router.push('/success')
+      }
+    }
+  },
   props: {
+    id: {
+      required: true,
+      type: Number
+    },
     titulo: {
       required: true,
       type: String
