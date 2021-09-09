@@ -123,7 +123,6 @@ small {
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: left;
   height: calc(100% - 150px);
   box-sizing: border-box;
