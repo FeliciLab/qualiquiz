@@ -1,14 +1,14 @@
 <template>
   <div class="not-content-card">
     <img class="assignment" src="../assets/images/assignment.svg" />
-    <p class="mesage">{{ mesage }}</p>
+    <p class="message">{{ message }}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: 'NotContentCard',
-  props: { mesage: { type: String, required: true, default: '' } }
+  props: { message: { type: String, required: true, default: '' } }
 }
 </script>
 
@@ -26,7 +26,7 @@ export default {
   height: 48px;
 }
 
-.mesage {
+.message {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -36,5 +36,7 @@ export default {
   color: rgba(0, 0, 0, 0.87);
   margin-top: 24px;
   margin-bottom: 0;
+  text-align: center;
+  max-width: 300px;
 }
 </style>

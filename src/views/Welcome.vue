@@ -25,7 +25,6 @@
         <div class="wrapper-vertical-list">
           <ListingCardsVertical :data="getUserQuizzesConcluidas" />
         </div>
-        <NotContentCard mesage="alasdasdasd" />
       </b-container>
     </div>
   </div>
@@ -39,7 +38,6 @@ import HeaderLogo from '../components/HeaderLogo.vue'
 import ListingCardsHorizontal from '../components/UX/ListingCardsHorizontal'
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
 import NakedButton from '../components/UX/NakedButton'
-import NotContentCard from '../components/NotContentCard.vue'
 
 export default {
   components: {
@@ -47,8 +45,7 @@ export default {
     HeaderLogo,
     ListingCardsHorizontal,
     ListingCardsVertical,
-    NakedButton,
-    NotContentCard
+    NakedButton
   },
   data () {
     return {
