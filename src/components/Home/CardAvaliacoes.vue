@@ -7,7 +7,6 @@
       v-if="concluida"
       :acertos="acertos"
     />
-    <!-- TODO: INCLUIR ACAO DO BOTAO DE ACORDO COM PARÂMETRO CONCLUIDA - SE CONCLUIDA REVISAR SE NAO INICIAR  -->
     <div class="wrapper-button">
       <NakedButton
         :label="labelBotao"
