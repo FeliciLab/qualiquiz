@@ -1,9 +1,5 @@
 <template>
-  <CircleAmountAnswered>
-    <div class='label'>Você respondeu</div>
-    <div class='number'>{{ answered }}</div>
-    <div class='label'>questões</div>
-  </CircleAmountAnswered>
+  <CircleAmountAnswered :answered="answered" />
 </template>
 
 <script>
@@ -27,12 +23,5 @@ export default {
 div {
   color: white;
   line-height: initial;
-}
-.label {
-  font-size: 24px;
-}
-.number {
-  font-family: 'Roboto-Bold';
-  font-size: 100px;
 }
 </style>
