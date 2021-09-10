@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- TODO: passar isso para um component -->
-    <b-tabs fill justified no-nav-style content-class="teste">
+    <b-tabs fill justified no-nav-style nav-wrapper-class="teste">
       <b-tab active>
         <template #title>
           <div class="title">
@@ -34,11 +34,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .teste {
-  background-color: red;
+  background-color: $purple;
+  box-shadow: 0px 0.5px 1.75px rgba(0, 0, 0, 0.039),
+    0px 1.85px 6.25px rgba(0, 0, 0, 0.19);
+  border-radius: 0px 0px 16px 16px;
 }
-
 .title {
   display: flex;
   flex-direction: column;
