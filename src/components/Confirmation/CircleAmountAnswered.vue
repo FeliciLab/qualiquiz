@@ -1,12 +1,19 @@
 <template>
   <div class="circle">
-    <slot></slot>
+    <div class="label">Você respondeu</div>
+    <div class="number">{{ answered }}</div>
+    <div class="label">questões</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'CircleAmountAnswered'
+  name: 'CircleAmountAnswered',
+  props: {
+    answered: {
+      required: true
+    }
+  }
 }
 </script>
 
@@ -20,5 +27,12 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.label {
+  font-size: 24px;
+}
+.number {
+  font-family: 'Roboto-Bold';
+  font-size: 100px;
 }
 </style>
