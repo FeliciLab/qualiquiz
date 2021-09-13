@@ -3,6 +3,7 @@
     <b-tabs
       fill
       justified
+      class="tabs"
       no-nav-style
       nav-wrapper-class="nav-wrapper"
       active-nav-item-class="active-nav-item"
@@ -49,8 +50,25 @@ export default {
 </script>
 
 <style lang="scss">
+.tabs {
+  height: 100vh;
+  padding-bottom: 72px;
+}
+
 .content {
   margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tive que fazer isso para ajustar no centro. */
+.not-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: calc(100vh - 250px);
 }
 
 .nav-wrapper {
