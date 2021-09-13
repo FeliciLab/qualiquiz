@@ -14,6 +14,7 @@
       />
     </div>
     <NavegationButton
+      id="navigation-button"
       :question-number="currentQuestion"
       @change-previous="changePrevious"
       @change-next="changeNext"
@@ -108,7 +109,11 @@ scoped>
 }
 #content-question{
   margin: 10px 0px;
-  padding: 16px 16px 16px 16px;
+  padding: 16px 16px 83px 16px;
 }
-
+#navigation-button{
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+}
 </style>
