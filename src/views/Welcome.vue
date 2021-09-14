@@ -5,6 +5,7 @@
     </div>
     <div class="position-absolute background" v-show="!showLoading">
       <HeaderLogo />
+      <BottomNavigation />
       <b-container class="content">
         <div class="title">
           <h1 class="label-title roboto-bold">Avaliações disponíveis</h1>
@@ -40,13 +41,15 @@ import HeaderLogo from '../components/HeaderLogo.vue'
 import ListingCardsHorizontal from '../components/UX/ListingCardsHorizontal'
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
 import routerNames from '../router/routerNames'
+import BottomNavigation from '../components/UX/BottomNavigation.vue'
 
 export default {
   components: {
     Loading,
     HeaderLogo,
     ListingCardsHorizontal,
-    ListingCardsVertical
+    ListingCardsVertical,
+    BottomNavigation
   },
   data () {
     return {
