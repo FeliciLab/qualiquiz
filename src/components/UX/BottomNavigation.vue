@@ -2,7 +2,7 @@
   <div class="container">
     <router-link
       class="bottom-navigation-action"
-      :class="classObject"
+      :class="item.id === selected ? 'active' : ''"
       v-for="(item, index) in this.itens"
       :key="index"
       :to="item.to"
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import routerNames from '../../router/routerNames'
 
 export default {
@@ -23,13 +24,25 @@ export default {
   data () {
     return {
       itens: [
-        { label: 'Início', icon: 'house-door-fill', to: routerNames.home },
-        { label: 'Avaliações', icon: 'receipt', to: routerNames.quizzes }
-      ],
-      classObject: {
-        active: true
-      }
+        {
+          id: 'home',
+          label: 'Início',
+          icon: 'house-door-fill',
+          to: routerNames.home
+        },
+        {
+          id: 'quizzes',
+          label: 'Avaliações',
+          icon: 'receipt',
+          to: routerNames.quizzes
+        }
+      ]
     }
+  },
+  computed: {
+    ...mapGetters('bottomNavigation', {
+      selected: 'getActionSelected'
+    })
   }
 }
 </script>
@@ -50,6 +63,8 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  color: rgba(0, 0, 0, 0.6);
 
   span {
     font-family: Roboto;

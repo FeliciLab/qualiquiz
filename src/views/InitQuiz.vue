@@ -4,15 +4,15 @@
       <Loading />
     </div>
     <h1>{{ getCurrentQuizId }}</h1>
-    <h1>{{this.getToken}}</h1>
+    <h1>{{ this.getToken }}</h1>
     <h1>teste</h1>
     <div class="button">
-          <PurpleButton
-            @click="iniciarQuiz"
-            class="text-center"
-            label="INICIAR AVALIAÇÃO"
-          />
-        </div>
+      <PurpleButton
+        @click="iniciarQuiz"
+        class="text-center"
+        label="INICIAR AVALIAÇÃO"
+      />
+    </div>
   </div>
 </template>
 

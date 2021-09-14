@@ -71,6 +71,7 @@ export default {
   methods: {
     ...mapActions('clock', ['initClock']),
     ...mapActions('quiz', ['initUserQuizzes']),
+    ...mapActions('bottomNavigation', ['setActionSelected']),
     iniciarQuiz () {
       this.showLoading = true
       this.initClock(this.timeLimit)
@@ -92,6 +93,8 @@ export default {
       },
       spaceBetween: -35
     })
+
+    this.setActionSelected('home')
   }
 }
 </script>
