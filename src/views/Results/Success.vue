@@ -18,10 +18,10 @@
     </div>
     <div class="fixed-bottom buttonSairWrapper">
       <NakedButton class="buttonSair"
-      @click="onClickSair"
-      label="SAIR"
-      color="#FFFFFF"
-      bgColor="#61459B"/>
+        @click="onClickSair"
+        label="SAIR"
+        color="#FFFFFF"
+        bgColor="#61459B"/>
     </div>
   </div>
 </template>
@@ -63,7 +63,6 @@ export default {
 <style lang="scss" scoped>
   .sucess-page {
     padding-bottom: 64px;
-    /* min-height: 100vh; */
   }
   .full-width-content {
     margin-top: 80px;
