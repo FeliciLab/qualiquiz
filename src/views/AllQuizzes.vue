@@ -62,6 +62,7 @@ export default {
   margin-top: 16px;
   display: flex;
   flex-direction: column;
+  padding-top: 80px;
 }
 
 .not-content {
@@ -74,6 +75,9 @@ export default {
 }
 
 .nav-wrapper {
+  top: 0;
+  width: 100%;
+  position: fixed;
   background-color: $purple;
   box-shadow: 0px 0.5px 1.75px rgba(0, 0, 0, 0.039),
     0px 1.85px 6.25px rgba(0, 0, 0, 0.19);
