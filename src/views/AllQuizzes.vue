@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <BottomNavigation selected="quizzes">
     <b-tabs
       fill
       justified
@@ -11,34 +11,46 @@
     >
       <b-tab active>
         <template #title>
-          <div class="title">
-            <b-icon-exclamation-triangle class="mb-1" font-scale="1.5" />
+          <div class="tab">
+            <b-icon-exclamation-triangle-fill class="mb-1" font-scale="1.5" />
             <span>Novas</span>
           </div>
         </template>
-        <ListingCardsVertical :data="userQuizzesDisponiveis" />
+        <ListingCardsVertical
+          :data="userQuizzesDisponiveis"
+          :class="userQuizzesDisponiveis.length <= 0 ? 'not-content' : ''"
+          notContentMesage="Você ainda não possui novas avaliações.
+Aguarde que logo estará disponível!"
+        />
       </b-tab>
       <b-tab>
         <template #title>
-          <div class="title">
+          <div class="tab">
             <b-icon-check-circle-fill class="mb-1" font-scale="1.5" />
             <span>Concluídas</span>
           </div>
         </template>
-        <ListingCardsVertical :data="userQuizzesConcluidas" />
+        <ListingCardsVertical
+          :data="userQuizzesConcluidas"
+          :class="userQuizzesConcluidas.length <= 0 ? 'not-content' : ''"
+          notContentMesage="Você ainda não possui avaliações concluídas.
+Responda a sua prmeira avaliação!"
+        />
       </b-tab>
     </b-tabs>
-  </div>
+  </BottomNavigation>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
+import BottomNavigation from '../components/layouts/BottomNavigationContainer.vue'
 
 export default {
   name: 'AllQuizzes',
   components: {
-    ListingCardsVertical
+    ListingCardsVertical,
+    BottomNavigation
   },
   computed: {
     ...mapGetters('quiz', {
@@ -50,28 +62,26 @@ export default {
 </script>
 
 <style lang="scss">
-.tabs {
-  height: 100vh;
-  padding-bottom: 72px;
-}
-
 .content {
   margin-top: 16px;
   display: flex;
   flex-direction: column;
+  padding-top: 80px;
 }
 
-/* Tive que fazer isso para ajustar no centro. */
-.not-content-wrapper {
+.not-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: auto;
-  height: calc(100vh - 250px);
+  height: calc(100vh - 168px);
 }
 
 .nav-wrapper {
+  top: 0;
+  width: 100%;
+  position: fixed;
   background-color: $purple;
   box-shadow: 0px 0.5px 1.75px rgba(0, 0, 0, 0.039),
     0px 1.85px 6.25px rgba(0, 0, 0, 0.19);
@@ -79,7 +89,7 @@ export default {
   overflow: hidden;
 }
 
-.title {
+.tab {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,7 +108,7 @@ export default {
 .active-nav-item {
   position: relative;
 
-  .title {
+  .tab {
     color: #ffffff;
   }
 

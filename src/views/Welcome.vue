@@ -1,16 +1,20 @@
 <template>
-  <div>
+  <BottomNavigationContainer selected="home">
     <div v-show="showLoading">
       <Loading></Loading>
     </div>
-    <div class="position-absolute background" v-show="!showLoading">
+    <div class="background" v-show="!showLoading">
       <HeaderLogo />
       <b-container class="content">
         <div class="title">
           <h1 class="label-title roboto-bold">Avaliações disponíveis</h1>
         </div>
         <div class="wrapper-horizontal-list">
-          <ListingCardsHorizontal :data="userQuizzesDisponiveis" />
+          <ListingCardsHorizontal
+            :data="userQuizzesDisponiveis"
+            notContentMesage="Você ainda não possui novas avaliações.
+Aguarde que logo estará disponível!"
+          />
         </div>
         <div class="wrapper-button">
           <b-button
@@ -25,11 +29,15 @@
           <h1 class="label-title roboto-bold">Avaliações concluídas</h1>
         </div>
         <div class="wrapper-vertical-list">
-          <ListingCardsVertical :data="userQuizzesConcluidas" />
+          <ListingCardsVertical
+            :data="userQuizzesConcluidas"
+            notContentMesage="Você ainda não possui avaliações concluídas.
+Responda a sua prmeira avaliação!"
+          />
         </div>
       </b-container>
     </div>
-  </div>
+  </BottomNavigationContainer>
 </template>
 
 <script>
@@ -40,18 +48,21 @@ import HeaderLogo from '../components/HeaderLogo.vue'
 import ListingCardsHorizontal from '../components/UX/ListingCardsHorizontal'
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
 import routerNames from '../router/routerNames'
+import BottomNavigationContainer from '../components/layouts/BottomNavigationContainer'
 
 export default {
   components: {
     Loading,
     HeaderLogo,
     ListingCardsHorizontal,
-    ListingCardsVertical
+    ListingCardsVertical,
+    BottomNavigationContainer
   },
   data () {
     return {
       showLoading: false,
-      img: require('../assets/images/blank.png')
+      img: require('../assets/images/blank.png'),
+      notContentMesage: ''
     }
   },
   computed: {

@@ -5,6 +5,7 @@ import authentication from './modules/authentication'
 import quiz from './modules/quiz'
 import application from './modules/application'
 import feedback from './modules/feedback'
+import bottomNavigation from './modules/bottomNavigation'
 
 import VuePersist from 'vuex-persist'
 
@@ -22,7 +23,8 @@ export default new Vuex.Store({
     authentication,
     quiz,
     application,
-    feedback
+    feedback,
+    bottomNavigation
   },
   state: {},
   mutations: {},

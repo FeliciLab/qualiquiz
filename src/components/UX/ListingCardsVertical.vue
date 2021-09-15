@@ -13,8 +13,7 @@
     </div>
     <div v-else class="not-content-wrapper">
       <NotContentCard
-        message="Você ainda não possui avaliações concluídas.
-Responda a sua prmeira avaliação!"
+        :message="notContentMesage"
       />
     </div>
   </div>
@@ -30,6 +29,10 @@ export default {
       type: Array,
       required: true,
       default: () => []
+    },
+    notContentMesage: {
+      type: String,
+      required: true
     }
   },
   components: { CardAvaliacoes, NotContentCard },
