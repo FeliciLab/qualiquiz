@@ -20,7 +20,7 @@ import { mapActions, mapGetters } from 'vuex'
 import routerNames from '../../router/routerNames'
 
 export default {
-  itens: 'BottomNavigation',
+  name: 'BottomNavigation',
   data () {
     return {
       itens: [
