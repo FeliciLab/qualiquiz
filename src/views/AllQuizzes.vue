@@ -19,6 +19,8 @@
         <ListingCardsVertical
           :data="userQuizzesDisponiveis"
           :class="userQuizzesDisponiveis.length <= 0 ? 'not-content' : ''"
+          notContentMesage="Você ainda não possui novas avaliações.
+Aguarde que logo estará disponível!"
         />
       </b-tab>
       <b-tab>
@@ -31,6 +33,8 @@
         <ListingCardsVertical
           :data="userQuizzesConcluidas"
           :class="userQuizzesConcluidas.length <= 0 ? 'not-content' : ''"
+          notContentMesage="Você ainda não possui avaliações concluídas.
+Responda a sua prmeira avaliação!"
         />
       </b-tab>
     </b-tabs>

@@ -10,7 +10,11 @@
           <h1 class="label-title roboto-bold">Avaliações disponíveis</h1>
         </div>
         <div class="wrapper-horizontal-list">
-          <ListingCardsHorizontal :data="userQuizzesDisponiveis" />
+          <ListingCardsHorizontal
+            :data="userQuizzesDisponiveis"
+            notContentMesage="Você ainda não possui novas avaliações.
+Aguarde que logo estará disponível!"
+          />
         </div>
         <div class="wrapper-button">
           <b-button
@@ -25,7 +29,11 @@
           <h1 class="label-title roboto-bold">Avaliações concluídas</h1>
         </div>
         <div class="wrapper-vertical-list">
-          <ListingCardsVertical :data="userQuizzesConcluidas" />
+          <ListingCardsVertical
+            :data="userQuizzesConcluidas"
+            notContentMesage="Você ainda não possui avaliações concluídas.
+Responda a sua prmeira avaliação!"
+          />
         </div>
       </b-container>
     </div>
@@ -53,7 +61,8 @@ export default {
   data () {
     return {
       showLoading: false,
-      img: require('../assets/images/blank.png')
+      img: require('../assets/images/blank.png'),
+      notContentMesage: ''
     }
   },
   computed: {

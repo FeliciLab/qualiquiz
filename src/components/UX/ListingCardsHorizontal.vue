@@ -6,7 +6,7 @@
           <CardAvaliacoes
             :id="avaliacao.id"
             :titulo="avaliacao.titulo"
-          :acertos="Number(avaliacao.acertos)"
+            :acertos="Number(avaliacao.acertos)"
             :concluida="avaliacao.respondido"
             :dataCriacao="new Date(avaliacao.data_criacao)"
           />
@@ -15,8 +15,7 @@
     </div>
     <div v-else class="not-content-wrapper">
       <NotContentCard
-        message="Você ainda não possui novas avaliações.
-Aguarde que logo estará disponível!"
+        :message="notContentMesage"
       />
     </div>
   </div>
@@ -34,6 +33,10 @@ export default {
       type: Array,
       required: true,
       default: () => []
+    },
+    notContentMesage: {
+      type: String,
+      required: true
     }
   }
 }
