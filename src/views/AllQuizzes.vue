@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <BottomNavigation />
+  <BottomNavigation selected="quizzes">
     <b-tabs
       fill
       justified
@@ -29,13 +28,13 @@
         <ListingCardsVertical :data="userQuizzesConcluidas" />
       </b-tab>
     </b-tabs>
-  </div>
+  </BottomNavigation>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
-import BottomNavigation from '../components/UX/BottomNavigation'
+import BottomNavigation from '../components/layouts/BottomNavigationContainer.vue'
 
 export default {
   name: 'AllQuizzes',
@@ -48,22 +47,11 @@ export default {
       userQuizzesDisponiveis: 'getUserQuizzesDisponiveis',
       userQuizzesConcluidas: 'getUserQuizzesConcluidas'
     })
-  },
-  methods: {
-    ...mapActions('bottomNavigation', ['setActionSelected'])
-  },
-  mounted () {
-    this.setActionSelected('quizzes')
   }
 }
 </script>
 
 <style lang="scss">
-.tabs {
-  height: 100vh;
-  padding-bottom: 72px;
-}
-
 .content {
   margin-top: 16px;
   display: flex;
