@@ -16,7 +16,10 @@
             <span>Novas</span>
           </div>
         </template>
-        <ListingCardsVertical :data="userQuizzesDisponiveis" />
+        <ListingCardsVertical
+          :data="userQuizzesDisponiveis"
+          :class="userQuizzesDisponiveis.length <= 0 ? 'not-content' : ''"
+        />
       </b-tab>
       <b-tab>
         <template #title>
@@ -25,7 +28,10 @@
             <span>Concluídas</span>
           </div>
         </template>
-        <ListingCardsVertical :data="userQuizzesConcluidas" />
+        <ListingCardsVertical
+          :data="userQuizzesConcluidas"
+          :class="userQuizzesConcluidas.length <= 0 ? 'not-content' : ''"
+        />
       </b-tab>
     </b-tabs>
   </BottomNavigation>
@@ -58,14 +64,13 @@ export default {
   flex-direction: column;
 }
 
-/* Tive que fazer isso para ajustar no centro. */
-.not-content-wrapper {
+.not-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: auto;
-  height: calc(100vh - 250px);
+  height: calc(100vh - 168px);
 }
 
 .nav-wrapper {
