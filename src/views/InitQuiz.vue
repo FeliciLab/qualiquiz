@@ -44,7 +44,7 @@ export default {
     return {
       showLoading: false,
       bodyText: `
-      OBS: REVISAR ESSE TEXTO. Ao confimar esta ação você irá dar início a sua avaliação. É importante destacar que o tempo do processo avaliativo começará a ser contabilizado, mas, se por algum imprevisto você não conseguir completar a jornada de questões, você poderá retomar de onde parou em outro momento. No entanto, sua pontuação e tempo só serão contabilizados no histórico após a conclusão.
+      Ao confimar esta ação você irá dar início a sua avaliação. É importante destacar que o tempo do processo avaliativo começará a ser contabilizado, mas, se por algum imprevisto você não conseguir completar a jornada de questões, você poderá retomar de onde parou em outro momento. No entanto, sua pontuação e tempo só serão contabilizados no histórico após a conclusão.
       `
     }
   },
