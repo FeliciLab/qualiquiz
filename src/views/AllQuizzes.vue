@@ -12,7 +12,7 @@
       <b-tab active>
         <template #title>
           <div class="tab">
-            <b-icon-exclamation-triangle class="mb-1" font-scale="1.5" />
+            <b-icon-exclamation-triangle-fill class="mb-1" font-scale="1.5" />
             <span>Novas</span>
           </div>
         </template>
