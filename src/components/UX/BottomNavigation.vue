@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="bottom-navigation">
     <div
       class="bottom-navigation-action"
       :class="item.id === actionSelected ? 'active' : ''"
@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.bottom-navigation {
   display: flex;
   height: 72px;
   width: 100%;
