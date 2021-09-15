@@ -1,22 +1,22 @@
 <template>
   <div class="container">
-    <router-link
+    <div
       class="bottom-navigation-action"
-      :class="item.id === selected ? 'active' : ''"
+      :class="item.id === actionSelected ? 'active' : ''"
       v-for="(item, index) in this.itens"
       :key="index"
-      :to="item.to"
+      @click="handleClickAction(item)"
     >
       <b-icon :icon="item.icon" />
       <span>
         {{ item.label }}
       </span>
-    </router-link>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import routerNames from '../../router/routerNames'
 
 export default {
@@ -41,8 +41,16 @@ export default {
   },
   computed: {
     ...mapGetters('bottomNavigation', {
-      selected: 'getActionSelected'
+      actionSelected: 'getActionSelected'
     })
+  },
+  methods: {
+    ...mapActions('bottomNavigation', ['setActionSelected']),
+    handleClickAction (item) {
+      if (this.actionSelected !== item.id) {
+        this.$router.push(item.to)
+      }
+    }
   }
 }
 </script>

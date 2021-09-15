@@ -12,7 +12,7 @@
     >
       <b-tab active>
         <template #title>
-          <div class="title">
+          <div class="tab">
             <b-icon-exclamation-triangle class="mb-1" font-scale="1.5" />
             <span>Novas</span>
           </div>
@@ -21,7 +21,7 @@
       </b-tab>
       <b-tab>
         <template #title>
-          <div class="title">
+          <div class="tab">
             <b-icon-check-circle-fill class="mb-1" font-scale="1.5" />
             <span>Concluídas</span>
           </div>
@@ -88,7 +88,7 @@ export default {
   overflow: hidden;
 }
 
-.title {
+.tab {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,7 +107,7 @@ export default {
 .active-nav-item {
   position: relative;
 
-  .title {
+  .tab {
     color: #ffffff;
   }
 

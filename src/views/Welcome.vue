@@ -1,11 +1,10 @@
 <template>
-  <div>
+  <BottomNavigationContainer selected="home">
     <div v-show="showLoading">
       <Loading></Loading>
     </div>
-    <div class="position-absolute background" v-show="!showLoading">
+    <div class="background" v-show="!showLoading">
       <HeaderLogo />
-      <BottomNavigation />
       <b-container class="content">
         <div class="title">
           <h1 class="label-title roboto-bold">Avaliações disponíveis</h1>
@@ -30,7 +29,7 @@
         </div>
       </b-container>
     </div>
-  </div>
+  </BottomNavigationContainer>
 </template>
 
 <script>
@@ -41,7 +40,7 @@ import HeaderLogo from '../components/HeaderLogo.vue'
 import ListingCardsHorizontal from '../components/UX/ListingCardsHorizontal'
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
 import routerNames from '../router/routerNames'
-import BottomNavigation from '../components/UX/BottomNavigation.vue'
+import BottomNavigationContainer from '../components/layouts/BottomNavigationContainer'
 
 export default {
   components: {
@@ -49,7 +48,7 @@ export default {
     HeaderLogo,
     ListingCardsHorizontal,
     ListingCardsVertical,
-    BottomNavigation
+    BottomNavigationContainer
   },
   data () {
     return {
