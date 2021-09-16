@@ -34,7 +34,7 @@ Aguarde que logo estará disponível!"
           :data="userQuizzesConcluidas"
           :class="userQuizzesConcluidas.length <= 0 ? 'not-content' : ''"
           notContentMesage="Você ainda não possui avaliações concluídas.
-Responda a sua prmeira avaliação!"
+Responda a sua primeira avaliação!"
         />
       </b-tab>
     </b-tabs>
