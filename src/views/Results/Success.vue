@@ -5,7 +5,10 @@
         <CorrectAnsweredCard />
       </div>
       <div class="texto">
-        <p>Parabéns, você concluiu a avaliação Manejo Clínico da Covid-19 2021.1, abaixo estão as respostas que farão parte de seu histórico.</p>
+        <p>
+          Parabéns, você concluiu a avaliação Manejo Clínico da Covid-19 2021.1,
+          abaixo estão as respostas que farão parte de seu histórico.
+        </p>
       </div>
       <div>
         <FullWidthButton @click="onClick()">
@@ -17,11 +20,13 @@
       <FeedbackContent class="full-width-content" />
     </div>
     <div class="fixed-bottom buttonSairWrapper">
-      <NakedButton class="buttonSair"
+      <NakedButton
+        class="buttonSair"
         @click="onClickSair"
         label="SAIR"
         color="#FFFFFF"
-        bgColor="#61459B"/>
+        bgColor="#61459B"
+      />
     </div>
   </div>
 </template>
@@ -61,44 +66,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .sucess-page {
-    padding-bottom: 64px;
-  }
-  .full-width-content {
-    margin-top: 80px;
-  }
-  .bg-green {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100vh;
-    background-color: $green142;
-    padding-top: 56px;
-  }
-  .circulo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .texto{
-    font-family: Roboto;
-    font-size: 16px;
-    text-align: center;
-    color: white;
-    padding-top: 40px;
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-  .buttonSair{
-    border-radius: 49px;
-    Width: 79px;
-    Height: 48px;
-  }
-  .buttonSairWrapper{
-    display: flex;
-    padding: 16px;
-    justify-content: flex-end;
-    width: 100%;
-  }
+.sucess-page {
+  padding-bottom: 64px;
+}
+.full-width-content {
+  margin-top: 80px;
+}
+.bg-green {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  background-color: $green142;
+  padding-top: 56px;
+}
+.circulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.texto {
+  font-family: Roboto;
+  font-size: 16px;
+  text-align: center;
+  color: white;
+  padding-top: 40px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.buttonSair {
+  border-radius: 49px;
+  width: 79px;
+  height: 48px;
+}
+.buttonSairWrapper {
+  display: flex;
+  padding: 16px;
+  justify-content: flex-end;
+  width: 100%;
+}
 </style>
