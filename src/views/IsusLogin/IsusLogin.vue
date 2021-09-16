@@ -1,16 +1,12 @@
 <template>
-  <Loading />
+  <div></div>
 </template>
 
 <script>
-import Loading from '../../components/Loading.vue'
 import { mapActions } from 'vuex'
 
 export default {
   name: 'IsusLogin',
-  components: {
-    Loading
-  },
   methods: {
     ...mapActions('authentication', ['setToken']),
     ...mapActions('quiz', ['setId', 'cleanQuiz', 'initUserQuizzes']),
