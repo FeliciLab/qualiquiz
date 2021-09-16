@@ -1,6 +1,8 @@
 <template>
   <div class="card-avaliacao">
-    <span class="titulo-avaliacao roboto-bold">{{ titulo }}</span>
+    <span class="titulo-avaliacao roboto-bold">
+      {{ titulo }}
+    </span>
     <h4 class="data-criacao">{{ dataCriacaoFormated }}</h4>
     <progresso-acertos
       class="barra-progresso"
@@ -84,6 +86,12 @@ export default {
   line-height: 20px;
   letter-spacing: 0.1px;
   margin-bottom: 8px;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .data-criacao {
