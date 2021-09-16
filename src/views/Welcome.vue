@@ -1,9 +1,6 @@
 <template>
   <BottomNavigationContainer selected="home">
-    <div v-show="showLoading">
-      <Loading></Loading>
-    </div>
-    <div class="background" v-show="!showLoading">
+    <div class="background">
       <HeaderLogo />
       <b-container class="content">
         <div class="title">
@@ -13,7 +10,7 @@
           <ListingCardsHorizontal
             :data="userQuizzesDisponiveis"
             notContentMesage="Você ainda não possui novas avaliações.
-Aguarde que logo estará disponível!"
+            Aguarde que logo estará disponível!"
           />
         </div>
         <div class="wrapper-button">
@@ -32,7 +29,7 @@ Aguarde que logo estará disponível!"
           <ListingCardsVertical
             :data="userQuizzesConcluidas"
             notContentMesage="Você ainda não possui avaliações concluídas.
-Responda a sua prmeira avaliação!"
+            Responda a sua prmeira avaliação!"
           />
         </div>
       </b-container>
@@ -43,7 +40,6 @@ Responda a sua prmeira avaliação!"
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import Swiper from 'swiper'
-import Loading from '../components/Loading'
 import HeaderLogo from '../components/HeaderLogo.vue'
 import ListingCardsHorizontal from '../components/UX/ListingCardsHorizontal'
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
@@ -52,7 +48,6 @@ import BottomNavigationContainer from '../components/layouts/BottomNavigationCon
 
 export default {
   components: {
-    Loading,
     HeaderLogo,
     ListingCardsHorizontal,
     ListingCardsVertical,
@@ -60,8 +55,6 @@ export default {
   },
   data () {
     return {
-      showLoading: false,
-      img: require('../assets/images/blank.png'),
       notContentMesage: ''
     }
   },
