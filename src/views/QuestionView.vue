@@ -1,5 +1,6 @@
 <template>
     <div class="background">
+      <div id="quiz-name" class="roboto-bold">{{ quizName }}</div>
       <breadcrumbs-questions />
       <QuestionsList />
     </div>
@@ -18,6 +19,7 @@ export default {
   },
   computed: {
     ...mapGetters('quiz', {
+      quizName: 'getName',
       numberOfQuestions: 'getNumberOfQuestions',
       currentQuestion: 'getCurrentQuestion'
     })
@@ -30,5 +32,9 @@ export default {
     display: flex;
     flex-direction: column;
     height: 100vh;
+  }
+  #quiz-name{
+    font-size: 20px;
+    padding: 33px 16px 0 16px;
   }
 </style>
