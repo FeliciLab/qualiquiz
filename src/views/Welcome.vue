@@ -145,6 +145,7 @@ small {
 
 .wrapper-horizontal-list {
   display: flex;
+  width: 100%;
 }
 
 .wrapper-button {
@@ -152,7 +153,7 @@ small {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 10px 16px;
+  margin-bottom: 20px;
   justify-content: center;
 }
 

@@ -11,7 +11,7 @@
         />
       </div>
     </div>
-    <div v-else class="not-content-wrapper">
+    <div v-else class="not-content-wrapper mt-4 mb-4">
       <NotContentCard :message="notContentMesage" />
     </div>
   </div>
