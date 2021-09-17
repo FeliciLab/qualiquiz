@@ -8,7 +8,7 @@
         </div>
         <div class="wrapper-horizontal-list">
           <ListingCardsHorizontal
-            :data="userQuizzesDisponiveis"
+            :data="quizzesTeste"
             notContentMesage="Você ainda não possui novas avaliações.
             Aguarde que logo estará disponível!"
           />
@@ -52,11 +52,6 @@ export default {
     ListingCardsHorizontal,
     ListingCardsVertical,
     BottomNavigationContainer
-  },
-  data () {
-    return {
-      notContentMesage: ''
-    }
   },
   computed: {
     ...mapGetters('quiz', {
@@ -153,7 +148,7 @@ small {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: px;
   justify-content: center;
 }
 
