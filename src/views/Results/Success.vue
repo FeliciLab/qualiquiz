@@ -4,10 +4,11 @@
       <div class="circulo">
         <CorrectAnsweredCard />
       </div>
+      {{ token }}
       <div class="texto">
         <p>
-          Parabéns, você concluiu a avaliação Manejo Clínico da Covid-19 2021.1,
-          abaixo estão as respostas que farão parte de seu histórico.
+          Parabéns, você concluiu a avaliação {{ quiz.titulo }}, abaixo estão as
+          respostas que farão parte de seu histórico.
         </p>
       </div>
       <div>
@@ -37,6 +38,7 @@ import FullWidthButton from '../../components/UX/FullWidthButton.vue'
 import FeedbackContent from '../../components/Feedback/FeedbackContent.vue'
 import NakedButton from '../../components/UX/NakedButton'
 import routerNames from '../../router/routerNames'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'Success',
@@ -46,14 +48,22 @@ export default {
     FeedbackContent,
     NakedButton
   },
-  data () {
+  data: function () {
     return {
-      showFeedback: false
+      result: {}
     }
   },
+  computed: {
+    ...mapGetters('quiz', {
+      quiz: 'getCurrentQuiz'
+    }),
+    ...mapGetters('authentication', {
+      token: 'getToken'
+    })
+  },
   methods: {
+    ...mapActions('feedback', ['fetchResult']),
     onClick () {
-      this.showFeedback = true
       const scrollToQuestion = document.createElement('a')
       scrollToQuestion.href = '#top-explanation'
       scrollToQuestion.click()
@@ -61,6 +71,9 @@ export default {
     onClickSair () {
       this.$router.push(routerNames.welcome)
     }
+  },
+  mounted () {
+    this.fetchResult(this.quiz.id, this.token, false)
   }
 }
 </script>

@@ -14,12 +14,10 @@ export default {
   },
   mounted () {
     this.cleanQuiz()
-
     if (!this.$route.params.codQuiz || !this.$route.params.authToken) {
       this.$router.push('/error')
       return
     }
-
     this.setToken(this.$route.params.authToken)
     this.setId(this.$route.params.codQuiz)
     this.setDevelopment(this.$route.meta.dev)

@@ -30,7 +30,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-a, a:active, a:hover, a:visited {
+a,
+a:active,
+a:hover,
+a:visited {
   color: inherit;
 }
 .breadcrumbs-questions-result {

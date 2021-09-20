@@ -78,6 +78,8 @@ export default {
     fetchResult ({ dispatch }, { id, auth, devMode }) {
       return quizRequest.fetchResult(id, auth, devMode)
         .then(result => {
+          console.log(result)
+
           dispatch('setResult', result.resultado)
           dispatch('setExplanations', result.comentarioQuestoes)
           dispatch('setAnswers', result.respostas)
