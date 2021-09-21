@@ -87,6 +87,7 @@ export default {
     0px 1.85px 6.25px rgba(0, 0, 0, 0.19);
   border-radius: 0px 0px 16px 16px;
   overflow: hidden;
+  z-index: 9999;
 }
 
 .tab {
