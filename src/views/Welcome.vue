@@ -53,11 +53,6 @@ export default {
     ListingCardsVertical,
     BottomNavigationContainer
   },
-  data () {
-    return {
-      notContentMesage: ''
-    }
-  },
   computed: {
     ...mapGetters('quiz', {
       nameQuiz: 'getName',
@@ -145,6 +140,7 @@ small {
 
 .wrapper-horizontal-list {
   display: flex;
+  width: 100%;
 }
 
 .wrapper-button {
@@ -152,7 +148,7 @@ small {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 10px 16px;
+  margin-bottom: px;
   justify-content: center;
 }
 

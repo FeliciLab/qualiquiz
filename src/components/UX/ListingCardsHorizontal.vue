@@ -1,22 +1,18 @@
 <template>
-  <div class="container">
-    <div v-if="data.length > 0">
-      <div v-for="(avaliacao, index) in data" :key="index">
-        <div class="wrapper-card">
-          <CardAvaliacoes
-            :id="avaliacao.id"
-            :titulo="avaliacao.titulo"
-            :acertos="Number(avaliacao.acertos)"
-            :concluida="avaliacao.respondido"
-            :dataCriacao="new Date(avaliacao.data_criacao)"
-          />
-        </div>
+  <div class="listing-cards-horizontal">
+    <div v-if="data.length > 0" class="horizontal-section">
+      <div class="wrapper-card" v-for="(avaliacao, index) in data" :key="index">
+        <CardAvaliacoes
+          :id="avaliacao.id"
+          :titulo="avaliacao.titulo"
+          :acertos="Number(avaliacao.acertos)"
+          :concluida="avaliacao.respondido"
+          :dataCriacao="new Date(avaliacao.data_criacao)"
+        />
       </div>
     </div>
-    <div v-else class="not-content-wrapper">
-      <NotContentCard
-        :message="notContentMesage"
-      />
+    <div v-else class="not-content-wrapper mt-4 mb-4">
+      <NotContentCard :message="notContentMesage" />
     </div>
   </div>
 </template>
@@ -43,22 +39,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.listing-cards-horizontal {
   display: flex;
-  align-items: stretch;
-  overflow-x: scroll;
-  padding: 16px 16px 30px;
+  width: 100%;
 }
 
-::-webkit-scrollbar {
-  display: none;
+.horizontal-section {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  display: flex;
+  width: 100%;
+  grid-auto-flow: column;
+  gap: 12px;
+  padding: 16px 16px 30px;
+  scroll-padding-left: 16px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .wrapper-card {
-  margin-right: 12px;
   scroll-snap-align: start;
-  display: flex;
-  align-items: center;
+  width: 220px;
+  flex-shrink: 0;
 }
 
 .not-content-wrapper {
