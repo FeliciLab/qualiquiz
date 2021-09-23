@@ -8,7 +8,7 @@
         </div>
         <div class="wrapper-horizontal-list">
           <ListingCardsHorizontal
-            :data="quizzesTeste"
+            :data="userQuizzesDisponiveis"
             notContentMesage="Você ainda não possui novas avaliações.
             Aguarde que logo estará disponível!"
           />
