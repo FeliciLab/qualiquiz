@@ -50,7 +50,7 @@ export default {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    padding-top: 24px;
+    padding: 24px 8px 0 8px;
     width: 100%;
   }
   .breadcrumbs-item {
