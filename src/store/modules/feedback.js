@@ -77,6 +77,7 @@ export default {
     //   dispatch('setAnswers', resultado.respostas)
     // },
     fetchResult ({ dispatch }, { id, auth, devMode }) {
+      console.log(id, auth, devMode)
       return quizRequest.fetchResult(id, auth, devMode).then(result => {
         console.log(result)
         dispatch('setResult', result.resultado)

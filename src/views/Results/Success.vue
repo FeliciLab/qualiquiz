@@ -7,6 +7,7 @@
       {{ token }}
       {{ quiz }}
       {{ result }}
+      {{ $route.params.idQuiz }}
       <div class="texto">
         <p>
           Parabéns, você concluiu a avaliação {{ quiz.titulo }}, abaixo estão as
@@ -77,7 +78,13 @@ export default {
   },
   mounted () {
     if (this.quiz.id) {
-      this.fetchResult(2, this.token, this.development)
+      console.log('mounted')
+      // this.fetchResult(this.$route.params.idQuiz, this.token, this.development)
+      this.fetchResult({
+        id: this.quiz.id,
+        auth: this.token,
+        devMode: this.development
+      })
     }
   }
 }
