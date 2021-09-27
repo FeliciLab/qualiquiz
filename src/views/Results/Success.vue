@@ -5,6 +5,8 @@
         <CorrectAnsweredCard />
       </div>
       {{ token }}
+      {{ quiz }}
+      {{ result }}
       <div class="texto">
         <p>
           Parabéns, você concluiu a avaliação {{ quiz.titulo }}, abaixo estão as
@@ -48,17 +50,18 @@ export default {
     FeedbackContent,
     NakedButton
   },
-  data: function () {
-    return {
-      result: {}
-    }
-  },
   computed: {
     ...mapGetters('quiz', {
       quiz: 'getCurrentQuiz'
     }),
+    ...mapGetters('feedback', {
+      result: 'getResult'
+    }),
     ...mapGetters('authentication', {
       token: 'getToken'
+    }),
+    ...mapGetters('application', {
+      development: 'getDevelopment'
     })
   },
   methods: {
@@ -73,7 +76,9 @@ export default {
     }
   },
   mounted () {
-    this.fetchResult(this.quiz.id, this.token, false)
+    if (this.quiz.id) {
+      this.fetchResult(2, this.token, this.development)
+    }
   }
 }
 </script>

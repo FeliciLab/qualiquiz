@@ -1,7 +1,8 @@
 <template>
   <div class="question-list">
+    {{ answers }}
     <div v-for="(item, index) in answers" :key="index">
-      <question-feedback-item
+      <QuestionFeedbackItem
         :isCorrect="item.acerto"
         :questionOrder="item.ordem_questao"
         :correctAlternative="item.cod_alternativa_correta"
@@ -25,12 +26,11 @@ export default {
       explanations: 'getExplanations',
       answers: 'getAnswers'
     })
-
   }
 }
 </script>
 <style lang="scss" scoped>
-  .question-list{
-    padding: 10px;
-  }
+.question-list {
+  padding: 10px;
+}
 </style>

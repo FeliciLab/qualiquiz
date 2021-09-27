@@ -13,7 +13,6 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'SumaryQuiz',
-
   computed: {
     ...mapGetters('quiz', {
       quizName: 'getName',
