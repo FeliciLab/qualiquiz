@@ -28,14 +28,6 @@ export default {
     }).then(() => {
       this.$router.push('/welcome')
     })
-    // TODO: vamos usar esse trecho de código em outro lugar
-    // this.initQuiz({
-    //   codQuiz: this.$route.params.codQuiz,
-    //   devMode: this.$route.meta.dev,
-    //   auth: this.$route.params.authToken
-    // }).then(() => {
-    //   this.$router.push('/welcome')
-    // })
   }
 }
 </script>
