@@ -74,8 +74,6 @@ export default {
   },
   mounted () {
     if (this.quiz.id) {
-      console.log('mounted')
-      // this.fetchResult(this.$route.params.idQuiz, this.token, this.development)
       this.fetchResult({
         id: this.quiz.id,
         auth: this.token,
