@@ -1,6 +1,5 @@
 <template>
   <div class="question-list">
-    {{ answers }}
     <div v-for="(item, index) in answers" :key="index">
       <QuestionFeedbackItem
         :isCorrect="item.acerto"

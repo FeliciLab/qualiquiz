@@ -4,10 +4,6 @@
       <div class="circulo">
         <CorrectAnsweredCard />
       </div>
-      {{ token }}
-      {{ quiz }}
-      {{ result }}
-      {{ $route.params.idQuiz }}
       <div class="texto">
         <p>
           Parabéns, você concluiu a avaliação {{ quiz.titulo }}, abaixo estão as
