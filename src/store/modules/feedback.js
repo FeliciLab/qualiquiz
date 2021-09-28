@@ -1,7 +1,5 @@
 import quizRequest from '../../services/quizRequest'
 
-// const resultado = require('@/assets/resultado.json')
-
 const resultModel = {
   acertos: 0,
   erros: 0,
@@ -70,16 +68,8 @@ export default {
     setAnswers ({ commit }, answers) {
       commit('SET_ANSWERS', answers)
     },
-    // TODO: não usar isso
-    // fetchResultMocked ({ dispatch }) {
-    //   dispatch('setResult', resultado.resultado)
-    //   dispatch('setExplanations', resultado.comentarioQuestoes)
-    //   dispatch('setAnswers', resultado.respostas)
-    // },
     fetchResult ({ dispatch }, { id, auth, devMode }) {
-      console.log(id, auth, devMode)
       return quizRequest.fetchResult(id, auth, devMode).then(result => {
-        console.log(result)
         dispatch('setResult', result.resultado)
         dispatch('setExplanations', result.comentarioQuestoes)
         dispatch('setAnswers', result.respostas)
