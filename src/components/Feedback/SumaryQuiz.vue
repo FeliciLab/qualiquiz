@@ -3,7 +3,7 @@
     <p>
       <span class="roboto-bold quiz-name"> {{ quizName }} </span> <br>
       <span class="roboto-bold">Tempo de resposta:</span><span> {{ getTimeString }}</span><br>
-      <span class="roboto-bold">Taxa de acerto:</span><span> {{ result.acertos }} de  {{ amountQuestions }} questões</span><br>
+      <span class="roboto-bold">Taxa de acerto:</span><span> {{ result.acertos }} de  {{ result.num_questoes }} questões</span><br>
       <span class="roboto-bold">Nota:</span><span> {{ (result.percentagem / 10).toFixed(1) }}</span>
     </p>
   </div>
@@ -13,7 +13,6 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'SumaryQuiz',
-
   computed: {
     ...mapGetters('quiz', {
       quizName: 'getName',

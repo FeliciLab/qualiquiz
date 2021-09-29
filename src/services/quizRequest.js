@@ -40,6 +40,10 @@ export default {
       headers: {
         Authorization: `Bearer ${auth}`
       }
-    }).then(response => response.json())
+    }).then(response => {
+      const responseJson = response.json()
+      console.log(responseJson)
+      return responseJson
+    })
   }
 }

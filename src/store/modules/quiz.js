@@ -63,7 +63,9 @@ export default {
       state.quizzes.filter(quiz => !quiz.respondido),
     getUserQuizzesConcluidas: state =>
       state.quizzes.filter(quiz => quiz.respondido),
-    getCurrentQuizId: state => state.currentQuizId
+    getCurrentQuizId: state => state.currentQuizId,
+    getCurrentQuiz: state =>
+      state.quizzes.find(elem => elem.id === state.currentQuizId)
   },
   mutations: {
     SET_ID: (state, id) => {

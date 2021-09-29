@@ -1,7 +1,5 @@
 import quizRequest from '../../services/quizRequest'
 
-const resultado = require('@/assets/resultado.json')
-
 const resultModel = {
   acertos: 0,
   erros: 0,
@@ -9,6 +7,7 @@ const resultModel = {
   num_questoes: 0,
   percentagem: 0
 }
+
 const answersModel = {
   cod_quiz: 0,
   cod_questao: 0,
@@ -36,9 +35,8 @@ export default {
   getters: {
     getResult: state => state.result,
     getExplanations: state => state.explanations,
-    getTimeString: state => new Date(state.result.tempo * 1000)
-      .toISOString()
-      .substr(11, 8),
+    getTimeString: state =>
+      new Date(state.result.tempo * 1000).toISOString().substr(11, 8),
     getAnswers: state => state.answers,
     getAnswersAlternative: state => {
       return state.answers.reduce((acc, curr) => {
@@ -70,18 +68,12 @@ export default {
     setAnswers ({ commit }, answers) {
       commit('SET_ANSWERS', answers)
     },
-    fetchResultMocked ({ dispatch }) {
-      dispatch('setResult', resultado.resultado)
-      dispatch('setExplanations', resultado.comentarioQuestoes)
-      dispatch('setAnswers', resultado.respostas)
-    },
     fetchResult ({ dispatch }, { id, auth, devMode }) {
-      return quizRequest.fetchResult(id, auth, devMode)
-        .then(result => {
-          dispatch('setResult', result.resultado)
-          dispatch('setExplanations', result.comentarioQuestoes)
-          dispatch('setAnswers', result.respostas)
-        })
+      return quizRequest.fetchResult(id, auth, devMode).then(result => {
+        dispatch('setResult', result.resultado)
+        dispatch('setExplanations', result.comentarioQuestoes)
+        dispatch('setAnswers', result.respostas)
+      })
     }
   }
 }

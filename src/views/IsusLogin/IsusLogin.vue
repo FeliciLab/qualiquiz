@@ -14,12 +14,10 @@ export default {
   },
   mounted () {
     this.cleanQuiz()
-
     if (!this.$route.params.codQuiz || !this.$route.params.authToken) {
       this.$router.push('/error')
       return
     }
-
     this.setToken(this.$route.params.authToken)
     this.setId(this.$route.params.codQuiz)
     this.setDevelopment(this.$route.meta.dev)
@@ -30,14 +28,6 @@ export default {
     }).then(() => {
       this.$router.push('/welcome')
     })
-    // TODO: vamos usar esse trecho de código em outro lugar
-    // this.initQuiz({
-    //   codQuiz: this.$route.params.codQuiz,
-    //   devMode: this.$route.meta.dev,
-    //   auth: this.$route.params.authToken
-    // }).then(() => {
-    //   this.$router.push('/welcome')
-    // })
   }
 }
 </script>

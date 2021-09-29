@@ -24,6 +24,7 @@ import { mapActions } from 'vuex'
 import moment from 'moment'
 import NakedButton from '../UX/NakedButton.vue'
 import ProgressoAcertos from './ProgressoAcertos.vue'
+import routerNames from '../../router/routerNames'
 export default {
   name: 'CardAvaliacoes',
   data () {
@@ -37,9 +38,9 @@ export default {
     handleClickButton () {
       this.setCurrentQuizId(this.id)
       if (this.concluida) {
-        this.$router.push('/quiz')
+        this.$router.push(routerNames.success)
       } else {
-        this.$router.push('/quiz')
+        this.$router.push(routerNames.quiz)
       }
     }
   },

@@ -3,7 +3,7 @@
     <Title id="top-explanation">Seu desempenho</Title>
     <SumaryQuiz class="mt-18" />
     <img id="feedback-bar" src="../../assets/images/feedback-bar.svg" />
-    <question-feedback-list class="question-list" />
+    <QuestionFeedbackList class="question-list" />
   </div>
 </template>
 
@@ -15,13 +15,11 @@ import QuestionFeedbackList from './QuestionFeedbackList.vue'
 
 export default {
   name: 'FeedbackContent',
-
   components: {
     Title,
     SumaryQuiz,
     QuestionFeedbackList
   },
-
   computed: {
     ...mapGetters('feedback', {
       explanations: 'getExplanations'

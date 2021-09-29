@@ -1,11 +1,10 @@
 <template>
   <div>
-    <div v-show='showLoading'>
+    <div v-show="showLoading">
       <loading />
     </div>
-
     <component
-      v-show='!showLoading'
+      v-show="!showLoading"
       :is="$route.meta.component"
       @finish="finish"
     />
@@ -16,19 +15,16 @@ import { mapActions, mapGetters } from 'vuex'
 import Loading from '../../components/Loading.vue'
 
 export default {
-  components: { Loading },
   name: 'FinishQuiz',
-
+  components: { Loading },
   compents: {
     Loading
   },
-
   data () {
     return {
       showLoading: false
     }
   },
-
   computed: {
     ...mapGetters('quiz', {
       amountQuestions: 'getNumberOfQuestions',
@@ -41,13 +37,11 @@ export default {
     ...mapGetters('application', ['getDevelopment', 'getAppMocked']),
     ...mapGetters('clock', ['timeSpent'])
   },
-
   methods: {
     ...mapActions('quiz', ['saveAnswers']),
-    ...mapActions('feedback', ['fetchResult', 'fetchResultMocked']),
+    ...mapActions('feedback', ['fetchResult']),
     finish () {
       this.showLoading = true
-
       if (this.getAppMocked) {
         setTimeout(() => {
           this.$router.push({ name: 'Success' })
@@ -60,10 +54,13 @@ export default {
         devMode: this.getDevelopment,
         timeSpent: this.timeSpent
       }).then(() => {
-        this.fetchResult({ id: this.id, auth: this.token, devMode: this.getDevelopment })
-          .then(() => {
-            this.$router.push({ name: 'Success' })
-          })
+        this.fetchResult({
+          id: this.id,
+          auth: this.token,
+          devMode: this.getDevelopment
+        }).then(() => {
+          this.$router.push({ name: 'Success' })
+        })
       })
     }
   }
