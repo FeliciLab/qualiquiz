@@ -42,7 +42,6 @@ export default {
       }
     }).then(response => {
       const responseJson = response.json()
-      console.log(responseJson)
       return responseJson
     })
   }
