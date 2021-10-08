@@ -1,6 +1,7 @@
 <template>
   <div class="animated fadeIn sucess-page">
     <div class="bg-green">
+      <p  class="title-resultados">Resultados</p>
       <div class="circulo">
         <CorrectAnsweredCard />
       </div>
@@ -98,7 +99,7 @@ export default {
   background-size: cover;
   height: 100vh;
   background-color: $green142;
-  padding-top: 56px;
+  padding-top: 33px;
 }
 .circulo {
   display: flex;
@@ -113,6 +114,13 @@ export default {
   padding-top: 40px;
   padding-left: 25px;
   padding-right: 25px;
+}
+.title-resultados {
+  font-family: Roboto;
+  font-size: 20px;
+  color: white;
+  padding: 0px 0px 56px 16px;
+  margin: 0px 0px 0px 0px;
 }
 .buttonSair {
   border-radius: 49px;
