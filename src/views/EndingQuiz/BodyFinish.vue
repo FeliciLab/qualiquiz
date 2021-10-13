@@ -4,8 +4,12 @@
     >
       <div class='tela-confirmacao'>
         <div>
-          <div class='flex-column-items-center mt-45'>
-            <AmountAnsweredCard />
+          <p class="title-fim-quiz roboto-bold">Fim do quiz</p>
+          <BreadcrumbsFixed :amountAnswers = 'amountAnswers'/>
+        </div>
+        <div>
+          <div class='circle-centro flex-column-items-center'>
+            <AmountAnsweredCard/>
           </div>
             <p class='mt-50 text-center text-answered'>
               Você Respondeu {{ amountAnswers }} de {{ amountQuestions }} questões!
@@ -27,12 +31,14 @@
 <script>
 import { mapGetters } from 'vuex'
 import AmountAnsweredCard from '../../components/Confirmation/AmountAnsweredCard'
+import BreadcrumbsFixed from '../../components/BreadcrumbsFixed.vue'
 
 export default {
   name: 'BodyFinish',
 
   components: {
-    AmountAnsweredCard
+    AmountAnsweredCard,
+    BreadcrumbsFixed
   },
 
   computed: {
@@ -68,4 +74,14 @@ export default {
 .button-row{
   margin-bottom: 1rem;
 }
+.title-fim-quiz{
+  font-size: 20px;
+  color: $black87;
+  padding: 24px 16px 24px 16px;
+  margin: 0px 0px 0px 0px;
+}
+.circle-centro{
+  margin-top: 30px;
+}
+
 </style>
