@@ -3,22 +3,19 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-import auth from '../assets/auth'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'Home',
   methods: {
-    ...mapActions('quiz', {
-      initTestQuiz: 'initTestQuiz'
-    }),
-    ...mapActions('application', ['setAppMocked']),
-    ...mapActions('feedback', ['fetchResultMocked'])
+    ...mapActions('application', ['setAppMocked'])
+  },
+  computed: {
+    ...mapGetters('authentication', ['getToken'])
   },
   mounted () {
     this.setAppMocked(false)
-    // this.fetchResultMocked()
-    this.$router.push(`/dev/isus/login/1/${auth.token}`)
+    this.$router.push(`/dev/isus/login/1/${this.getToken}`)
   }
 }
 </script>
