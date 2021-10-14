@@ -2,22 +2,24 @@
   <div class="animated fadeIn">
     <div class="tela-confirmacao">
       <div>
-        <p class="title-fim-quiz roboto-bold">Fim do quiz</p>
-        <BreadcrumbsFixed :amountAnswers="amountAnswers" />
-      </div>
-      <div>
-        <div class="circle-centro flex-column-items-center">
-          <AmountAnsweredCard />
+        <div>
+          <p class="title-fim-quiz roboto-bold">Fim do quiz</p>
+          <BreadcrumbsFixed :amountAnswers="5" />
         </div>
-        <p class="mt-50 text-center text-answered">
-          Você Respondeu {{ amountAnswers }} de {{ amountQuestions }} questões!
-        </p>
+        <div>
+          <div class="circle-centro flex-column-items-center">
+            <AmountAnsweredCard />
+          </div>
+          <p class="mt-50 text-center text-answered">
+            Você Respondeu {{ amountAnswers }} de {{ amountQuestions }} questões!
+          </p>
 
-        <p class="mx-13 mt-18 text-helper text-center">
-          Você pode revisar as questões ou finalizar o quiz para ver o seu
-          resultado. Após enviar suas respostas, não será possível realizar
-          novas tentativas.
-        </p>
+          <p class="mx-13 mt-18 text-helper text-center">
+            Você pode revisar as questões ou finalizar o quiz para ver o seu
+            resultado. Após enviar suas respostas, não será possível realizar
+            novas tentativas.
+          </p>
+        </div>
       </div>
       <div class="button-row">
         <slot slot name="actions"></slot>
@@ -79,6 +81,6 @@ export default {
   margin: 0px 0px 0px 0px;
 }
 .circle-centro {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 </style>

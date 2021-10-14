@@ -1,5 +1,4 @@
 import quizRequest from '../../services/quizRequest'
-const quizTest = require('../../assets/questions')
 
 const timeSpentModel = { start: '', finish: '' }
 
@@ -164,9 +163,6 @@ export default {
     },
     setCurrentQuizId: ({ commit }, quizId) => {
       commit('SET_CURRENT_QUIZ_ID', quizId)
-    },
-    initTestQuiz: ({ dispatch }) => {
-      dispatch('setQuizData', quizTest)
     },
     initQuiz: ({ dispatch }, { codQuiz, devMode, auth }) => {
       return quizRequest.getQuiz(codQuiz, devMode, auth).then(result => {
