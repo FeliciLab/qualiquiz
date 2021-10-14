@@ -38,15 +38,22 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import Swiper from 'swiper'
 import HeaderLogo from '../components/HeaderLogo.vue'
 import ListingCardsHorizontal from '../components/UX/ListingCardsHorizontal'
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
 import routerNames from '../router/routerNames'
 import BottomNavigationContainer from '../components/layouts/BottomNavigationContainer'
+import quizRequest from '../services/quizRequest'
+import { mapGetters } from 'vuex'
 
 export default {
+  data: function () {
+    return {
+      userQuizzesDisponiveis: [],
+      userQuizzesConcluidas: [],
+      loading: true
+    }
+  },
   components: {
     HeaderLogo,
     ListingCardsHorizontal,
@@ -54,40 +61,30 @@ export default {
     BottomNavigationContainer
   },
   computed: {
-    ...mapGetters('quiz', {
-      nameQuiz: 'getName',
-      answers: 'getAnswers',
-      timeLimit: 'getTimeLimit',
-      currentQuestion: 'getCurrentQuestion',
-      description: 'getDescription',
-      userQuizzesDisponiveis: 'getUserQuizzesDisponiveis',
-      userQuizzesConcluidas: 'getUserQuizzesConcluidas'
-    })
+    ...mapGetters('authentication', ['getToken']),
+    ...mapGetters('application', ['getDevelopment'])
   },
   methods: {
-    ...mapActions('clock', ['initClock']),
-    ...mapActions('quiz', ['initUserQuizzes']),
-    iniciarQuiz () {
-      this.showLoading = true
-      this.initClock(this.timeLimit)
-      setTimeout(() => {
-        this.$router.push({ name: 'Question' })
-      }, 4000)
-    },
     handdleGoToAllQuizzes () {
       this.$router.push(routerNames.quizzes)
+    },
+    async handleRequest () {
+      try {
+        const response = await quizRequest.getUserQuizzes(
+          this.getDevelopment,
+          this.getToken
+        )
+        this.userQuizzesDisponiveis = response.filter(quiz => !quiz.respondido)
+        this.userQuizzesConcluidas = response.filter(quiz => quiz.respondido)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        this.loading = false
+      }
     }
   },
   mounted () {
-    // eslint-disable-next-line no-new
-    new Swiper('.swiper-container', {
-      // If we need pagination
-      pagination: {
-        clickable: true,
-        el: '.swiper-pagination'
-      },
-      spaceBetween: -35
-    })
+    this.handleRequest()
   }
 }
 </script>
