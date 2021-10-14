@@ -1,5 +1,6 @@
 <template>
   <BottomNavigation selected="quizzes">
+    <Loading v-show="isLoading" />
     <b-tabs
       fill
       justified
@@ -42,21 +43,48 @@ Responda a sua primeira avaliação!"
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
-import BottomNavigation from '../components/layouts/BottomNavigationContainer.vue'
+import BottomNavigation from '../components/layouts/BottomNavigationContainer'
+import Loading from '../components/Loading'
+import { mapGetters } from 'vuex'
+import quizRequest from '../services/quizRequest'
 
 export default {
   name: 'AllQuizzes',
   components: {
     ListingCardsVertical,
-    BottomNavigation
+    BottomNavigation,
+    Loading
+  },
+  data: function () {
+    return {
+      userQuizzesDisponiveis: [],
+      userQuizzesConcluidas: [],
+      isLoading: true
+    }
   },
   computed: {
-    ...mapGetters('quiz', {
-      userQuizzesDisponiveis: 'getUserQuizzesDisponiveis',
-      userQuizzesConcluidas: 'getUserQuizzesConcluidas'
-    })
+    ...mapGetters('authentication', ['getToken']),
+    ...mapGetters('application', ['getDevelopment'])
+  },
+  methods: {
+    async handleRequest () {
+      try {
+        const response = await quizRequest.getUserQuizzes(
+          this.getDevelopment,
+          this.getToken
+        )
+        this.userQuizzesDisponiveis = response.filter(quiz => !quiz.respondido)
+        this.userQuizzesConcluidas = response.filter(quiz => quiz.respondido)
+      } catch (error) {
+        // TODO: tratar melhor esse erro depois
+      } finally {
+        this.isLoading = false
+      }
+    }
+  },
+  mounted () {
+    this.handleRequest()
   }
 }
 </script>

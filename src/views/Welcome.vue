@@ -1,5 +1,7 @@
 <template>
   <BottomNavigationContainer selected="home">
+    <Loading v-show="isLoading" />
+
     <div class="background">
       <HeaderLogo />
       <b-container class="content">
@@ -38,7 +40,8 @@
 </template>
 
 <script>
-import HeaderLogo from '../components/HeaderLogo.vue'
+import HeaderLogo from '../components/HeaderLogo'
+import Loading from '../components/Loading'
 import ListingCardsHorizontal from '../components/UX/ListingCardsHorizontal'
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
 import routerNames from '../router/routerNames'
@@ -47,18 +50,20 @@ import quizRequest from '../services/quizRequest'
 import { mapGetters } from 'vuex'
 
 export default {
-  data: function () {
-    return {
-      userQuizzesDisponiveis: [],
-      userQuizzesConcluidas: [],
-      loading: true
-    }
-  },
+  name: 'Welcome',
   components: {
     HeaderLogo,
     ListingCardsHorizontal,
     ListingCardsVertical,
-    BottomNavigationContainer
+    BottomNavigationContainer,
+    Loading
+  },
+  data: function () {
+    return {
+      userQuizzesDisponiveis: [],
+      userQuizzesConcluidas: [],
+      isLoading: true
+    }
   },
   computed: {
     ...mapGetters('authentication', ['getToken']),
@@ -77,9 +82,9 @@ export default {
         this.userQuizzesDisponiveis = response.filter(quiz => !quiz.respondido)
         this.userQuizzesConcluidas = response.filter(quiz => quiz.respondido)
       } catch (error) {
-        console.log(error)
+        // TODO: tratar melhor esse erro depois
       } finally {
-        this.loading = false
+        this.isLoading = false
       }
     }
   },
