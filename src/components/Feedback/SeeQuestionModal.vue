@@ -3,7 +3,7 @@
     <template v-slot:header>
       <div id="header-question">
         <slot name="title" id="question-icon"></slot>
-        <NakedButton @click="$emit('close')" label="x" color="#61459B" bgColor="#FFFFFF" />
+        <b-icon-x font-scale="2" @click="$emit('close')" />
       </div>
     </template>
     <template v-slot:body>
