@@ -1,7 +1,7 @@
 <template>
   <div class="animated fadeIn sucess-page">
     <div class="bg-green">
-      <p  class="title-resultados">Resultados</p>
+      <p class="title-resultados">Resultados</p>
       <div class="circulo">
         <CorrectAnsweredCard />
       </div>
@@ -64,6 +64,7 @@ export default {
   },
   methods: {
     ...mapActions('feedback', ['fetchResult']),
+    ...mapActions('quiz', ['initQuiz']),
     onClick () {
       const scrollToQuestion = document.createElement('a')
       scrollToQuestion.href = '#top-explanation'
@@ -79,6 +80,11 @@ export default {
         id: this.quiz.id,
         auth: this.token,
         devMode: this.development
+      })
+      this.initQuiz({
+        codQuiz: this.quiz.id,
+        devMode: this.development,
+        auth: this.token
       })
     }
   }

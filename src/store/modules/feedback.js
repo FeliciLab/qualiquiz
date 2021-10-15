@@ -69,7 +69,10 @@ export default {
       commit('SET_ANSWERS', answers)
     },
     fetchResult ({ dispatch }, { id, auth, devMode }) {
+      console.log('fetchResult')
       return quizRequest.fetchResult(id, auth, devMode).then(result => {
+        console.table({ id, auth, devMode })
+        console.log(JSON.stringify(result, false, 2))
         dispatch('setResult', result.resultado)
         dispatch('setExplanations', result.comentarioQuestoes)
         dispatch('setAnswers', result.respostas)
