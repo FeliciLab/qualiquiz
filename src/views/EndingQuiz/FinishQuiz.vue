@@ -31,10 +31,6 @@ export default {
       amountAnswers: 'getNumberOfAnswers',
       id: 'getId'
     }),
-    ...mapGetters('authentication', {
-      token: 'getToken'
-    }),
-    ...mapGetters('application', ['getDevelopment', 'getAppMocked']),
     ...mapGetters('clock', ['timeSpent'])
   },
   methods: {
@@ -50,14 +46,10 @@ export default {
         return
       }
       this.saveAnswers({
-        token: this.token,
-        devMode: this.getDevelopment,
         timeSpent: this.timeSpent
       }).then(() => {
         this.fetchResult({
-          id: this.id,
-          auth: this.token,
-          devMode: this.getDevelopment
+          id: this.id
         }).then(() => {
           this.$router.push({ name: 'Success' })
         })
