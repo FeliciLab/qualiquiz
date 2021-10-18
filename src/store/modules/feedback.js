@@ -68,8 +68,8 @@ export default {
     setAnswers ({ commit }, answers) {
       commit('SET_ANSWERS', answers)
     },
-    fetchResult ({ dispatch }, { id, auth, devMode }) {
-      return quizRequest.fetchResult(id, auth, devMode).then(result => {
+    fetchResult ({ dispatch }, { id }) {
+      return quizRequest.fetchResult(id).then(result => {
         dispatch('setResult', result.resultado)
         dispatch('setExplanations', result.comentarioQuestoes)
         dispatch('setAnswers', result.respostas)

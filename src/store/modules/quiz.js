@@ -218,7 +218,7 @@ export default {
       commit('SET_TIME_LIMIT', 0)
       commit('SET_DESCRIPTION', '')
     },
-    saveAnswers (context, { token, devMode, timeSpent }) {
+    saveAnswers (context, { timeSpent }) {
       return quizRequest.postAnswers(
         context.state.answers
           .filter(item => item.alternativeId > 0)
@@ -230,8 +230,6 @@ export default {
               tempo: item.timeSpent
             }
           }),
-        token,
-        devMode,
         timeSpent
       )
     },
