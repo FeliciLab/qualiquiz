@@ -29,10 +29,7 @@ export default {
       if (this.$route.params.authToken) {
         api.defaults.headers.authorization = `Bearer ${this.$route.params.authToken}`
       }
-      this.initUserQuizzes({
-        devMode: this.$route.meta.dev,
-        auth: this.$route.params.authToken
-      }).then(() => {
+      this.initUserQuizzes().then(() => {
         this.$router.push('/welcome')
       })
     })
