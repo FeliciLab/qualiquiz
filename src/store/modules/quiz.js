@@ -164,8 +164,8 @@ export default {
     setCurrentQuizId: ({ commit }, quizId) => {
       commit('SET_CURRENT_QUIZ_ID', quizId)
     },
-    initQuiz: ({ dispatch }, { codQuiz, devMode, auth }) => {
-      return quizRequest.getQuiz(codQuiz, devMode, auth).then(result => {
+    initQuiz: ({ dispatch }, { codQuiz }) => {
+      return quizRequest.getQuiz(codQuiz).then(result => {
         dispatch('setQuizData', result)
       })
     },
