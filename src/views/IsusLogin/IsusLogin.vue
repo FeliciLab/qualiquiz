@@ -26,7 +26,6 @@ export default {
       this.setDevelopment(this.$route.meta.dev),
       this.setAppMocked(false)
     ]).then(() => {
-      console.log(this.$route.params.authToken)
       if (this.$route.params.authToken) {
         api.defaults.headers.authorization = `Bearer ${this.$route.params.authToken}`
       }

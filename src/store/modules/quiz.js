@@ -169,8 +169,8 @@ export default {
         dispatch('setQuizData', result)
       })
     },
-    initUserQuizzes: ({ dispatch }, { devMode, auth }) => {
-      return quizRequest.getUserQuizzes(devMode, auth).then(result => {
+    initUserQuizzes: ({ dispatch }) => {
+      return quizRequest.getUserQuizzes().then(result => {
         dispatch('setUserQuizzes', result)
       })
     },

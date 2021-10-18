@@ -18,18 +18,7 @@ export default {
       }
     }).then(result => result.json())
   },
-  // getUserQuizzes: (devMode, auth) => {
-  //   return fetch(`${getUri(devMode)}/api/qualiquiz/home/`, {
-  //     headers: {
-  //       Authorization: `Bearer ${auth}`
-  //     }
-  //   }).then(result => result.json())
-  // },
   getUserQuizzes: async () => {
-    const { data } = await api.get('/api/qualiquiz/home/')
-    return data
-  },
-  getUserQuizzesTest: async () => {
     const { data } = await api.get('/api/qualiquiz/home/')
     return data
   },
