@@ -46,7 +46,6 @@ Responda a sua primeira avaliação!"
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
 import BottomNavigation from '../components/layouts/BottomNavigationContainer'
 import Loading from '../components/Loading'
-import { mapGetters } from 'vuex'
 import quizRequest from '../services/quizRequest'
 
 export default {
@@ -63,19 +62,12 @@ export default {
       isLoading: true
     }
   },
-  computed: {
-    ...mapGetters('authentication', ['getToken']),
-    ...mapGetters('application', ['getDevelopment'])
-  },
   methods: {
     async handleRequest () {
       try {
-        const response = await quizRequest.getUserQuizzes(
-          this.getDevelopment,
-          this.getToken
-        )
-        this.userQuizzesDisponiveis = response.filter(quiz => !quiz.respondido)
-        this.userQuizzesConcluidas = response.filter(quiz => quiz.respondido)
+        const data = await quizRequest.getUserQuizzes()
+        this.userQuizzesDisponiveis = data.filter(quiz => !quiz.respondido)
+        this.userQuizzesConcluidas = data.filter(quiz => quiz.respondido)
       } catch (error) {
         // TODO: tratar melhor esse erro depois
       } finally {
