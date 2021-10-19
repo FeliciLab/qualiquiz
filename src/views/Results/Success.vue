@@ -54,12 +54,6 @@ export default {
     }),
     ...mapGetters('feedback', {
       result: 'getResult'
-    }),
-    ...mapGetters('authentication', {
-      token: 'getToken'
-    }),
-    ...mapGetters('application', {
-      development: 'getDevelopment'
     })
   },
   methods: {
@@ -77,14 +71,10 @@ export default {
   mounted () {
     if (this.quiz.id) {
       this.fetchResult({
-        id: this.quiz.id,
-        auth: this.token,
-        devMode: this.development
+        id: this.quiz.id
       })
       this.initQuiz({
-        codQuiz: this.quiz.id,
-        devMode: this.development,
-        auth: this.token
+        codQuiz: this.quiz.id
       })
     }
   }

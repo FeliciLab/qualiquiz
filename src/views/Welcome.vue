@@ -47,7 +47,6 @@ import ListingCardsVertical from '../components/UX/ListingCardsVertical'
 import routerNames from '../router/routerNames'
 import BottomNavigationContainer from '../components/layouts/BottomNavigationContainer'
 import quizRequest from '../services/quizRequest'
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'Welcome',
@@ -65,22 +64,15 @@ export default {
       isLoading: true
     }
   },
-  computed: {
-    ...mapGetters('authentication', ['getToken']),
-    ...mapGetters('application', ['getDevelopment'])
-  },
   methods: {
     handdleGoToAllQuizzes () {
       this.$router.push(routerNames.quizzes)
     },
     async handleRequest () {
       try {
-        const response = await quizRequest.getUserQuizzes(
-          this.getDevelopment,
-          this.getToken
-        )
-        this.userQuizzesDisponiveis = response.filter(quiz => !quiz.respondido)
-        this.userQuizzesConcluidas = response.filter(quiz => quiz.respondido)
+        const data = await quizRequest.getUserQuizzes()
+        this.userQuizzesDisponiveis = data.filter(quiz => !quiz.respondido)
+        this.userQuizzesConcluidas = data.filter(quiz => quiz.respondido)
       } catch (error) {
         // TODO: tratar melhor esse erro depois
       } finally {

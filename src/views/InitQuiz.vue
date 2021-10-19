@@ -3,10 +3,7 @@
     <div v-show="showLoading">
       <Loading></Loading>
     </div>
-    <div
-      class="background" id="loading"
-      v-show="!showLoading"
-    >
+    <div class="background" id="loading" v-show="!showLoading">
       <div id="container-body">
         <h5 class="text-title">
           {{ nameQuiz }}
@@ -55,9 +52,7 @@ export default {
       currentQuestion: 'getCurrentQuestion',
       description: 'getDescription',
       getCurrentQuizId: 'getCurrentQuizId'
-    }),
-    ...mapGetters('authentication', ['getToken']),
-    ...mapGetters('application', ['getDevelopment'])
+    })
   },
   methods: {
     ...mapActions('quiz', ['initUserQuizzes', 'initQuiz']),
@@ -72,9 +67,7 @@ export default {
   },
   mounted () {
     this.initQuiz({
-      codQuiz: this.getCurrentQuestion,
-      devMode: this.getDevelopment,
-      auth: this.getToken
+      codQuiz: this.getCurrentQuestion
     })
     // eslint-disable-next-line no-new
     new Swiper('.swiper-container', {
@@ -89,21 +82,21 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-#loading{
-  display:flex;
+#loading {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
 }
-#container-body{
+#container-body {
   padding: 0 16px;
 }
-#init-quiz-bottom{
+#init-quiz-bottom {
   display: flex;
   justify-content: flex-end;
   padding: 0 16px 24px 0;
 }
-#body-text{
+#body-text {
   font-size: 14px;
   color: $black64;
 }
@@ -114,6 +107,6 @@ export default {
   font-weight: normal;
   letter-spacing: 0.25px;
   font-size: 34px;
-  padding: 16px 0 24px 0;;
+  padding: 16px 0 24px 0;
 }
 </style>

@@ -164,13 +164,13 @@ export default {
     setCurrentQuizId: ({ commit }, quizId) => {
       commit('SET_CURRENT_QUIZ_ID', quizId)
     },
-    initQuiz: ({ dispatch }, { codQuiz, devMode, auth }) => {
-      return quizRequest.getQuiz(codQuiz, devMode, auth).then(result => {
+    initQuiz: ({ dispatch }, { codQuiz }) => {
+      return quizRequest.getQuiz(codQuiz).then(result => {
         dispatch('setQuizData', result)
       })
     },
-    initUserQuizzes: ({ dispatch }, { devMode, auth }) => {
-      return quizRequest.getUserQuizzes(devMode, auth).then(result => {
+    initUserQuizzes: ({ dispatch }) => {
+      return quizRequest.getUserQuizzes().then(result => {
         dispatch('setUserQuizzes', result)
       })
     },
@@ -218,7 +218,7 @@ export default {
       commit('SET_TIME_LIMIT', 0)
       commit('SET_DESCRIPTION', '')
     },
-    saveAnswers (context, { token, devMode, timeSpent }) {
+    saveAnswers (context, { timeSpent }) {
       return quizRequest.postAnswers(
         context.state.answers
           .filter(item => item.alternativeId > 0)
@@ -230,8 +230,6 @@ export default {
               tempo: item.timeSpent
             }
           }),
-        token,
-        devMode,
         timeSpent
       )
     },
