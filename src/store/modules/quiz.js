@@ -32,7 +32,8 @@ export default {
     timeLimit: 0,
     description: '',
     currentQuizId: 0,
-    quizzes: []
+    quizzes: [],
+    isLoading: false
   },
   getters: {
     getId: state => state.id,
@@ -64,7 +65,8 @@ export default {
       state.quizzes.filter(quiz => quiz.respondido),
     getCurrentQuizId: state => state.currentQuizId,
     getCurrentQuiz: state =>
-      state.quizzes.find(elem => elem.id === state.currentQuizId)
+      state.quizzes.find(elem => elem.id === state.currentQuizId),
+    getIsLoading: state => state.isLoading
   },
   mutations: {
     SET_ID: (state, id) => {
@@ -115,6 +117,9 @@ export default {
     SET_CURRENT_QUIZ_ID: (state, quizId) => {
       state.currentQuizId = quizId
     },
+    SET_IS_LOADING: (state, isLoading) => {
+      state.isLoading = isLoading
+    },
     ADD_TIME_SPENT_QUESTION: (state, { questionId, start, finish }) => {
       state.answers = [
         ...state.answers.map(answer => {
@@ -164,14 +169,28 @@ export default {
     setCurrentQuizId: ({ commit }, quizId) => {
       commit('SET_CURRENT_QUIZ_ID', quizId)
     },
+    setIsLoading: ({ commit }, isLoading) => {
+      commit('SET_IS_LOADING', isLoading)
+    },
     initQuiz: ({ dispatch }, { codQuiz }) => {
+      dispatch('setIsLoading', true)
       return quizRequest.getQuiz(codQuiz).then(result => {
         dispatch('setQuizData', result)
+        dispatch('setIsLoading', false)
       })
     },
     initUserQuizzes: ({ dispatch }) => {
+      dispatch('setIsLoading', true)
       return quizRequest.getUserQuizzes().then(result => {
         dispatch('setUserQuizzes', result)
+        dispatch('setIsLoading', false)
+      })
+    },
+    initQuestionsResult: ({ dispatch }, { codQuiz }) => {
+      dispatch('setIsLoading', true)
+      return quizRequest.getQuiz(codQuiz).then(result => {
+        dispatch('setQuizDataResult', result)
+        dispatch('setIsLoading', false)
       })
     },
     initVoidAnswers: ({ commit }, questions) => {
@@ -188,6 +207,28 @@ export default {
     },
     setQuizData: ({ dispatch }, result) => {
       dispatch('cleanQuiz')
+      if (Object.prototype.hasOwnProperty.call(result, 'id')) {
+        dispatch('setId', result.id)
+      }
+
+      if (Object.prototype.hasOwnProperty.call(result, 'questoes')) {
+        dispatch('setQuestions', result.questoes)
+        dispatch('initVoidAnswers', result.questoes)
+      }
+
+      if (Object.prototype.hasOwnProperty.call(result, 'quiz')) {
+        dispatch('setName', result.quiz)
+      }
+
+      if (Object.prototype.hasOwnProperty.call(result, 'tempo_limite')) {
+        dispatch('setTimeLimit', result.tempo_limite)
+      }
+
+      if (Object.prototype.hasOwnProperty.call(result, 'descricao')) {
+        dispatch('setDescription', result.descricao)
+      }
+    },
+    setQuizDataResult: ({ dispatch }, result) => {
       if (Object.prototype.hasOwnProperty.call(result, 'id')) {
         dispatch('setId', result.id)
       }
