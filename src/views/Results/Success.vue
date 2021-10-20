@@ -58,14 +58,14 @@ export default {
   },
   methods: {
     ...mapActions('feedback', ['fetchResult']),
-    ...mapActions('quiz', ['initQuiz']),
+    ...mapActions('quiz', ['initQuestionsResult']),
     onClick () {
       const scrollToQuestion = document.createElement('a')
       scrollToQuestion.href = '#top-explanation'
       scrollToQuestion.click()
     },
     onClickSair () {
-      this.$router.push(routerNames.welcome)
+      this.$router.push(routerNames.home)
     }
   },
   mounted () {
@@ -73,7 +73,7 @@ export default {
       this.fetchResult({
         id: this.quiz.id
       })
-      this.initQuiz({
+      this.initQuestionsResult({
         codQuiz: this.quiz.id
       })
     }

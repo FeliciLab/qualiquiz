@@ -34,12 +34,13 @@ export default {
     }
   },
   methods: {
-    ...mapActions('quiz', ['setCurrentQuizId']),
+    ...mapActions('quiz', ['setCurrentQuizId', 'cleanQuiz']),
     handleClickButton () {
       this.setCurrentQuizId(this.id)
       if (this.concluida) {
         this.$router.push(routerNames.success)
       } else {
+        this.cleanQuiz()
         this.$router.push(routerNames.quiz)
       }
     }
