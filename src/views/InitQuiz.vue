@@ -67,7 +67,7 @@ export default {
   },
   mounted () {
     this.initQuiz({
-      codQuiz: this.getCurrentQuestion
+      codQuiz: this.getCurrentQuizId
     })
     // eslint-disable-next-line no-new
     new Swiper('.swiper-container', {
