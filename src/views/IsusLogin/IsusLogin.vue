@@ -15,7 +15,7 @@ export default {
   },
   mounted () {
     this.cleanQuiz()
-    if (!this.$route.params.codQuiz || !this.$route.params.authToken) {
+    if (!this.$route.params.authToken) {
       this.$router.push('/error')
       return
     }
