@@ -8,8 +8,8 @@ const routerNames = {
   confirmation: '/confirmation',
   timeout: '/timeout',
   success: '/success',
-  isusLogin: '/isus/login/:codQuiz/:authToken',
-  isusLoginDev: '/dev/isus/login/:codQuiz/:authToken',
+  isusLogin: '/isus/login/:authToken',
+  isusLoginDev: '/dev/isus/login/:authToken',
   error: '/error'
 }
 
