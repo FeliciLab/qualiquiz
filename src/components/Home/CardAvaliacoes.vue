@@ -86,6 +86,7 @@ export default {
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.039), 0px 7px 24px rgba(0, 0, 0, 0.19);
+  margin-bottom: 16px;
 }
 
 .titulo-avaliacao {
