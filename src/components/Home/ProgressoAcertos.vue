@@ -1,6 +1,6 @@
 <template>
   <div class="progresso-acerto">
-    <div id="texto-acertos">ACERTOS: {{acertos}}/5</div>
+    <div id="texto-acertos">ACERTOS: {{acertos}}/{{totalQuestoes}}</div>
     <div
       id="acerto"
       :style="{'width': `${widthAcerto}%`}"
@@ -13,11 +13,15 @@ export default {
   name: 'ProgressoAcertos',
   data () {
     return {
-      widthAcerto: this.acertos * 20
+      widthAcerto: this.acertos * (100 / this.totalQuestoes)
     }
   },
   props: {
     acertos: {
+      required: true,
+      type: Number
+    },
+    totalQuestoes: {
       required: true,
       type: Number
     }

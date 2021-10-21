@@ -8,6 +8,7 @@
       class="barra-progresso"
       v-if="concluida"
       :acertos="acertos"
+      :totalQuestoes="totalQuestoes"
     />
     <div class="wrapper-button">
       <NakedButton
@@ -63,6 +64,10 @@ export default {
       default: false
     },
     acertos: {
+      required: true,
+      type: Number
+    },
+    totalQuestoes: {
       required: true,
       type: Number
     }
