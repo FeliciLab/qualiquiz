@@ -8,6 +8,7 @@
       class="barra-progresso"
       v-if="concluida"
       :acertos="acertos"
+      :totalQuestoes="totalQuestoes"
     />
     <div class="wrapper-button">
       <NakedButton
@@ -34,12 +35,13 @@ export default {
     }
   },
   methods: {
-    ...mapActions('quiz', ['setCurrentQuizId']),
+    ...mapActions('quiz', ['setCurrentQuizId', 'cleanQuiz']),
     handleClickButton () {
       this.setCurrentQuizId(this.id)
       if (this.concluida) {
         this.$router.push(routerNames.success)
       } else {
+        this.cleanQuiz()
         this.$router.push(routerNames.quiz)
       }
     }
@@ -64,6 +66,10 @@ export default {
     acertos: {
       required: true,
       type: Number
+    },
+    totalQuestoes: {
+      required: true,
+      type: Number
     }
   },
   components: { NakedButton, ProgressoAcertos }
@@ -80,6 +86,7 @@ export default {
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.039), 0px 7px 24px rgba(0, 0, 0, 0.19);
+  margin-bottom: 16px;
 }
 
 .titulo-avaliacao {

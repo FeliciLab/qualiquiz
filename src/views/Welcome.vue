@@ -40,13 +40,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import HeaderLogo from '../components/HeaderLogo'
 import Loading from '../components/Loading'
 import ListingCardsHorizontal from '../components/UX/ListingCardsHorizontal'
 import ListingCardsVertical from '../components/UX/ListingCardsVertical'
 import routerNames from '../router/routerNames'
 import BottomNavigationContainer from '../components/layouts/BottomNavigationContainer'
-import quizRequest from '../services/quizRequest'
 
 export default {
   name: 'Welcome',
@@ -57,31 +57,17 @@ export default {
     BottomNavigationContainer,
     Loading
   },
-  data: function () {
-    return {
-      userQuizzesDisponiveis: [],
-      userQuizzesConcluidas: [],
-      isLoading: true
-    }
-  },
   methods: {
     handdleGoToAllQuizzes () {
       this.$router.push(routerNames.quizzes)
-    },
-    async handleRequest () {
-      try {
-        const data = await quizRequest.getUserQuizzes()
-        this.userQuizzesDisponiveis = data.filter(quiz => !quiz.respondido)
-        this.userQuizzesConcluidas = data.filter(quiz => quiz.respondido)
-      } catch (error) {
-        // TODO: tratar melhor esse erro depois
-      } finally {
-        this.isLoading = false
-      }
     }
   },
-  mounted () {
-    this.handleRequest()
+  computed: {
+    ...mapGetters('quiz', {
+      userQuizzesDisponiveis: 'getUserQuizzesDisponiveis',
+      userQuizzesConcluidas: 'getUserQuizzesConcluidas',
+      isLoading: 'getIsLoading'
+    })
   }
 }
 </script>

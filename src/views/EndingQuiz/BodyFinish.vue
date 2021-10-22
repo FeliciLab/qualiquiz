@@ -4,7 +4,7 @@
       <div>
         <div>
           <p class="title-fim-quiz roboto-bold">Fim do quiz</p>
-          <BreadcrumbsFixed :amountAnswers="5" />
+          <BreadcrumbsFixed :amountAnswers="amountAnswers" />
         </div>
         <div>
           <div class="circle-centro flex-column-items-center">
