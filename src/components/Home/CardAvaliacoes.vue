@@ -31,7 +31,7 @@ export default {
   data () {
     return {
       labelBotao: this.concluida ? 'REVISAR' : 'INICIAR',
-      dataCriacaoFormated: format(this.dataCriacao, 'do P')
+      dataCriacaoFormated: format(this.dataCriacao, 'P')
     }
   },
   methods: {
