@@ -15,7 +15,7 @@ export default {
   },
   mounted () {
     this.setAppMocked(false)
-    this.$router.push(`/dev/isus/login/${this.getToken}`)
+    this.$router.push(`/dev/isus/login/1/${this.getToken}`)
   }
 }
 </script>
