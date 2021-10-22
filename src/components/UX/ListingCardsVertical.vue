@@ -8,6 +8,7 @@
           :acertos="Number(avaliacao.acertos)"
           :concluida="avaliacao.respondido"
           :dataCriacao="new Date(avaliacao.data_criacao)"
+          :totalQuestoes="avaliacao.total_questoes"
         />
       </div>
     </div>

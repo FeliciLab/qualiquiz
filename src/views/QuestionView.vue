@@ -51,6 +51,7 @@ export default {
     background-color: #f5f5f5;
     padding-bottom: 16px;
     height: 130px;
+    width: 100%
   }
   #question-list{
     margin-top: 130px;
