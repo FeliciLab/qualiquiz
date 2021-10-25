@@ -36,7 +36,9 @@ export default {
   data () {
     return {
       labelBotao: this.concluida ? 'REVISAR' : 'INICIAR',
-      dataCriacaoFormated: this.dataCriacao.toLocaleDateString('pt-br')
+      dataCriacaoFormated: new Date(
+        this.dataCriacao.replace(/-/g, '/')
+      ).toLocaleDateString('pt-br')
     }
   },
   methods: {
@@ -62,7 +64,7 @@ export default {
     },
     dataCriacao: {
       required: true,
-      type: Date
+      type: String
     },
     concluida: {
       type: Boolean,

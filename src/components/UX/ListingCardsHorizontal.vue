@@ -7,7 +7,7 @@
           :titulo="avaliacao.titulo"
           :acertos="Number(avaliacao.acertos)"
           :concluida="avaliacao.respondido"
-          :dataCriacao="new Date(avaliacao.data_criacao)"
+          :dataCriacao="avaliacao.data_criacao"
         />
       </div>
     </div>
