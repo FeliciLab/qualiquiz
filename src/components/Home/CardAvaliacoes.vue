@@ -11,9 +11,6 @@
       :totalQuestoes="totalQuestoes"
     />
     <div class="wrapper-button">
-      <!-- <button @click="handleClickButton">
-        Revisar
-      </button> -->
       <NakedButton
         :label="labelBotao"
         color="#61459B"
@@ -25,9 +22,6 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
-// import format from 'date-fns/format'
-// import ptBR from 'date-fns/locale/pt-BR'
-// import moment from 'moment'
 import NakedButton from '../UX/NakedButton.vue'
 import ProgressoAcertos from './ProgressoAcertos.vue'
 import routerNames from '../../router/routerNames'
