@@ -28,7 +28,6 @@ export default {
   padding-top: 36px;
   align-items: center;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
 }
 .green-inverted {
   border-style: none;
