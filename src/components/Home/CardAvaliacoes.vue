@@ -11,22 +11,23 @@
       :totalQuestoes="totalQuestoes"
     />
     <div class="wrapper-button">
-      <button @click="handleClickButton">
+      <!-- <button @click="handleClickButton">
         Revisar
-      </button>
-      <!-- <NakedButton
+      </button> -->
+      <NakedButton
         :label="labelBotao"
         color="#61459B"
         bgColor="#FFFFFF"
         @click="handleClickButton"
-      /> -->
+      />
     </div>
   </div>
 </template>
 <script>
 import { mapActions } from 'vuex'
-import { format } from 'date-fns'
-// import NakedButton from '../UX/NakedButton.vue'
+// import { format } from 'date-fns'
+import moment from 'moment'
+import NakedButton from '../UX/NakedButton.vue'
 import ProgressoAcertos from './ProgressoAcertos.vue'
 import routerNames from '../../router/routerNames'
 export default {
@@ -34,7 +35,7 @@ export default {
   data () {
     return {
       labelBotao: this.concluida ? 'REVISAR' : 'INICIAR',
-      dataCriacaoFormated: format(this.dataCriacao, 'P')
+      dataCriacaoFormated: moment(this.dataCriacao).format('L')
     }
   },
   methods: {
@@ -76,7 +77,7 @@ export default {
     }
   },
   components: {
-    // NakedButton,
+    NakedButton,
     ProgressoAcertos
   }
 }
