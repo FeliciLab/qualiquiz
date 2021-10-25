@@ -25,8 +25,8 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
-import format from 'date-fns/format'
-import ptBR from 'date-fns/locale/pt-BR'
+// import format from 'date-fns/format'
+// import ptBR from 'date-fns/locale/pt-BR'
 // import moment from 'moment'
 import NakedButton from '../UX/NakedButton.vue'
 import ProgressoAcertos from './ProgressoAcertos.vue'
@@ -36,7 +36,7 @@ export default {
   data () {
     return {
       labelBotao: this.concluida ? 'REVISAR' : 'INICIAR',
-      dataCriacaoFormated: format(this.dataCriacao, 'P', { locale: ptBR })
+      dataCriacaoFormated: this.dataCriacao.toLocaleDateString('pt-br')
     }
   },
   methods: {
