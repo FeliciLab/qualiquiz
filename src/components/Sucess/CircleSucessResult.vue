@@ -14,8 +14,8 @@ export default {
 .circle {
   background-color: white;
   border-radius: 50%;
-  width: 262px;
-  height: 262px;
+  width: 180px;
+  height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;

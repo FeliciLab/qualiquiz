@@ -115,8 +115,8 @@ export default {
   font-family: Roboto;
   font-size: 20px;
   color: white;
-  padding: 0px 0px 56px 16px;
-  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 16px 16px;
+  margin: 0px;
 }
 .buttonSair {
   border-radius: 49px;

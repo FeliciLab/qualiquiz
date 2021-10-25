@@ -21,18 +21,18 @@ export default {
 .circle {
   background-color: $purple;
   border-radius: 50%;
-  width: 262px;
-  height: 262px;
+  width: 180px;
+  height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .label {
-  font-size: 24px;
+  font-size: 16px;
 }
 .number {
   font-family: 'Roboto-Bold';
-  font-size: 100px;
+  font-size: 60px;
 }
 </style>

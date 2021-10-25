@@ -1,6 +1,10 @@
 <template>
   <div class="circle">
-    <img class="timeout" src="../../assets/icons/timeout.svg" alt="icone_timeout" />
+    <img
+      class="timeout"
+      src="../../assets/icons/timeout.svg"
+      alt="icone_timeout"
+    />
     <div class="label">Seu tempo acabou!</div>
   </div>
 </template>
@@ -15,19 +19,20 @@ export default {
 .circle {
   background-color: $red;
   border-radius: 50%;
-  width: 262px;
-  height: 262px;
+  width: 180px;
+  height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.label {
-  font-size: 24px;
-  color: $light;
+.timeout {
+  height: 60px;
+  margin-bottom: 12px;
 }
-.number {
-  font-family: 'Roboto-Bold';
-  font-size: 100px;
+.label {
+  font-size: 16px;
+  line-height: 16px;
+  color: $light;
 }
 </style>

@@ -33,13 +33,13 @@ div {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 16px;
+  line-height: 16px;
   text-align: center;
 }
 .number {
   font-family: Roboto;
-  font-size: 100px;
+  font-size: 60px;
   color: $green04;
 }
 </style>

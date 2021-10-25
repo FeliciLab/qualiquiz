@@ -56,7 +56,7 @@ export default {
   margin: 33px 16px 0 16px;
 }
 .circle-timeout {
-  margin-top: 56px;
+  margin-top: 16px;
 }
 .text-answered {
   color: #000000;

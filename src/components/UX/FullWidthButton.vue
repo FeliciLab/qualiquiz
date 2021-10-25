@@ -1,18 +1,13 @@
 <template>
-  <button
-    @click="$emit('click')"
-    class="full-width-button"
-    :class="color"
-  >
+  <button @click="$emit('click')" class="full-width-button" :class="color">
     <slot></slot>
-    <img class="arrow" src="@/assets/images/arrow.svg">
+    <b-icon icon="arrow-down" />
   </button>
 </template>
 
 <script>
 export default {
   name: 'FullWidthButton',
-
   props: {
     color: {
       type: String,
@@ -39,7 +34,7 @@ export default {
   border-style: none;
   color: white;
 }
-.arrow{
+.arrow {
   padding-left: 11px;
 }
 </style>
