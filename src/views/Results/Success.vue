@@ -11,11 +11,9 @@
           respostas que farão parte de seu histórico.
         </p>
       </div>
-      <div>
-        <FullWidthButton @click="onClick()">
-          CONFERIR RESPOSTAS
-        </FullWidthButton>
-      </div>
+      <FullWidthButton @click="onClick()">
+        CONFERIR RESPOSTAS
+      </FullWidthButton>
     </div>
     <div>
       <FeedbackContent class="full-width-content" />

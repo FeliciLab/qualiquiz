@@ -19,14 +19,14 @@ export default {
 
 <style lang="scss" scoped>
 .full-width-button {
-  background-color: none;
-  background: none;
   text-align: center;
+  background-color: transparent;
   width: 100%;
   height: 36px;
   font-size: 14px;
-  padding-top: 36px;
+  margin-top: 36px;
   align-items: center;
+  justify-content: center;
   letter-spacing: 1.5px;
 }
 .green-inverted {
